@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.drools:drools-core:jahia:6.0.0.CR2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/drools/drools-core/6.0.0.CR2/drools-core-6.0.0.CR2-jahia.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/drools/drools-core/6.0.0.CR2/drools-core-6.0.0.CR2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/drools/drools-core/6.0.0.CR2/drools-core-6.0.0.CR2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

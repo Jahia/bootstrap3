@@ -1,0 +1,31 @@
+<bootstrap3mix = 'http://www.jahia.org/bootstrap3/mix/1.0'>
+<bootstrap3nt = 'http://www.jahia.org/bootstrap3/nt/1.0'>
+<jmix = 'http://www.jahia.org/jahia/mix/1.0'>
+<jnt = 'http://www.jahia.org/jahia/nt/1.0'>
+
+[bootstrap3nt:columns] > jnt:content, bootstrap3mix:component, jmix:studioLayout
+ - columnsType (string, choicelist[columnInitializer,resourceBundle]) = 'predefinedColumns' autocreated < 'predefinedColumns', 'customColumns'
+ + * (jmix:droppableContent) = jmix:droppableContent version
+
+[bootstrap3mix:predefinedColumns] > jmix:templateMixin mixin
+ extends = bootstrap3nt:columns
+ - grid (string, choicelist[resourceBundle,moduleImage='png']) = '4_8' autocreated < '2_10', '3_9', '4_8', '4_4_4', '3_6_3', '3_3_3_3', '6_6', '8_4', '9_3', '10_2', '12', '0'
+
+[bootstrap3mix:customColumns] > jmix:templateMixin mixin
+ extends = bootstrap3nt:columns
+ - gridClasses (string) = 'col-md-8, col-md-4'
+
+[bootstrap3mix:advancedColumnProperties] mixin
+ extends=bootstrap3nt:columns
+ itemtype=content
+  - sectionElement (string, choicelist[resourceBundle]) = 'div' autocreated < 'section', 'article', 'header', 'footer', 'aside', 'nav', 'div'
+  - sectionCssClass (string)
+  - containerCssClass (string)
+
+[bootstrap3mix:siteLogo] mixin
+ extends=jnt:virtualsite
+ itemtype=content
+- siteLogo (weakreference, picker[type='image']) < jnt:file
+
+[bootstrap3nt:navbar]  > jnt:content, bootstrap3mix:component, jmix:studioOnly, jmix:navMenuComponent, mix:title
+- logo (weakreference, picker[type='image']) < jnt:file

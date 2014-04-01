@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.jahia.configuration:deployers:4.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jahia/configuration/deployers/4.0-SNAPSHOT/deployers-4.0-20131127.165018-178.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jahia/configuration/deployers/4.0-SNAPSHOT/deployers-4.0-20131127.165018-178-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jahia/configuration/deployers/4.0-SNAPSHOT/deployers-4.0-20131127.165018-178-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

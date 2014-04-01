@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.jackrabbit:jackrabbit-api:2.4.4-patch1-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/jackrabbit/jackrabbit-api/2.4.4-patch1-SNAPSHOT/jackrabbit-api-2.4.4-patch1-20131007.080016-5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/jackrabbit/jackrabbit-api/2.4.4-patch1-SNAPSHOT/jackrabbit-api-2.4.4-patch1-20131007.080016-5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/jackrabbit/jackrabbit-api/2.4.4-patch1-SNAPSHOT/jackrabbit-api-2.4.4-patch1-20131007.080016-5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

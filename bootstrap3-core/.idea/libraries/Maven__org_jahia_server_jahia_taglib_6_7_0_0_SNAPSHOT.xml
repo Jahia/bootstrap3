@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.jahia.server:jahia-taglib:6.7.0.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jahia/server/jahia-taglib/6.7.0.0-SNAPSHOT/jahia-taglib-6.7.0.0-20131202.090352-8399.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jahia/server/jahia-taglib/6.7.0.0-SNAPSHOT/jahia-taglib-6.7.0.0-20131202.090352-8399-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jahia/server/jahia-taglib/6.7.0.0-SNAPSHOT/jahia-taglib-6.7.0.0-20131202.090352-8399-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
