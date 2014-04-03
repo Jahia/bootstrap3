@@ -29,3 +29,72 @@
 
 [bootstrap3nt:navbar]  > jnt:content, bootstrap3mix:component, jmix:studioOnly, jmix:navMenuComponent, mix:title
 - logo (weakreference, picker[type='image']) < jnt:file
+
+
+[bootstrap3nt:member] > jnt:content, bootstrap3mix:component
+ - name (string)
+ - position (string)
+ - description (string)
+ - facebook (string)
+ - twitter (string)
+ - google (string)
+ - picture (weakreference, picker[type='image'])
+
+[bootstrap3nt:memberslist] > jnt:content, bootstrap3mix:component, mix:title
+ + * (bootstrap3nt:member)
+ - grid (string, choicelist[resourceBundle]) = 'col-sm-4' autocreated < 'col-sm-4', 'col-sm-3'
+
+[bootstrap3nt:pageThumbnail] > jnt:content, bootstrap3mix:component, mix:title
+ - description (string)
+ - picture (weakreference, picker[type='image'])
+ - page (weakreference, picker[type='page'])
+
+[bootstrap3nt:portfolio] > jnt:content, bootstrap3mix:component, mix:title
+ - grid (string, choicelist[resourceBundle]) = 'col-sm-6' autocreated < 'col-sm-6', 'col-md-4', 'col-md-3 col-sm-6'
+ - view (string, choicelist[resourceBundle]) = 'default' autocreated < 'default', 'textblock'
+ + * (bootstrap3nt:portfolioItem)
+
+[bootstrap3nt:portfolioItem] > jnt:content, mix:title
+ - description (string)
+ - picture (weakreference, picker[type='image'])
+
+[bootstrap3nt:purchaseRow] > jnt:content, bootstrap3mix:component, mix:title
+ - description (string)
+ - buttonLabel (string)
+ - buttonLink (string)
+
+[bootstrap3nt:slider] > jnt:content, bootstrap3mix:component, mix:title
+ + * (bootstrap3nt:sliderItem)
+
+[bootstrap3nt:sliderItem] > jnt:content, mix:title
+ - description (string)
+ - picture (weakreference, picker[type='image'])
+
+[bootstrap3nt:tabContainer] > jnt:content, bootstrap3mix:component
+ + * (bootstrap3nt:tabItem)
+
+[bootstrap3nt:tabItem] > jnt:content, mix:title
+ - tabname (string)
+ - description (string)
+ - picture (weakreference, picker[type='image'])
+ - picturePosition (string, choicelist[resourceBundle]) = 'left' autocreated < 'left', 'right'
+
+[bootstrap3nt:testimonial] > jnt:content, bootstrap3mix:component, mix:title
+ + * (bootstrap3nt:testimonialItem)
+
+[bootstrap3nt:testimonialItem] > jnt:content
+ - name (string)
+ - position (string)
+ - picture (weakreference, picker[type='image'])
+ - testimonial (string)
+
+[bootstrap3nt:infoBlock] > jnt:content, mix:title
+ - logo (string, choicelist[resourceBundle]) = 'bell' autocreated < 'bell', 'heart-empty', 'thumbs-up-alt', 'laptop', 'thumbs-hdd', 'lightbulb'
+ - description (string)
+
+[bootstrap3nt:featureBox] > jnt:content, bootstrap3mix:component, mix:title
+ - logo (string, choicelist[resourceBundle]) = 'resize-small' autocreated < 'resize-small', 'cogs', 'plane'
+ - description (string)
+
+[bootstrap3nt:infoBlockContainer] > jnt:content, bootstrap3mix:component
+ + * (bootstrap3nt:infoBlock)
