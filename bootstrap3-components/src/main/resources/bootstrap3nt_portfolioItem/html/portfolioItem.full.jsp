@@ -6,7 +6,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="jcr" uri="http://www.jahia.org/tags/jcr" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions" %>
 <%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
 <%--@elvariable id="out" type="java.io.PrintWriter"--%>
 <%--@elvariable id="script" type="org.jahia.services.render.scripting.Script"--%>
@@ -17,14 +16,18 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
 <jcr:nodeProperty node="${currentNode}" name="picture" var="portfolioImage"/>
+<jcr:nodeProperty node="${currentNode}" name="photos" var="photos"/>
 <c:url value="${url.files}${portfolioImage.node.path}" var="portfolioImageUrl"/>
 
-<li class="col-md-3 col-sm-6 col-xs-12" style=" display: inline-block; opacity: 1;">
-  <a href="#">
-    <img class="img-responsive" alt="" src="${portfolioImageUrl}">
-    <span class="sorting-cover">
-      <span>${currentNode.properties['jcr:title'].string}</span>
-      <p>${currentNode.properties.description.string}</p>
-    </span>
-  </a>
-</li>
+<div class="row portfolio-item margin-bottom-50">
+  <div class="col-md-7">
+    <template:module node="${photos}" view="photos"/> 
+    <c:if test="${renderContext.editMode}">
+    <template:module path="photos"/>
+</c:if>
+  </div>
+  <div class="col-md-5">
+    <h2>${currentNode.properties['informationTitle'].string}</h2>
+    ${currentNode.properties['information'].string}
+  </div>
+</div>

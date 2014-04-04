@@ -17,15 +17,16 @@
 <c:set var="grid" value="${currentNode.properties['grid'].string}"/>
 
 <div class="container">
-  <c:forEach items="${currentNode.nodes}" var="portfolioItem">
+  <div class="row">
+    <c:forEach items="${currentNode.nodes}" var="portfolioItem">
       <c:if test="${jcr:isNodeType(portfolioItem,'bootstrap3nt:portfolioItem')}">
-		<div class="${currentNode.properties['grid'].string}">
-              <template:module node="${portfolioItem}" view="default"/>
-           </div>
-        </c:when>        
+        <div class="${currentNode.properties['grid'].string}">
+          <template:module node="${portfolioItem}" view="default"/>
+        </div>       
       </c:if>
-  </c:forEach>
-</div>                                                                                      
+    </c:forEach>
+  </div>   
+</div>                                                                                    
 <c:if test="${renderContext.editMode}">
-    <template:module path="*"/>
+  <template:module path="*"/>
 </c:if>

@@ -14,11 +14,6 @@
 <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
-<template:addResources type="css" resources="pages/portfolio-v1.css"/>
-<template:addResources>
-    <!-- CSS Global Compulsory-->
-    <link rel="stylesheet" href="${url.currentModule}/assets/css/pages/portfolio-v1.css">
-    </template:addResources>
 
 <jcr:nodeProperty node="${currentNode}" name="picture" var="portfolioImage"/>
 <c:url value="${url.files}${portfolioImage.node.path}" var="portfolioImageUrl"/>
@@ -28,6 +23,6 @@
   <div class="mask">
     <h2>${currentNode.properties['jcr:title'].string}</h2>
     <p>${currentNode.properties['description'].string}</p>
-    <a class="info" href="portfolio_item.html">Read More</a>
+    <a class="info" href="#">Read More</a>
   </div>
 </div>

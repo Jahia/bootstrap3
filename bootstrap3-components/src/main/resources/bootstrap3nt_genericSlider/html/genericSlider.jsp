@@ -6,7 +6,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="jcr" uri="http://www.jahia.org/tags/jcr" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions" %>
 <%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
 <%--@elvariable id="out" type="java.io.PrintWriter"--%>
 <%--@elvariable id="script" type="org.jahia.services.render.scripting.Script"--%>
@@ -16,15 +15,8 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<jcr:nodeProperty node="${currentNode}" name="picture" var="portfolioImage"/>
-<c:url value="${url.files}${portfolioImage.node.path}" var="portfolioImageUrl"/>
-
-<li class="col-md-3 col-sm-6 col-xs-12" style=" display: inline-block; opacity: 1;">
-  <a href="#">
-    <img class="img-responsive" alt="" src="${portfolioImageUrl}">
-    <span class="sorting-cover">
-      <span>${currentNode.properties['jcr:title'].string}</span>
-      <p>${currentNode.properties.description.string}</p>
-    </span>
-  </a>
-</li>
+<c:set var="layout" value="${currentNode.properties['sliderType'].string}"/>
+<c:if test="${empty layout}">
+    <c:set var="layout" value="banner"/>
+</c:if>
+<template:include view="${layout}" />

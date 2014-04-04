@@ -27,3 +27,6 @@
     </div>  
   </div>
 </div>
+<c:if test="${renderContext.editMode}">
+    <template:module path="*"/>
+</c:if>

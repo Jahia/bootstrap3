@@ -6,7 +6,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="jcr" uri="http://www.jahia.org/tags/jcr" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions" %>
 <%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
 <%--@elvariable id="out" type="java.io.PrintWriter"--%>
 <%--@elvariable id="script" type="org.jahia.services.render.scripting.Script"--%>
@@ -16,15 +15,27 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<jcr:nodeProperty node="${currentNode}" name="picture" var="portfolioImage"/>
-<c:url value="${url.files}${portfolioImage.node.path}" var="portfolioImageUrl"/>
-
-<li class="col-md-3 col-sm-6 col-xs-12" style=" display: inline-block; opacity: 1;">
-  <a href="#">
-    <img class="img-responsive" alt="" src="${portfolioImageUrl}">
-    <span class="sorting-cover">
-      <span>${currentNode.properties['jcr:title'].string}</span>
-      <p>${currentNode.properties.description.string}</p>
-    </span>
-  </a>
-</li>
+<div class="headline"><h2>${currentNode.properties['title'].string}</h2></div>	
+<div id="myCarousel" class="carousel slide carousel-v1">
+  <div class="carousel-inner">
+      <c:forEach items="${currentNode.nodes}" var="photoItem"  varStatus="status">
+        <c:if test="${jcr:isNodeType(photoItem,'bootstrap3nt:photoItem')}">
+          <div class="item ${status.first or renderContext.editMode ? ' active' : ''}">
+            <template:module node="${photoItem}" view="slider"/>     
+          </div>
+        </c:if>
+      </c:forEach>
+    </div>
+    <div class="carousel-arrow">
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <i class="icon-angle-left"></i>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <i class="icon-angle-right"></i>
+      </a>
+    </div>
+  </div>
+</div>  
+<c:if test="${renderContext.editMode}">
+  <template:module path="*" nodeTypes="bootstrap3nt:photoItem"/>
+</c:if>

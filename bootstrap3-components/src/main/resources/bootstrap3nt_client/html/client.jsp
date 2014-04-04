@@ -6,7 +6,6 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="jcr" uri="http://www.jahia.org/tags/jcr" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="functions" uri="http://www.jahia.org/tags/functions" %>
 <%--@elvariable id="currentNode" type="org.jahia.services.content.JCRNodeWrapper"--%>
 <%--@elvariable id="out" type="java.io.PrintWriter"--%>
 <%--@elvariable id="script" type="org.jahia.services.render.scripting.Script"--%>
@@ -15,16 +14,13 @@
 <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
+<c:set value="${currentNode.properties['logo'].node}" var="logo"/>
 
-<jcr:nodeProperty node="${currentNode}" name="picture" var="portfolioImage"/>
-<c:url value="${url.files}${portfolioImage.node.path}" var="portfolioImageUrl"/>
+<div class="clients-page margin-bottom-20">
 
-<li class="col-md-3 col-sm-6 col-xs-12" style=" display: inline-block; opacity: 1;">
-  <a href="#">
-    <img class="img-responsive" alt="" src="${portfolioImageUrl}">
-    <span class="sorting-cover">
-      <span>${currentNode.properties['jcr:title'].string}</span>
-      <p>${currentNode.properties.description.string}</p>
-    </span>
-  </a>
-</li>
+  <template:module node="${logo}" view="default"/>
+  <p>
+   ${currentNode.properties['description'].string}
+    <a class="linked color-green" href="#">${currentNode.properties['url'].string}</a>
+  </p>
+</div>

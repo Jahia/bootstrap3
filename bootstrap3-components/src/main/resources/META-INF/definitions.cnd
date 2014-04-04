@@ -44,31 +44,10 @@
  + * (bootstrap3nt:member)
  - grid (string, choicelist[resourceBundle]) = 'col-sm-4' autocreated < 'col-sm-4', 'col-sm-3'
 
-[bootstrap3nt:pageThumbnail] > jnt:content, bootstrap3mix:component, mix:title
- - description (string)
- - picture (weakreference, picker[type='image'])
- - page (weakreference, picker[type='page'])
-
-[bootstrap3nt:portfolio] > jnt:content, bootstrap3mix:component, mix:title
- - grid (string, choicelist[resourceBundle]) = 'col-sm-6' autocreated < 'col-sm-6', 'col-md-4', 'col-md-3 col-sm-6'
- - view (string, choicelist[resourceBundle]) = 'default' autocreated < 'default', 'textblock'
- + * (bootstrap3nt:portfolioItem)
-
-[bootstrap3nt:portfolioItem] > jnt:content, mix:title
- - description (string)
- - picture (weakreference, picker[type='image'])
-
 [bootstrap3nt:purchaseRow] > jnt:content, bootstrap3mix:component, mix:title
  - description (string)
  - buttonLabel (string)
  - buttonLink (string)
-
-[bootstrap3nt:slider] > jnt:content, bootstrap3mix:component, mix:title
- + * (bootstrap3nt:sliderItem)
-
-[bootstrap3nt:sliderItem] > jnt:content, mix:title
- - description (string)
- - picture (weakreference, picker[type='image'])
 
 [bootstrap3nt:tabContainer] > jnt:content, bootstrap3mix:component
  + * (bootstrap3nt:tabItem)
@@ -78,15 +57,6 @@
  - description (string)
  - picture (weakreference, picker[type='image'])
  - picturePosition (string, choicelist[resourceBundle]) = 'left' autocreated < 'left', 'right'
-
-[bootstrap3nt:testimonial] > jnt:content, bootstrap3mix:component, mix:title
- + * (bootstrap3nt:testimonialItem)
-
-[bootstrap3nt:testimonialItem] > jnt:content
- - name (string)
- - position (string)
- - picture (weakreference, picker[type='image'])
- - testimonial (string)
 
 [bootstrap3nt:infoBlock] > jnt:content, mix:title
  - logo (string, choicelist[resourceBundle]) = 'bell' autocreated < 'bell', 'heart-empty', 'thumbs-up-alt', 'laptop', 'thumbs-hdd', 'lightbulb'
@@ -98,3 +68,79 @@
 
 [bootstrap3nt:infoBlockContainer] > jnt:content, bootstrap3mix:component
  + * (bootstrap3nt:infoBlock)
+
+[bootstrap3nt:genericSlider] > jnt:content, bootstrap3mix:component
+ - sliderType (string, choicelist[sliderInitializer, resourceBundle]) = 'banner' mandatory autocreated indexed=no < 'banner', 'logo', 'testimonial', 'photo'
+  + * (bootstrap3nt:logoItem) 
+  + * (bootstrap3nt:sliderItem)
+  + * (bootstrap3nt:testimonialItem)
+  + * (bootstrap3nt:photoItem)
+
+[bootstrap3mix:title] > jmix:templateMixin  mixin
+    extends = bootstrap3nt:genericSlider
+- title (string)
+
+  /*
+[bootstrap3nt:testimonialSlider] > jnt:content, bootstrap3mix:component
+ + * (bootstrap3nt:testimonialItem)
+  
+[bootstrap3nt:slider] > jnt:content, bootstrap3mix:component, mix:title
+ + * (bootstrap3nt:sliderItem)
+  
+[bootstrap3nt:logoSlider] > jnt:content, bootstrap3mix:component, mix:title
+ + * (bootstrap3nt:logoItem)  
+  */
+[bootstrap3nt:testimonialItem] > jnt:content, bootstrap3mix:component
+ - name (string)
+ - position (string)
+ - picture (weakreference, picker[type='image'])
+ - testimonial (string)
+
+
+[bootstrap3nt:sliderItem] > jnt:content, mix:title
+ - description (string)
+ - picture (weakreference, picker[type='image'])
+   
+[bootstrap3nt:logoItem] > jnt:content
+ - logo (weakreference, picker[type='image'])
+ - logoHover (weakreference, picker[type='image'])
+
+  
+[bootstrap3nt:photoItem] > jnt:content
+ - photo (weakreference, picker[type='image'])
+ - caption (string)
+    
+[bootstrap3nt:client] > jnt:content, bootstrap3mix:component, mix:title  
+  - logo (weakreference, picker) < bootstrap3nt:logoItem
+  - description (string)
+  - url (string)
+  
+[bootstrap3nt:client] > jnt:content, bootstrap3mix:component, mix:title  
+ - logo (weakreference, picker) < bootstrap3nt:logoItem
+ - description (string)
+ - url (string)
+  
+[bootstrap3nt:textBox] > jnt:content, bootstrap3mix:component, mix:title  
+ - text (string, richtext) i18n 
+
+[bootstrap3nt:thumbnail] > jnt:content, bootstrap3mix:component, mix:title
+ - thumbnailType (string, choicelist[thumbnailInitializer, resourceBundle]) = 'page' mandatory autocreated indexed=no < 'page', 'portfolio', 'testimonial', 'photo'
+ - picture (weakreference, picker[type='image'])
+ - page (weakreference, picker[type='page'])  
+
+[bootstrap3nt:pageThumbnail] > jnt:content, bootstrap3mix:component, mix:title
+ - description (string)
+ - picture (weakreference, picker[type='image'])
+ - page (weakreference, picker[type='page'])
+
+[bootstrap3nt:portfolio] > jnt:content, bootstrap3mix:component, mix:title
+ - grid (string, choicelist[resourceBundle]) = 'col-sm-6' autocreated < 'col-sm-6', 'col-md-4', 'col-md-3 col-sm-6'
+ - view (string, choicelist[resourceBundle]) = 'default' autocreated < 'default', 'textblock'
+ + * (bootstrap3nt:portfolioItem)
+
+[bootstrap3nt:portfolioItem] > jnt:content, bootstrap3mix:component, mix:title
+ - informationTitle (string)
+ - information (string, richtext)
+ - picture (weakreference, picker[type='image'])
+ + photos (bootstrap3nt:genericSlider) = bootstrap3nt:genericSlider
+ - photosPosition (string, choicelist[resourceBundle]) = 'left' mandatory autocreated indexed=no < 'left', 'right'
