@@ -19,6 +19,6 @@
   <i class="icon-${currentNode.properties['logo'].string} service-icon"></i>
   <div class="desc">
   	<h4>${currentNode.properties['jcr:title'].string}</h4>
-  	<p>${currentNode.properties['description'].string}</p>
+  	${currentNode.properties['text'].string}
   </div>
 </div>
