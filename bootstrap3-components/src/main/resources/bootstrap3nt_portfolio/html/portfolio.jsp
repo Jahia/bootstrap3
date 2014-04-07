@@ -16,12 +16,10 @@
 
 <div class="container">
   <div class="row">
-    <c:forEach items="${currentNode.nodes}" var="portfolioItem">
-      <c:if test="${jcr:isNodeType(portfolioItem,'bootstrap3nt:portfolioItem')}">
+      <c:forEach items="${jcr:getChildrenOfType(currentNode, 'bootstrap3nt:portfolioItem')}" var="portfolioItem">
         <div class="${currentNode.properties['grid'].string}">
           <template:module node="${portfolioItem}" view="default"/>
-        </div>       
-      </c:if>
+        </div>
     </c:forEach>
   </div>   
 </div>                                                                                    

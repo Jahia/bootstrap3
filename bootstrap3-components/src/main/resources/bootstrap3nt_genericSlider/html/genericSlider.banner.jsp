@@ -15,10 +15,8 @@
 
 <div class="slider-inner">
   <div id="da-slider" class="da-slider">
-     <c:forEach items="${currentNode.nodes}" var="sliderItem">
-      <c:if test="${jcr:isNodeType(sliderItem,'bootstrap3nt:sliderItem')}">
-         <template:module node="${sliderItem}" view="default"/>      
-      </c:if>
+     <c:forEach items="${jcr:getChildrenOfType(currentNode, 'bootstrap3nt:sliderItem')}" var="sliderItem">
+         <template:module node="${sliderItem}" view="default"/>
  	 </c:forEach>
     <div class="da-arrows">
       <span class="da-arrows-prev"></span>

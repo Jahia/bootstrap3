@@ -15,12 +15,10 @@
 
 <div class="carousel slide testimonials testimonials-v1" id="testimonials-${currentNode.properties['jcr:uuid'].string}">
   <div class="carousel-inner">
-    <c:forEach items="${currentNode.nodes}" var="testimonialItem" varStatus="status">
-      <c:if test="${jcr:isNodeType(testimonialItem,'bootstrap3nt:testimonialItem')}">
+      <c:forEach items="${jcr:getChildrenOfType(currentNode, 'bootstrap3nt:testimonialItem')}"  var="testimonialItem" varStatus="status">
         <template:module node="${testimonialItem}" view="default">
           <template:param name="first" value="${status.first}"/>
         </template:module>
-      </c:if>
     </c:forEach>                    
   </div>
   

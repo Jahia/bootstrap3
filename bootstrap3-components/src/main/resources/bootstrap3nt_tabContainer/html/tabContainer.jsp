@@ -15,19 +15,17 @@
 <div class="tab-v1">
   <ul class="nav nav-tabs">
     
-  <c:forEach items="${currentNode.nodes}" var="tabItem1" varStatus="status">
+  <c:forEach items="${jcr:getChildrenOfType(currentNode, 'bootstrap3nt:tabItem')}" var="tabItem1" varStatus="status">
     <li class="${status.first or renderContext.editMode ? ' active' : ''}">  
       <a href="#${tabItem1.properties['tabname'].string}" data-toggle="tab">${tabItem1.properties['tabname'].string}</a>
     </li>
   </c:forEach>
   </ul> 
   <div class="tab-content">
-  <c:forEach items="${currentNode.nodes}" var="tabItem" varStatus="status">
-      <c:if test="${jcr:isNodeType(tabItem,'bootstrap3nt:tabItem')}">
+      <c:forEach items="${jcr:getChildrenOfType(currentNode, 'bootstrap3nt:tabItem')}"  var="tabItem" varStatus="status">
 		<template:module node="${tabItem}" view="default">
           <template:param name="first" value="${status.first}"/>  
-        </template:module> 
-      </c:if>
+        </template:module>
   </c:forEach>
 </div>                                                                                      
 <c:if test="${renderContext.editMode}">

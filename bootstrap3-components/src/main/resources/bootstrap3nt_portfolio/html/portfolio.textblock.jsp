@@ -17,10 +17,8 @@
 <div class="container">
   <div class="sorting-block">
     <ul class="row sorting-grid" style=" ">
-      <c:forEach items="${currentNode.nodes}" var="portfolioItem">
-          <c:if test="${jcr:isNodeType(portfolioItem,'bootstrap3nt:portfolioItem')}">
-            	<template:module node="${portfolioItem}" view="textblock"/>       
-          </c:if>
+      <c:forEach items="${jcr:getChildrenOfType(currentNode, 'bootstrap3nt:portfolioItem')}" var="portfolioItem">
+        <template:module node="${portfolioItem}" view="textblock"/>
       </c:forEach>
     </ul>
 	<div class="clearfix"></div>

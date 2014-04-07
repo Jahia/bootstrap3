@@ -17,12 +17,10 @@
 <h2>${currentNode.properties['jcr:title'].string}</h2>
 </div>
 <div class="row team">
-    <c:forEach items="${currentNode.nodes}" var="member">
-      <c:if test="${jcr:isNodeType(member,'bootstrap3nt:member')}">
-		<div class="${currentNode.properties['grid'].string}">
+    <c:forEach items="${jcr:getChildrenOfType(currentNode, 'bootstrap3nt:member')}" var="member">
+      	<div class="${currentNode.properties['grid'].string}">
           <template:module node="${member}" view="default"/>
-        </div>       
-      </c:if>
+        </div>
   	</c:forEach>
 </div>                                                                                      
 <c:if test="${renderContext.editMode}">

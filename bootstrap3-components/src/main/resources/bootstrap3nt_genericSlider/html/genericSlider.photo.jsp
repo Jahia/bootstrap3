@@ -16,12 +16,10 @@
 <div class="headline"><h2>${currentNode.properties['title'].string}</h2></div>	
 <div id="myCarousel" class="carousel slide carousel-v1">
   <div class="carousel-inner">
-      <c:forEach items="${currentNode.nodes}" var="photoItem"  varStatus="status">
-        <c:if test="${jcr:isNodeType(photoItem,'bootstrap3nt:photoItem')}">
+      <c:forEach items="${jcr:getChildrenOfType(currentNode, 'bootstrap3nt:photoItem')}"  var="photoItem"  varStatus="status">
           <div class="item ${status.first or renderContext.editMode ? ' active' : ''}">
             <template:module node="${photoItem}" view="slider"/>     
           </div>
-        </c:if>
       </c:forEach>
     </div>
     <div class="carousel-arrow">

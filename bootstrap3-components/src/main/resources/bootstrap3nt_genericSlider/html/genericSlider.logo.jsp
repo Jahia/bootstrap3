@@ -19,12 +19,10 @@
 <div id="clients-flexslider" class="${liveClass} home clients">
   <div class="headline"><h2>${currentNode.properties['title'].string}</h2></div>	
   <ul class="slides">
-      <c:forEach items="${currentNode.nodes}" var="logoItem">
-        <c:if test="${jcr:isNodeType(logoItem,'bootstrap3nt:logoItem')}">
+      <c:forEach items="${jcr:getChildrenOfType(currentNode, 'bootstrap3nt:logoItem')}" var="logoItem">
           <li>
           	<template:module node="${logoItem}" view="default"/>     
           </li>
-        </c:if>
       </c:forEach>
   </ul>
 </div>

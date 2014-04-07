@@ -14,12 +14,10 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
 <div class="row">
-    <c:forEach items="${currentNode.nodes}" var="infoBlock">
-      <c:if test="${jcr:isNodeType(infoBlock,'bootstrap3nt:infoBlock')}">
-		<div class="col-sm-4 info-blocks">
+    <c:forEach items="${jcr:getChildrenOfType(currentNode, 'bootstrap3nt:infoBlock')}"  var="infoBlock">
+      	<div class="col-sm-4 info-blocks">
           <template:module node="${infoBlock}" view="default"/>
-        </div>       
-      </c:if>
+        </div>
   	</c:forEach>
 </div>                                                                                      
 <c:if test="${renderContext.editMode}">
