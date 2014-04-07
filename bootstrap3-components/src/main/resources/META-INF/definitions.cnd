@@ -115,11 +115,6 @@
   - description (string)
   - url (string)
   
-[bootstrap3nt:client] > jnt:content, bootstrap3mix:component, mix:title  
- - logo (weakreference, picker) < bootstrap3nt:logoItem
- - description (string)
- - url (string)
-  
 [bootstrap3nt:textBox] > jnt:content, bootstrap3mix:component, mix:title  
  - text (string, richtext) i18n 
 
