@@ -35,11 +35,11 @@ public class SwitchToLanguageTag extends AbstractJahiaTag {
             if (currentLocale.equals(languageCode)) {
                 buff.append("<li class='active'><a title='").append(displayLanguage).append("' href='").
                         append(link).append("'>").append(displayLanguage).
-                        append("</a></li>");
+                        append(" <i class='icon-ok'></i></a></li>");
             } else {
                 buff.append("<li><a title='").append(displayLanguage).append("' href='").
                         append(link).append("'>").append(displayLanguage).
-                        append(" <i class='icon-ok'></i></a></li>");
+                        append("</a></li>");
             }
 
             pageContext.getOut().print(buff.toString());

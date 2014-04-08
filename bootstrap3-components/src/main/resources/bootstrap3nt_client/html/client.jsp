@@ -15,10 +15,11 @@
 <c:set value="${currentNode.properties['logo'].node}" var="logo"/>
 
 <div class="clients-page margin-bottom-20">
-
-  <template:module node="${logo}" view="default"/>
-  <p>
-   ${currentNode.properties['description'].string}
-    <a class="linked color-green" href="#">${currentNode.properties['url'].string}</a>
-  </p>
+    <c:if test="${! empty logo}">
+        <template:module node="${logo}" view="default"/>
+    </c:if>
+    <p>
+        ${currentNode.properties['description'].string}
+        <a class="linked color-green" href="#">${currentNode.properties['url'].string}</a>
+    </p>
 </div>

@@ -13,8 +13,8 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<c:set var="layout" value="${currentNode.properties['sliderType'].string}"/>
-<c:if test="${empty layout}">
-    <c:set var="layout" value="banner"/>
+<c:set var="sliderType" value="${currentNode.properties['sliderType'].string}"/>
+<c:if test="${empty sliderType}">
+    <c:set var="sliderType" value="banner"/>
 </c:if>
-<template:include view="${layout}" />
+<template:include view="${sliderType}" />

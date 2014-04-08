@@ -19,7 +19,7 @@
 <jcr:nodeProperty node="${currentNode}" name="logoHover" var="logoHover"/>
 <c:url value="${url.files}${logoHover.node.path}" var="logoHoverUrl"/>
 
-  <a class="img-hover" href="#">
-    <img src="${logoUrl}" alt="" /> 
-    <img src="${logoHoverUrl}" class="img-colorful" alt="" />
-  </a>
+<a class="img-hover" href="#">
+    <img src="${logoUrl}" alt=""/>
+    <img src="${logoHoverUrl}" class="img-colorful" alt=""/>
+</a>

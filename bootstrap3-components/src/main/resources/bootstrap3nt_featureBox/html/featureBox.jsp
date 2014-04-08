@@ -14,9 +14,9 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
 <div class="service">
-  <i class="icon-${currentNode.properties['logo'].string} service-icon"></i>
-  <div class="desc">
-  	<h4>${currentNode.properties['jcr:title'].string}</h4>
-  	${currentNode.properties['text'].string}
-  </div>
+    <i class="icon-${currentNode.properties['picto'].string} service-icon"></i>
+    <div class="desc">
+        <h4>${currentNode.properties['jcr:title'].string}</h4>
+        ${currentNode.properties['text'].string}
+    </div>
 </div>
