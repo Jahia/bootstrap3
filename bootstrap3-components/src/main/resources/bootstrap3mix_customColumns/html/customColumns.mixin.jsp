@@ -19,6 +19,12 @@
 
 <c:set var="columns" value="${currentNode.properties['columns'].string}"/>
 <c:set var="colName" value="${currentNode.name}"/>
-<c:forTokens items="${columns}" delims="," varStatus="status" var="col">
-    <div class="${fn:trim(col)}"><template:area path="${colName}-col${status.index}" areaAsSubNode="true"/></div>
-</c:forTokens>
+<c:set var="containerCssClass" value="${currentNode.properties['containerCssClass'].string}"/>
+<c:if test="${! empty containerCssClass}">
+    <c:set var="containerClass">class="${containerCssClass}"</c:set>
+</c:if>
+<div class="container ${containerClass}">
+    <c:forTokens items="${columns}" delims="," varStatus="status" var="col">
+        <div class="${fn:trim(col)}"><template:area path="${colName}-col${status.index}" areaAsSubNode="true"/></div>
+    </c:forTokens>
+</div>

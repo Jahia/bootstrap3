@@ -18,64 +18,94 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 <c:set var="colName" value="${currentNode.name}"/>
 <c:set var="grid" value="${currentNode.properties['grid'].string}"/>
+<c:set var="containerCssClass" value="${currentNode.properties['containerCssClass'].string}"/>
+<c:if test="${! empty containerCssClass}">
+    <c:set var="containerClass">class="${containerCssClass}"</c:set>
+</c:if>
+
 <c:choose>
     <c:when test="${grid == '4_8'}">
-        <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
-        <div class="col-md-8"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
+        <div class="container ${containerClass}">
+            <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
+            <div class="col-md-8"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
+        </div>
     </c:when>
     <c:when test="${grid == '8_4'}">
-        <div class="col-md-8"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
-        <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
+        <div class="container ${containerClass}">
+            <div class="col-md-8"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
+            <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
+        </div>
     </c:when>
     <c:when test="${grid == '3_9'}">
-        <div class="col-md-3"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
-        <div class="col-md-9"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
+        <div class="container ${containerClass}">
+            <div class="col-md-3"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
+            <div class="col-md-9"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
+        </div>
     </c:when>
     <c:when test="${grid == '9_3'}">
-        <div class="col-md-9"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
-        <div class="col-md-3"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
+        <div class="container ${containerClass}">
+            <div class="col-md-9"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
+            <div class="col-md-3"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
+        </div>
     </c:when>
     <c:when test="${grid == '2_10'}">
-        <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
-        <div class="col-md-10"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
+        <div class="container ${containerClass}">
+            <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
+            <div class="col-md-10"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
+        </div>
     </c:when>
     <c:when test="${grid == '10_2'}">
-        <div class="col-md-10"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
-        <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
+        <div class="container ${containerClass}">
+            <div class="col-md-10"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
+            <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
+        </div>
     </c:when>
     <c:when test="${grid == '4_4_4'}">
-        <div class="col-md-4"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
-        <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
-        <div class="col-md-4"><template:area path="${colName}-extra" areaAsSubNode="true"/></div>
+        <div class="container ${containerClass}">
+            <div class="col-md-4"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
+            <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
+            <div class="col-md-4"><template:area path="${colName}-extra" areaAsSubNode="true"/></div>
+        </div>
     </c:when>
     <c:when test="${grid == '3_6_3'}">
-        <div class="col-md-3"><template:area path="${colName}-side1" areaAsSubNode="true"/></div>
-        <div class="col-md-6"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
-        <div class="col-md-3"><template:area path="${colName}-extra" areaAsSubNode="true"/></div>
+        <div class="container ${containerClass}">
+            <div class="col-md-3"><template:area path="${colName}-side1" areaAsSubNode="true"/></div>
+            <div class="col-md-6"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
+            <div class="col-md-3"><template:area path="${colName}-extra" areaAsSubNode="true"/></div>
+        </div>
     </c:when>
     <c:when test="${grid == '3_3_3_3'}">
-        <div class="col-md-3"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
-        <div class="col-md-3"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
-        <div class="col-md-3"><template:area path="${colName}-extra" areaAsSubNode="true"/></div>
-        <div class="col-md-3"><template:area path="${colName}-extra2" areaAsSubNode="true"/></div>
+        <div class="container ${containerClass}">
+            <div class="col-md-3"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
+            <div class="col-md-3"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
+            <div class="col-md-3"><template:area path="${colName}-extra" areaAsSubNode="true"/></div>
+            <div class="col-md-3"><template:area path="${colName}-extra2" areaAsSubNode="true"/></div>
+        </div>
     </c:when>
     <c:when test="${grid == '6_6'}">
-        <div class="col-md-6"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
-        <div class="col-md-6"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
+        <div class="container ${containerClass}">
+            <div class="col-md-6"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
+            <div class="col-md-6"><template:area path="${colName}-side" areaAsSubNode="true"/></div>
+        </div>
     </c:when>
     <c:when test="${grid == '12'}">
-        <div class="col-md-12"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
+        <div class="container ${containerClass}">
+            <div class="col-md-12"><template:area path="${colName}-main" areaAsSubNode="true"/></div>
+        </div>
     </c:when>
     <c:when test="${grid == '0'}">
         <template:area path="${colName}" areaAsSubNode="true"/>
     </c:when>
     <c:otherwise>
         <c:if test="${renderContext.editMode}">
-            <div class="col-md-12">
-                <div class="alert">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong><fmt:message key="bootstrap3mix_predefinedColumns.message.warning"/>!</strong> <fmt:message
-                        key="bootstrap3mix_predefinedColumns.message.couldNotDisplayGrid"/> ${grid}.
+            <div class="container ${containerClass}">
+                <div class="col-md-12">
+                    <div class="alert">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong><fmt:message key="bootstrap3mix_predefinedColumns.message.warning"/>!</strong>
+                        <fmt:message
+                                key="bootstrap3mix_predefinedColumns.message.couldNotDisplayGrid"/> ${grid}.
+                    </div>
                 </div>
             </div>
         </c:if>

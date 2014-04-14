@@ -27,9 +27,7 @@
     <c:set var="containerClass">class="${containerCssClass}"</c:set>
 </c:if>
 <${sectionType} class="${sectionCssClass}" id="${currentNode.name}">
-<div class="container ${containerClass}">
     <template:module nodeTypes="bootstrap3mix:predefinedColumns,bootstrap3mix:customColumns"
                      node="${currentNode}" view="mixin" editable="false"/>
-</div>
 </${sectionType}>
 
