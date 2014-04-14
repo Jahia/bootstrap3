@@ -130,5 +130,5 @@
  + photos (bootstrap3nt:genericSlider) = bootstrap3nt:genericSlider
  - photosPosition (string, choicelist[resourceBundle]) = 'left' mandatory autocreated indexed=no < 'left', 'right'
 
-[jnt:newNodeType] > jnt:content, bootstrap3mix:component noquery
+[bootstrap3mix:breadcrumb] > jnt:content, bootstrap3mix:component noquery
 
