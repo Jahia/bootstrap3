@@ -22,6 +22,7 @@
                               j:hiddenTemplate="false"
                               jcr:primaryType="jnt:contentTemplate">
                             <j:translation_en jcr:language="en"
+                                    jcr:mixinTypes="mix:title"
                                     jcr:primaryType="jnt:translation"
                                     jcr:title="site settings"/>
                             <pagecontent jcr:primaryType="jnt:contentList"/>

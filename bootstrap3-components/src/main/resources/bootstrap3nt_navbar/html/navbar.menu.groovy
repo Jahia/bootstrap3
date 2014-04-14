@@ -75,6 +75,9 @@ printMenu = { node, navMenuLevel ->
             }
         }
         if (ulIsOpen) {
+            if (navMenuLevel == 1) {
+                print("<li class=\"hidden-sm\"><a class=\"search\"><i class=\"icon-search search-btn\"></i></a></li>");
+            }
             println("</ul>")
             ulIsOpen = false;
         }
