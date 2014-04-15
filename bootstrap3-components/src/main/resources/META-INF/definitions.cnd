@@ -51,9 +51,9 @@
  - google (string)
  - picture (weakreference, picker[type='image'])
 
-[bootstrap3nt:memberslist] > jnt:content, bootstrap3mix:component, mix:title
- - grid (string, choicelist[resourceBundle]) = 'col-sm-4' autocreated < 'col-sm-4', 'col-sm-3'
- + * (bootstrap3nt:member)
+//[bootstrap3nt:memberslist] > jnt:content, bootstrap3mix:component, mix:title
+// - grid (string, choicelist[resourceBundle]) = 'col-sm-4' autocreated < 'col-sm-4', 'col-sm-3'
+// + * (bootstrap3nt:member)
 
 //[bootstrap3nt:purchaseRow] > jnt:content, bootstrap3mix:component, mix:title
 // - description (string)
