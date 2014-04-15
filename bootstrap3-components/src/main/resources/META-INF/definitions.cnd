@@ -8,9 +8,14 @@
  - columnsType (string, choicelist[columnInitializer,resourceBundle]) = 'predefinedColumns' autocreated < 'predefinedColumns', 'customColumns'
  + * (jmix:droppableContent) = jmix:droppableContent
 
+[bootstrap3mix:createAbsoluteAreas] mixin
+ extends = bootstrap3nt:columns
+ itemtype = content
+ - level (string, choicelist[resourceBundle]) = '0' autocreated < '0', '1', '2', '3', '4', '5'
+
 [bootstrap3mix:predefinedColumns] > jmix:templateMixin mixin
  extends = bootstrap3nt:columns
- - grid (string, choicelist[resourceBundle,moduleImage='png']) = '4_8' autocreated < '2_10', '3_9', '4_8', '4_4_4', '3_6_3', '3_3_3_3', '6_6', '8_4', '9_3', '10_2', '12', '0'
+ - grid (string, choicelist[resourceBundle,moduleImage='png']) = '4_8' autocreated < '2_10', '3_9', '4_8', '4_4_4', '3_6_3', '3_3_3_3', '6_6', '8_4', '9_3', '10_2', '12', '0', '00'
 
 [bootstrap3mix:text] mixin
  - text (string, richtext) internationalized
@@ -129,6 +134,8 @@
  - picture (weakreference, picker[type='image'])
  + photos (bootstrap3nt:genericSlider) = bootstrap3nt:genericSlider
  - photosPosition (string, choicelist[resourceBundle]) = 'left' mandatory autocreated indexed=no < 'left', 'right'
+
+[bootstrap3nt:loginbar] > jnt:content, bootstrap3mix:component
 
 [bootstrap3mix:breadcrumb] > jnt:content, bootstrap3mix:component noquery
 
