@@ -43,7 +43,7 @@ printMenu = { node, navMenuLevel ->
                             }
                             if (hasChildren) {
                                 print "<li ${listItemCssClass}>";
-                                print "    <a href=\"${link}\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" data-hover=\"dropdown\" data-delay=\"0\" data-close-others=\"false\" ${linkTitle}>";
+                                print "    <a href=\"${link}\" class=\"dropdown-toggle\" data-hover=\"dropdown\" data-delay=\"0\" data-close-others=\"false\" ${linkTitle}>";
                                 print menuItem.displayableName;
                                 if (hasChildren && navMenuLevel < maxDepth) {
                                     print "<i class=\"icon-angle-down\"></i>";
