@@ -117,8 +117,7 @@
 // - picture (weakreference, picker[type='image'])
 // - page (weakreference, picker[type='page'])
 
-[bootstrap3nt:pageThumbnail] > jnt:content, bootstrap3mix:component, mix:title
- - description (string)
+[bootstrap3nt:pageThumbnail] > jnt:content, bootstrap3mix:component, mix:title, bootstrap3mix:text
  - picture (weakreference, picker[type='image'])
  - page (weakreference, picker[type='page'])
 
@@ -135,5 +134,5 @@
 
 [bootstrap3nt:loginbar] > jnt:content, bootstrap3mix:component, jmix:studioOnly
 
-[bootstrap3mix:breadcrumb] > jnt:content, bootstrap3mix:component, jmix:studioOnly
+[bootstrap3nt:breadcrumb] > jnt:content, bootstrap3mix:component, jmix:studioOnly
 

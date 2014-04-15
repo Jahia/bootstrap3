@@ -26,8 +26,8 @@
   </div>
   <div class="caption">
     <h3>
-      <a class="hover-effect" href="${pageUrl}.html">${currentNode.properties['jcr:title'].string}</a>
+      <a class="hover-effect" href="${pageUrl}">${currentNode.properties['jcr:title'].string}</a>
     </h3>
-    <p>${currentNode.properties['description'].string}</p>
+    ${currentNode.properties['text'].string}
   </div>
 </div>
