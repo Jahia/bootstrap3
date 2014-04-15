@@ -83,9 +83,9 @@
 // + * (bootstrap3nt:testimonialItem)
 // + * (bootstrap3nt:photoItem)
 
-[bootstrap3mix:title] > jmix:templateMixin mixin
- extends = bootstrap3nt:genericSlider
- - title (string)
+//[bootstrap3mix:title] > jmix:templateMixin mixin
+// extends = bootstrap3nt:genericSlider
+// - title (string)
 
 //[bootstrap3nt:testimonialItem] > jnt:content, bootstrap3mix:component
 // - name (string)
