@@ -14,8 +14,11 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
 <div class="who margin-bottom-30">
-  <div class="headline">
-      <h2>${currentNode.properties['jcr:title'].string}</h2>
-  </div>
-  ${currentNode.properties['text'].string}
+    <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
+    <c:if test="${! empty title || renderContext.editMode}">
+        <div class="headline">
+            <h2>${currentNode.displayableName}</h2>
+        </div>
+    </c:if>
+    ${currentNode.properties['text'].string}
 </div>

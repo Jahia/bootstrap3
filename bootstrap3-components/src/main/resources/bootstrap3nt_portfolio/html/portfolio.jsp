@@ -13,16 +13,19 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 <c:set var="grid" value="${currentNode.properties['grid'].string}"/>
-
+<c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
+<c:if test="${! empty title || renderContext.editMode}">
+    <h2>${currentNode.displayableName}</h2>
+</c:if>
 <div class="container">
-  <div class="row">
-      <c:forEach items="${jcr:getChildrenOfType(currentNode, 'bootstrap3nt:portfolioItem')}" var="portfolioItem">
-        <div class="${currentNode.properties['grid'].string}">
-          <template:module node="${portfolioItem}" view="default"/>
-        </div>
-    </c:forEach>
-  </div>   
-</div>                                                                                    
+    <div class="row">
+        <c:forEach items="${jcr:getChildrenOfType(currentNode, 'bootstrap3nt:portfolioItem')}" var="portfolioItem">
+            <div class="${currentNode.properties['grid'].string}">
+                <template:module node="${portfolioItem}" view="default"/>
+            </div>
+        </c:forEach>
+    </div>
+</div>
 <c:if test="${renderContext.editMode}">
-  <template:module path="*"/>
+    <template:module path="*" nodeTypes="bootstrap3nt:portfolioItem"/>
 </c:if>

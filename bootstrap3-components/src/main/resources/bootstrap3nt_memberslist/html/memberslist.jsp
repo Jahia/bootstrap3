@@ -13,16 +13,19 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<div class="headline">
-<h2>${currentNode.properties['jcr:title'].string}</h2>
-</div>
+<c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
+<c:if test="${! empty title || renderContext.editMode}">
+    <div class="headline">
+        <h2>${currentNode.displayableName}</h2>
+    </div>
+</c:if>
 <div class="row team">
     <c:forEach items="${jcr:getChildrenOfType(currentNode, 'bootstrap3nt:member')}" var="member">
-      	<div class="${currentNode.properties['grid'].string}">
-          <template:module node="${member}" view="default"/>
+        <div class="${currentNode.properties['grid'].string}">
+            <template:module node="${member}" view="default"/>
         </div>
-  	</c:forEach>
-</div>                                                                                      
+    </c:forEach>
+</div>
 <c:if test="${renderContext.editMode}">
     <template:module path="*"/>
 </c:if>

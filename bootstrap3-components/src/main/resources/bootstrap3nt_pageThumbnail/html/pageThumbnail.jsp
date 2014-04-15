@@ -15,14 +15,14 @@
 
 <jcr:nodeProperty node="${currentNode}" name="picture" var="picture"/>
 <c:url value="${url.files}${picture.node.path}" var="pictureUrl"/>
-<c:url value="${currentNode.properties['page'].node.path}" var="pageUrl"/>
+<c:url value="${currentNode.properties['page'].node.url}" var="pageUrl"/>
 
 <div class="thumbnails thumbnail-style thumbnail-kenburn">
   <div class="thumbnail-img">
     <div class="overflow-hidden">
       <img class="img-responsive" alt="" src="${pictureUrl}">
     </div>
-    <a class="btn-more hover-effect" href="${pageUrl}.html">read more +</a>
+    <a class="btn-more hover-effect" href="${pageUrl}"><fmt:message key="bootstrap3nt_pageThumbnail.readMore"/></a>
   </div>
   <div class="caption">
     <h3>

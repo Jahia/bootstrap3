@@ -15,17 +15,8 @@
 
 <jcr:nodeProperty node="${currentNode}" name="picture" var="portfolioImage"/>
 <jcr:nodeProperty node="${currentNode}" name="photos" var="photos"/>
-<c:url value="${url.files}${portfolioImage.node.path}" var="portfolioImageUrl"/>
+<c:url value="${portfolioImage.node.url}" var="portfolioImageUrl"/>
+<img class="img-responsive" alt="" src="${portfolioImageUrl}">
 
-<div class="row portfolio-item margin-bottom-50">
-  <div class="col-md-7">
-    <template:module node="${photos}" view="photos"/> 
-    <c:if test="${renderContext.editMode}">
-    <template:module path="photos"/>
-</c:if>
-  </div>
-  <div class="col-md-5">
-    <h2>${currentNode.properties['informationTitle'].string}</h2>
-    ${currentNode.properties['information'].string}
-  </div>
-</div>
+<h2>${currentNode.properties['informationTitle'].string}</h2>
+${currentNode.properties['information'].string}

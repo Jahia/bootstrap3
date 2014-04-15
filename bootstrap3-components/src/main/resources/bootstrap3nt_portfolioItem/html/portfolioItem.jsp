@@ -14,13 +14,14 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
 <jcr:nodeProperty node="${currentNode}" name="picture" var="portfolioImage"/>
-<c:url value="${url.files}${portfolioImage.node.path}" var="portfolioImageUrl"/>
+<c:url value="${portfolioImage.node.url}" var="portfolioImageUrl"/>
 
 <div class="view view-tenth">
   <img class="img-responsive" alt="" src="${portfolioImageUrl}">
   <div class="mask">
     <h2>${currentNode.properties['jcr:title'].string}</h2>
     <p>${currentNode.properties['description'].string}</p>
-    <a class="info" href="#">Read More</a>
+    <c:url var="itemUrl" value="${url.base}${currentNode.path}.html"/>
+    <a class="info" href="${itemUrl}"><fmt:message key="bootstrap3nt_portfolioItem.readMore"/></a>
   </div>
 </div>
