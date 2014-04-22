@@ -98,11 +98,11 @@
     </c:when>
     <c:when test="${grid == '0'}">
         <div class="container ${containerClass}">
-            <template:area path="${colName}" areaAsSubNode="true"/>
+            <template:area path="${colName}" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/>
         </div>
     </c:when>
     <c:when test="${grid == '00'}">
-        <template:area path="${colName}" areaAsSubNode="true"/>
+        <template:area path="${colName}" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/>
     </c:when>
     <c:otherwise>
         <c:if test="${renderContext.editMode}">
