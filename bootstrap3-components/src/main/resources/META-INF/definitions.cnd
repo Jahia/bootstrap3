@@ -39,8 +39,13 @@
  itemtype = content
  - siteLogo (weakreference, picker[type='image']) < 'jnt:file'
 
-[bootstrap3nt:navbar] > jnt:content, bootstrap3mix:component, jmix:studioOnly, jmix:navMenuComponent, mix:title
- - logo (weakreference, picker[type='image']) < 'jnt:file'
+[bootstrap3mix:navbarAdvanced] mixin
+ extends = bootstrap3nt:navbar
+ itemtype = content
+ - navbarClass (string) = 'navbar navbar-default'
+ - ulClass (string) = 'nav navbar-nav navbar-right'
+
+[bootstrap3nt:navbar] > jnt:content, bootstrap3mix:component, jmix:studioOnly, jmix:navMenuComponent
 
 [bootstrap3nt:member] > jnt:content
  - name (string)
@@ -131,6 +136,7 @@
  - information (string, richtext)
  - picture (weakreference, picker[type='image'])
  + * (jmix:droppableContent) = jmix:droppableContent
+
 
 [bootstrap3nt:loginbar] > jnt:content, bootstrap3mix:component, jmix:studioOnly
 

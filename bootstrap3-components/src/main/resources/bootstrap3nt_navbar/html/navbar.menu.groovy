@@ -38,7 +38,11 @@ printMenu = { node, navMenuLevel ->
                         link = menuItem.url;
                         if (navMenuLevel == 1   ) {
                             if (!ulIsOpen) {
-                                println "<ul class=\"nav navbar-nav navbar-right\">\n"
+                                ulClass = "nav navbar-nav navbar-right";
+                                if (currentNode.isNodeType("bootstrap3mix:navbarAdvanced")) {
+                                    ulClass = currentNode.properties['ulClass'].string;
+                                }
+                                println "<ul class=\"${ulClass}\">\n"
                                 ulIsOpen = true;
                             }
                             if (hasChildren) {
@@ -75,9 +79,9 @@ printMenu = { node, navMenuLevel ->
             }
         }
         if (ulIsOpen) {
-            if (navMenuLevel == 1) {
-                print("<li class=\"hidden-sm\"><a class=\"search\"><i class=\"icon-search search-btn\"></i></a></li>");
-            }
+            //if (navMenuLevel == 1) {
+            //    print("<li class=\"hidden-sm\"><a class=\"search\"><i class=\"icon-search search-btn\"></i></a></li>");
+            //}
             println("</ul>")
             ulIsOpen = false;
         }

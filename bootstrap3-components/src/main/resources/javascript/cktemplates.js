@@ -60,7 +60,7 @@ CKEDITOR.addTemplates('default',
                 title:'',
                 image:'btn.png',
                 description:'',
-                html:'<a href="#" class="btn">' +
+                html:'<a href="#" class="btn btn-default">' +
                     'Standard button' +
                     '</a>'
             },

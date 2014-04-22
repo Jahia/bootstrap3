@@ -1,5 +1,6 @@
 
 CKEDITOR.stylesSet.add('text', [
+    { name:'Title H1', element:'h1' },
     { name:'Title H2', element:'h2' },
     { name:'Title H3', element:'h3' },
     { name:'Title H4', element:'h4' },

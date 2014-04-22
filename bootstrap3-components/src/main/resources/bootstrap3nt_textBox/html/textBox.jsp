@@ -15,9 +15,9 @@
 
 <div class="who margin-bottom-30">
     <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
-    <c:if test="${! empty title || renderContext.editMode}">
+    <c:if test="${! empty title}">
         <div class="headline">
-            <h2>${currentNode.displayableName}</h2>
+            <h2>${title}</h2>
         </div>
     </c:if>
     ${currentNode.properties['text'].string}
