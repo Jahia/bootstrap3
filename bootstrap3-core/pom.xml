@@ -38,6 +38,7 @@
                 <configuration>
                     <instructions>
                         <Jahia-Root-Folder>${project.artifactId}</Jahia-Root-Folder>
+                        <Jahia-Depends>jquery</Jahia-Depends>
                     </instructions>
                 </configuration>
             </plugin>

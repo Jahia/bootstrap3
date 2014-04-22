@@ -30,7 +30,7 @@
 [bootstrap3mix:advancedColumnProperties] mixin
  extends = bootstrap3nt:columns
  itemtype = content
- - sectionElement (string, choicelist[resourceBundle]) = 'div' autocreated < 'section', 'article', 'header', 'footer', 'aside', 'nav', 'div'
+ - sectionElement (string, choicelist[resourceBundle]) = 'div' autocreated < 'section', 'article', 'header', 'footer', 'aside', 'nav', 'div','no-section'
  - sectionCssClass (string)
  - containerCssClass (string)
 
@@ -46,6 +46,9 @@
  - ulClass (string) = 'nav navbar-nav navbar-right'
 
 [bootstrap3nt:navbar] > jnt:content, bootstrap3mix:component, jmix:studioOnly, jmix:navMenuComponent
+
+[bootstrap3nt:sidemenu] > jnt:content, jnt:content, bootstrap3mix:component, jmix:navMenuComponent
+ - level (string, choicelist[resourceBundle]) = '0' autocreated < '0', '1', '2', '3', '4', '5'
 
 [bootstrap3nt:member] > jnt:content
  - name (string)

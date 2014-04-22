@@ -26,8 +26,12 @@
 <c:if test="${! empty containerCssClass}">
     <c:set var="containerClass">class="${containerCssClass}"</c:set>
 </c:if>
-<${sectionType} class="${sectionCssClass}" id="${currentNode.name}">
+<c:if test="${sectionType != 'no-section'}">
+    <${sectionType} class="${sectionCssClass}" id="${currentNode.name}">
+</c:if>
     <template:module nodeTypes="bootstrap3mix:predefinedColumns,bootstrap3mix:customColumns"
                      node="${currentNode}" view="mixin" editable="false"/>
-</${sectionType}>
+<c:if test="${sectionType != 'no-section'}">
+    </${sectionType}>
+</c:if>
 

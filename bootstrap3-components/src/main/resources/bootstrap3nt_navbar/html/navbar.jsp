@@ -10,6 +10,10 @@
 <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
+<template:addResources type="css" resources="bootstrap.min.css"/>
+<template:addResources type="javascript" resources="jquery.min.js"/>
+<template:addResources type="javascript" resources="bootstrap.min.js"/>
+<template:addResources type="javascript" resources="bootstrap-hover-dropdown.min.js"/>
 
 <c:set var="navbarClass" value="navbar navbar-default"/>
 <c:if test="${jcr:isNodeType(currentNode, 'bootstrap3mix:navbarAdvanced')}">
