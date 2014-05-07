@@ -145,3 +145,9 @@
 
 [bootstrap3nt:breadcrumb] > jnt:content, bootstrap3mix:component, jmix:studioOnly
 
+[bootstrap3mix:contextualState] mixin
+ - state (string, choicelist[resourceBundle,moduleImage='png']) = 'default' autocreated < 'default', 'primary', 'success', 'info', 'warning', 'danger'
+
+[bootstrap3nt:panel] >  jnt:content, bootstrap3mix:component, mix:title, bootstrap3mix:contextualState
+ - footer (string) i18n
+ + * (jmix:droppableContent) = jmix:droppableContent
