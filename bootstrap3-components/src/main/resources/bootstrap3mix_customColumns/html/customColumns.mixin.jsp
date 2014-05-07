@@ -17,14 +17,18 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
-<c:set var="columns" value="${currentNode.properties['columns'].string}"/>
+<c:set var="columns" value="${currentNode.properties['gridClasses'].string}"/>
 <c:set var="colName" value="${currentNode.name}"/>
 <c:set var="containerCssClass" value="${currentNode.properties['containerCssClass'].string}"/>
 <c:if test="${! empty containerCssClass}">
     <c:set var="containerClass">class="${containerCssClass}"</c:set>
 </c:if>
+<c:set var="createAbsoluteAreas" value="${jcr:isNodeType(currentNode, 'bootstrap3mix:createAbsoluteAreas')}"/>
+<c:set var="moduleType" value="${createAbsoluteAreas? 'absoluteArea' : 'area'}"/>
+<c:set var="level" value="${createAbsoluteAreas? currentNode.properties['level'].string : '0'}"/>
+
 <div class="container ${containerClass}">
     <c:forTokens items="${columns}" delims="," varStatus="status" var="col">
-        <div class="${fn:trim(col)}"><template:area path="${colName}-col${status.index}" areaAsSubNode="true"/></div>
+        <div class="${fn:trim(col)}"><template:area path="${colName}-col${status.index}" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
     </c:forTokens>
 </div>
