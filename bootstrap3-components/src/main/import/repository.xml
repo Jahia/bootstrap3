@@ -34,6 +34,7 @@
                             j:priority="1"
                             jcr:primaryType="jnt:contentTemplate">
                         <j:translation_en jcr:language="en"
+                                 jcr:mixinTypes="mix:title"
                                  jcr:primaryType="jnt:translation"
                                  jcr:title="Portfolio item"/>
                         <pagecontent jcr:primaryType="jnt:contentList">

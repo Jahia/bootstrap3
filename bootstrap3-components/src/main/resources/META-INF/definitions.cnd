@@ -68,15 +68,6 @@
 // - buttonLabel (string)
 // - buttonLink (string)
 
-//[bootstrap3nt:tabContainer] > jnt:content, bootstrap3mix:component
-// + * (bootstrap3nt:tabItem)
-
-[bootstrap3nt:tabItem] > jnt:content, mix:title
- - tabname (string)
- - description (string)
- - picture (weakreference, picker[type='image'])
- - picturePosition (string, choicelist[resourceBundle]) = 'left' autocreated < 'left', 'right'
-
 [bootstrap3nt:infoBlock] > jnt:content, mix:title, bootstrap3mix:picto, bootstrap3mix:text
 
 [bootstrap3nt:featureBox] > jnt:content, bootstrap3mix:component, mix:title, bootstrap3mix:text, bootstrap3mix:picto
@@ -151,3 +142,9 @@
 [bootstrap3nt:panel] >  jnt:content, bootstrap3mix:component, mix:title, bootstrap3mix:contextualState
  - footer (string) i18n
  + * (jmix:droppableContent) = jmix:droppableContent
+
+[bootstrap3nt:tabs] > jnt:content, bootstrap3mix:component, jmix:manuallyOrderable orderable
+ - navigation (string, choicelist[resourceBundle,moduleImage='png']) = 'tab' autocreated < 'tab', 'pill'
+ - fadeEffect (boolean) = 'true' mandatory autocreated indexed=no
+
+ + * (jnt:contentList) = jnt:contentList

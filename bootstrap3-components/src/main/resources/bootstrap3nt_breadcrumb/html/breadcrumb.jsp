@@ -15,6 +15,8 @@
 <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
+<template:addResources type="css" resources="bootstrap.min.css"/>
+
 <h1 class="pull-left">${renderContext.mainResource.node.displayableName}</h1>
 
 <c:set var="pageNodes" value="${jcr:getParentsOfType(currentNode, 'jnt:page')}"/>

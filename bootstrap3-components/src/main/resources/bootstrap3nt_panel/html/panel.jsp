@@ -13,6 +13,8 @@
 <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
+<template:addResources type="css" resources="bootstrap.min.css"/>
+
 <c:set var="state" value="${currentNode.properties['state'].string}"/>
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="footer" value="${currentNode.properties['footer'].string}"/>
