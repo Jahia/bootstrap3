@@ -20,7 +20,7 @@
 
 
 <%-- Nav tabs --%>
-<ul class="nav nav-tabs">
+<ul class="nav nav-${navigation}s">
     <c:forEach items="${jcr:getChildrenOfType(currentNode, 'jnt:contentList')}" var="contentList" varStatus="status">
         <li <c:if test="${status.first}"> class="active"</c:if>> <a
                 href="#${contentList.name}" data-toggle="${navigation}">${contentList.displayableName}</a></li>
