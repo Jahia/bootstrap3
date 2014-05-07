@@ -49,7 +49,7 @@ public class ColumnInitializer extends AbstractChoiceListRenderer implements Mod
         //predefined
         myPropertiesMap = new HashMap<String, Object>();
         myPropertiesMap.put("addMixin","bootstrap3mix:predefinedColumns");
-        myChoiceList.add(new ChoiceListValue("predefined",myPropertiesMap,new ValueImpl("predefinedColumns", PropertyType.STRING, false)));
+        myChoiceList.add(new ChoiceListValue("predefinedColumns",myPropertiesMap,new ValueImpl("predefinedColumns", PropertyType.STRING, false)));
 
         //custom
         myPropertiesMap = new HashMap<String, Object>();
