@@ -5,16 +5,10 @@ CKEDITOR.stylesSet.add('text', [
     { name:'Title H3', element:'h3' },
     { name:'Title H4', element:'h4' },
     { name:'Title H5', element:'h5' },
-    { name:'Bold', element:'span', attributes:{ 'class':'bold' } },
+
+    { name:'Small', element:'small' },
+
     { name:'Lead', element:'p', attributes:{ 'class':'lead' } },
-
-    { name:'Blue Dark', element:'span', attributes:{ 'class':'color-blueDark' } },
-
-    { name:'Image rounded', element:'img', attributes:{ 'class':'img-rounded' } },
-    { name:'Image rounded and polaroid', element:'img', attributes:{ 'class':'img-rounded img-polaroid' } },
-    { name:'Image circle', element:'img', attributes:{ 'class':'img-circle' } },
-    { name:'Image polaroid', element:'img', attributes:{ 'class':'img-polaroid' } },
-    { name:'Image circle and polaroid', element:'img', attributes:{ 'class':'img-circle img-polaroid' } },
 
     { name:'Label Default', element:'span', attributes:{ 'class':'label' } },
     { name:'Label Success', element:'span', attributes:{ 'class':'label label-success' } },
@@ -22,7 +16,6 @@ CKEDITOR.stylesSet.add('text', [
     { name:'Label Important', element:'span', attributes:{ 'class':'label label-important' } },
     { name:'Label Info', element:'span', attributes:{ 'class':'label label-info' } },
     { name:'Label Inverse', element:'span', attributes:{ 'class':'label label-inverse' } },
-
 
     { name:'Well Default', element:'div', attributes:{ 'class':'well' } },
     { name:'Well White', element:'div', attributes:{ 'class':'well well-white' } },
@@ -71,6 +64,7 @@ CKEDITOR.editorConfig = function (config) {
 
     config.extraPlugins = 'acheck';
     config.templates_replaceContent = false;
+
 
     // [ Left, Center, Right, Justified ]
     config.justifyClasses = [ 'text-left', 'text-center', 'text-right', 'text-justify' ];

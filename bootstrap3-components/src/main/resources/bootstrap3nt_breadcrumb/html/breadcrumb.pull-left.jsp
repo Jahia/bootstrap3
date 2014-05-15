@@ -31,7 +31,7 @@
     </c:choose>
 </c:if>
 <c:if test="${fn:length(pageNodes) > 1}">
-    <ul class="pull-right breadcrumb">
+    <ul class="pull-left breadcrumb">
         <c:forEach items="${functions:reverse(pageNodes)}" var="pageNode" varStatus="status">
 
             <c:choose>
