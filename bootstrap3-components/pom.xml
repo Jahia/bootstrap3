@@ -9,7 +9,7 @@
   </parent>
   <groupId>org.jahia.modules</groupId>
   <artifactId>bootstrap3-components</artifactId>
-  <version>1.1.4</version>
+  <version>1.1.5-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <name>Bootstrap 3 Components</name>
   <description>This is the custom module (Bootstrap 3 Components) for running on a Jahia server.</description>
