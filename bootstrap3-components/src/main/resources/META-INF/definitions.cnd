@@ -72,3 +72,7 @@
  - navigation (string, choicelist[resourceBundle,moduleImage='png']) = 'tab' autocreated < 'tab', 'pill'
  - fadeEffect (boolean) = 'true' mandatory autocreated indexed=no
  + * (jnt:contentList) = jnt:contentList
+
+[bootstrap3nt:well] >  jnt:content, bootstrap3mix:component
+ - size (string, choicelist[resourceBundle]) = 'default' autocreated < 'default', 'well-lg', 'well-sm'
+ + * (jmix:droppableContent) = jmix:droppableContent
