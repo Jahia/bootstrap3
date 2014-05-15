@@ -62,17 +62,28 @@
 [bootstrap3nt:breadcrumb] > jnt:content, bootstrap3mix:component, jmix:studioOnly
 
 [bootstrap3mix:contextualState] mixin
- - state (string, choicelist[resourceBundle,moduleImage='png']) = 'default' autocreated < 'default', 'primary', 'success', 'info', 'warning', 'danger'
+ - state (string, choicelist[resourceBundle,moduleImage='png']) = 'default' indexed=no autocreated < 'default', 'primary', 'success', 'info', 'warning', 'danger'
 
 [bootstrap3nt:panel] >  jnt:content, bootstrap3mix:component, mix:title, bootstrap3mix:contextualState
  - footer (string) i18n
  + * (jmix:droppableContent) = jmix:droppableContent
 
 [bootstrap3nt:tabs] > jnt:content, bootstrap3mix:component, jmix:manuallyOrderable orderable
- - navigation (string, choicelist[resourceBundle,moduleImage='png']) = 'tab' autocreated < 'tab', 'pill'
+ - navigation (string, choicelist[resourceBundle,moduleImage='png']) = 'tab' indexed=no autocreated < 'tab', 'pill'
  - fadeEffect (boolean) = 'true' mandatory autocreated indexed=no
  + * (jnt:contentList) = jnt:contentList
 
 [bootstrap3nt:well] >  jnt:content, bootstrap3mix:component
- - size (string, choicelist[resourceBundle]) = 'default' autocreated < 'default', 'well-lg', 'well-sm'
+ - size (string, choicelist[resourceBundle]) = 'default' indexed=no autocreated < 'default', 'well-lg', 'well-sm'
  + * (jmix:droppableContent) = jmix:droppableContent
+
+[bootstrap3mix:advancedPagination] mixin
+ extends = bootstrap3nt:pagination
+ itemtype = content
+ - pageSize (long) = '10' autocreated
+ - nbOfPages (long) = '10' autocreated
+ - align (string,choicelist[resourceBundle]) = 'center-block' indexed=no autocreated  < 'center-block', 'pull-left', 'pull-right'
+ - layout (string,choicelist[resourceBundle]) = 'default' indexed=no autocreated   < 'pagination-lg', 'default', 'pagination-sm'
+
+[bootstrap3nt:pagination] > jnt:content, bootstrap3mix:component, jmix:bindedComponent
+ - displayPager (boolean) = 'true' autocreated
