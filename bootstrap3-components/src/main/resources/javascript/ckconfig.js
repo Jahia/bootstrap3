@@ -49,7 +49,7 @@ CKEDITOR.editorConfig = function (config) {
 
     config.toolbar = 'Tinny';
     config.stylesSet = 'text';
-    config.contentsCss = [ ((typeof contextJsParameters != 'undefined') ? contextJsParameters.contextPath : '') + '/modules/bootstrap3-core/css/bootstrap.css',((typeof contextJsParameters != 'undefined') ? contextJsParameters.contextPath : '') + '/modules/bootstrap3-components/css/font-awesome.css' ];
+    config.contentsCss = [ ((typeof contextJsParameters != 'undefined') ? contextJsParameters.contextPath : '') + '/modules/bootstrap3-core/css/bootstrap.min.css' ];
     config.templates_files = [ ((typeof contextJsParameters != 'undefined') ? contextJsParameters.contextPath : '') + '/modules/bootstrap3-components/javascript/cktemplates.js' ];
 
 

@@ -50,14 +50,6 @@ CKEDITOR.addTemplates('default',
             },
             {
                 title:'',
-                image:'well-white.png',
-                description:'',
-                html:'<div class="well well-white">' +
-                    'Look, I\'m in a well white!' +
-                    '</div>'
-            },
-            {
-                title:'',
                 image:'btn.png',
                 description:'',
                 html:'<a href="#" class="btn btn-default">' +
@@ -184,24 +176,17 @@ CKEDITOR.addTemplates('default',
                 description:'',
                 html:'<dl class="dl-horizontal">' +
                     '<dt>Rest</dt>' +
-                    '<dd>REST (REpresentational State Transfer) est un style d’architecture pour les systèmes hypermédia distribués, créé par Roy Fielding en 2000 dans le chapitre 5 de sa thèse de doctorat1.</dd>' +
+                    '<dd>REST (Representational State Transfer) est un style d’architecture pour les systèmes hypermédia distribués, créé par Roy Fielding en 2000 dans le chapitre 5 de sa thèse de doctorat1.</dd>' +
                     '</dl>'
             },
             {
                 title:'',
-                image:'blockquote.png',
+                image:'jumbotron.png',
                 description:'',
-                html:'<blockquote>' +
-                    '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere tincidunt molestie. Ut ullamcorper rhoncus tristique. Etiam ac mattis felis. Phasellus egestas leo sed suscipit tempor. Sed eu consequat turpis. Maecenas ac nisl laoreet arcu ullamcorper convallis in vel arcu. Praesent suscipit nisi in elementum feugiat.</p>' +
-                    '<small><strong>Author</strong>, Praesent venenatis libero eget sagittis pretium</small></blockquote>'
-            },
-            {
-                title:'',
-                image:'blockquote-right.png',
-                description:'',
-                html:'<blockquote class="pull-right clearfix">' +
-                    '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere tincidunt molestie. Ut ullamcorper rhoncus tristique. Etiam ac mattis felis. Phasellus egestas leo sed suscipit tempor. Sed eu consequat turpis. Maecenas ac nisl laoreet arcu ullamcorper convallis in vel arcu. Praesent suscipit nisi in elementum feugiat.</p>' +
-                    '<small><strong>Author</strong>, Praesent venenatis libero eget sagittis pretium</small></blockquote>'
+                html:'<div class="jumbotron">' +
+                    '<h1>Hello, world!</h1>' +
+                    '<p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>' +
+                    '<p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>'
             }
         ]
     });
