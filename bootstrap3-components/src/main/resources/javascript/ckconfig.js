@@ -31,6 +31,8 @@ CKEDITOR.stylesSet.add('text', [
 ]);
 
 CKEDITOR.editorConfig = function (config) {
+    config.allowedContent = true;
+
     config.contextPath = (typeof contextJsParameters != 'undefined') ? contextJsParameters.contextPath : '';
     config.language = (typeof contextJsParameters != 'undefined') ? contextJsParameters.uilang : 'en';
     config.contentlanguage = (typeof contextJsParameters != 'undefined') ? contextJsParameters.lang : 'en';
