@@ -29,71 +29,136 @@
 <c:choose>
     <c:when test="${grid == '4_8'}">
         <div class="container ${containerClass}">
-            <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
-            <div class="col-md-8"><template:area path="${colName}-main" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
+            <div class="row">
+                <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
+                                                     moduleType="${moduleType}" level="${level}"/></div>
+                <div class="col-md-8"><template:area path="${colName}-main" areaAsSubNode="true"
+                                                     moduleType="${moduleType}" level="${level}"/></div>
+            </div>
         </div>
     </c:when>
     <c:when test="${grid == '8_4'}">
         <div class="container ${containerClass}">
-            <div class="col-md-8"><template:area path="${colName}-main" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
-            <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
+            <div class="row">
+                <div class="col-md-8"><template:area path="${colName}-main" areaAsSubNode="true"
+                                                     moduleType="${moduleType}" level="${level}"/></div>
+                <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
+                                                     moduleType="${moduleType}" level="${level}"/></div>
+            </div>
         </div>
     </c:when>
     <c:when test="${grid == '3_9'}">
         <div class="container ${containerClass}">
-            <div class="col-md-3"><template:area path="${colName}-side" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
-            <div class="col-md-9"><template:area path="${colName}-main" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
+            <div class="row">
+                <div class="col-md-3"><template:area path="${colName}-side" areaAsSubNode="true"
+                                                     moduleType="${moduleType}"
+                                                     level="${level}"/></div>
+                <div class="col-md-9"><template:area path="${colName}-main" areaAsSubNode="true"
+                                                     moduleType="${moduleType}"
+                                                     level="${level}"/></div>
+            </div>
         </div>
     </c:when>
     <c:when test="${grid == '9_3'}">
         <div class="container ${containerClass}">
-            <div class="col-md-9"><template:area path="${colName}-main" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
-            <div class="col-md-3"><template:area path="${colName}-side" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
+            <div class="row">
+                <div class="col-md-9"><template:area path="${colName}-main" areaAsSubNode="true"
+                                                     moduleType="${moduleType}"
+                                                     level="${level}"/></div>
+                <div class="col-md-3"><template:area path="${colName}-side" areaAsSubNode="true"
+                                                     moduleType="${moduleType}"
+                                                     level="${level}"/></div>
+            </div>
         </div>
     </c:when>
     <c:when test="${grid == '2_10'}">
         <div class="container ${containerClass}">
-            <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
-            <div class="col-md-10"><template:area path="${colName}-main" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
+            <div class="row">
+                <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"
+                                                     moduleType="${moduleType}"
+                                                     level="${level}"/></div>
+                <div class="col-md-10"><template:area path="${colName}-main" areaAsSubNode="true"
+                                                      moduleType="${moduleType}"
+                                                      level="${level}"/></div>
+            </div>
         </div>
     </c:when>
     <c:when test="${grid == '10_2'}">
         <div class="container ${containerClass}">
-            <div class="col-md-10"><template:area path="${colName}-main" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
-            <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
+            <div class="row">
+                <div class="col-md-10"><template:area path="${colName}-main" areaAsSubNode="true"
+                                                      moduleType="${moduleType}"
+                                                      level="${level}"/></div>
+                <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"
+                                                     moduleType="${moduleType}"
+                                                     level="${level}"/></div>
+            </div>
         </div>
     </c:when>
     <c:when test="${grid == '4_4_4'}">
         <div class="container ${containerClass}">
-            <div class="col-md-4"><template:area path="${colName}-main" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
-            <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
-            <div class="col-md-4"><template:area path="${colName}-extra" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
+            <div class="row">
+                <div class="col-md-4"><template:area path="${colName}-main" areaAsSubNode="true"
+                                                     moduleType="${moduleType}"
+                                                     level="${level}"/></div>
+                <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
+                                                     moduleType="${moduleType}"
+                                                     level="${level}"/></div>
+                <div class="col-md-4"><template:area path="${colName}-extra" areaAsSubNode="true"
+                                                     moduleType="${moduleType}"
+                                                     level="${level}"/></div>
+            </div>
         </div>
     </c:when>
     <c:when test="${grid == '3_6_3'}">
         <div class="container ${containerClass}">
-            <div class="col-md-3"><template:area path="${colName}-side1" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
-            <div class="col-md-6"><template:area path="${colName}-main" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
-            <div class="col-md-3"><template:area path="${colName}-extra" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
+            <div class="row">
+                <div class="col-md-3"><template:area path="${colName}-side1" areaAsSubNode="true"
+                                                     moduleType="${moduleType}"
+                                                     level="${level}"/></div>
+                <div class="col-md-6"><template:area path="${colName}-main" areaAsSubNode="true"
+                                                     moduleType="${moduleType}"
+                                                     level="${level}"/></div>
+                <div class="col-md-3"><template:area path="${colName}-extra" areaAsSubNode="true"
+                                                     moduleType="${moduleType}"
+                                                     level="${level}"/></div>
+            </div>
         </div>
     </c:when>
     <c:when test="${grid == '3_3_3_3'}">
         <div class="container ${containerClass}">
-            <div class="col-md-3"><template:area path="${colName}-main" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
-            <div class="col-md-3"><template:area path="${colName}-side" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
-            <div class="col-md-3"><template:area path="${colName}-extra" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
-            <div class="col-md-3"><template:area path="${colName}-extra2" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
+            <div class="row">
+                <div class="col-md-3"><template:area path="${colName}-main" areaAsSubNode="true"
+                                                     moduleType="${moduleType}"
+                                                     level="${level}"/></div>
+                <div class="col-md-3"><template:area path="${colName}-side" areaAsSubNode="true"
+                                                     moduleType="${moduleType}"
+                                                     level="${level}"/></div>
+                <div class="col-md-3"><template:area path="${colName}-extra" areaAsSubNode="true"
+                                                     moduleType="${moduleType}"
+                                                     level="${level}"/></div>
+                <div class="col-md-3"><template:area path="${colName}-extra2" areaAsSubNode="true"
+                                                     moduleType="${moduleType}" level="${level}"/></div>
+            </div>
         </div>
     </c:when>
     <c:when test="${grid == '6_6'}">
         <div class="container ${containerClass}">
-            <div class="col-md-6"><template:area path="${colName}-main" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
-            <div class="col-md-6"><template:area path="${colName}-side" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
+            <div class="row">
+                <div class="col-md-6"><template:area path="${colName}-main" areaAsSubNode="true"
+                                                     moduleType="${moduleType}" level="${level}"/></div>
+                <div class="col-md-6"><template:area path="${colName}-side" areaAsSubNode="true"
+                                                     moduleType="${moduleType}" level="${level}"/></div>
+            </div>
         </div>
     </c:when>
     <c:when test="${grid == '12'}">
         <div class="container ${containerClass}">
-            <div class="col-md-12"><template:area path="${colName}-main" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
+            <div class="row">
+                <div class="col-md-12"><template:area path="${colName}-main" areaAsSubNode="true"
+                                                      moduleType="${moduleType}"
+                                                      level="${level}"/></div>
+            </div>
         </div>
     </c:when>
     <c:when test="${grid == '0'}">
@@ -107,12 +172,14 @@
     <c:otherwise>
         <c:if test="${renderContext.editMode}">
             <div class="container ${containerClass}">
-                <div class="col-md-12">
-                    <div class="alert">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
-                        <strong><fmt:message key="bootstrap3mix_predefinedColumns.message.warning"/>!</strong>
-                        <fmt:message
-                                key="bootstrap3mix_predefinedColumns.message.couldNotDisplayGrid"/> ${grid}.
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong><fmt:message key="bootstrap3mix_predefinedColumns.message.warning"/>!</strong>
+                            <fmt:message
+                                    key="bootstrap3mix_predefinedColumns.message.couldNotDisplayGrid"/> ${grid}.
+                        </div>
                     </div>
                 </div>
             </div>
