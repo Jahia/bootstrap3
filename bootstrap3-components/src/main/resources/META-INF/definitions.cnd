@@ -31,8 +31,10 @@
  extends = bootstrap3nt:columns
  itemtype = content
  - sectionElement (string, choicelist[resourceBundle]) = 'div' autocreated < 'section', 'article', 'header', 'footer', 'aside', 'nav', 'div','no-section'
+ - sectionId (string) < '[a-zA-Z0-0-_]+'
  - sectionCssClass (string)
  - containerCssClass (string)
+ - gridLayout (string, choicelist[resourceBundle]) = 'fixed-width' autocreated < 'fixed-width', 'full-width'
 
 [bootstrap3mix:siteLogo] mixin
  extends = jnt:virtualsite

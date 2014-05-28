@@ -23,11 +23,16 @@
 </c:if>
 <c:set var="sectionCssClass" value="${currentNode.properties['sectionCssClass'].string}"/>
 <c:set var="containerCssClass" value="${currentNode.properties['containerCssClass'].string}"/>
+<c:set var="sectionId" value="${currentNode.properties['sectionId'].string}"/>
+
 <c:if test="${! empty containerCssClass}">
     <c:set var="containerClass">class="${containerCssClass}"</c:set>
 </c:if>
 <c:if test="${sectionType != 'no-section'}">
-    <${sectionType} class="${sectionCssClass}" id="${currentNode.name}">
+    <c:if test="${empty sectionId}">
+        <c:set var="sectionId" value="${fn:replace(currentNode.name,' ','')}"/>
+    </c:if>
+    <${sectionType} class="${sectionCssClass}" id="${sectionId}">
 </c:if>
     <template:module nodeTypes="bootstrap3mix:predefinedColumns,bootstrap3mix:customColumns"
                      node="${currentNode}" view="mixin" editable="false"/>
