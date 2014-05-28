@@ -19,9 +19,6 @@
 <c:set var="colName" value="${currentNode.name}"/>
 <c:set var="grid" value="${currentNode.properties['grid'].string}"/>
 <c:set var="containerCssClass" value="${currentNode.properties['containerCssClass'].string}"/>
-<c:if test="${! empty containerCssClass}">
-    <c:set var="containerClass">class="${containerCssClass}"</c:set>
-</c:if>
 <c:set var="gridLayout" value="${currentNode.properties['gridLayout'].string == 'full-width' ? 'container-fluid' : 'container'}"/>
 
 <c:set var="createAbsoluteAreas" value="${jcr:isNodeType(currentNode, 'bootstrap3mix:createAbsoluteAreas')}"/>
