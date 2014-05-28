@@ -28,7 +28,10 @@
 <c:set var="level" value="${createAbsoluteAreas? currentNode.properties['level'].string : '0'}"/>
 
 <div class="container ${containerClass}">
-    <c:forTokens items="${columns}" delims="," varStatus="status" var="col">
-        <div class="${fn:trim(col)}"><template:area path="${colName}-col${status.index}" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/></div>
-    </c:forTokens>
+    <div class="row">
+        <c:forTokens items="${columns}" delims="," varStatus="status" var="col">
+            <div class="${fn:trim(col)}"><template:area path="${colName}-col${status.index}" areaAsSubNode="true"
+                                                        moduleType="${moduleType}" level="${level}"/></div>
+        </c:forTokens>
+    </div>
 </div>
