@@ -8,33 +8,35 @@
  - columnsType (string, choicelist[columnInitializer,resourceBundle]) = 'predefinedColumns' autocreated < 'predefinedColumns', 'customColumns'
  + * (jmix:droppableContent) = jmix:droppableContent
 
-[bootstrap3mix:createAbsoluteAreas] mixin
- extends = bootstrap3nt:columns
- itemtype = content
- - level (string, choicelist[resourceBundle]) = '0' autocreated < '0', '1', '2', '3', '4', '5'
-
 [bootstrap3mix:predefinedColumns] > jmix:templateMixin mixin
  extends = bootstrap3nt:columns
  - grid (string, choicelist[resourceBundle,moduleImage='png']) = '4_8' autocreated < '2_10', '3_9', '4_8', '4_4_4', '3_6_3', '3_3_3_3', '6_6', '8_4', '9_3', '10_2', '12', '0', '00'
 
-[bootstrap3mix:text] mixin
- - text (string, richtext[ckeditor.customConfig='$context/modules/bootstrap3-components/javascript/ckconfig.js']) i18n
-
-[bootstrap3mix:picto] mixin
- - picto (string, choicelist[resourceBundle]) = 'ok' autocreated < 'adjust', 'align-center', 'align-justify', 'align-left', 'align-right', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up', 'asterisk', 'backward', 'ban-circle', 'barcode', 'bell', 'bold', 'bookmark', 'book', 'briefcase', 'bullhorn', 'calendar', 'camera', 'certificate', 'check', 'chevron-down', 'chevron-left', 'chevron-right', 'chevron-up', 'circle-arrow-down', 'circle-arrow-left', 'circle-arrow-right', 'circle-arrow-up', 'cloud-download', 'cloud', 'cloud-upload', 'cog', 'collapse-down', 'collapse-up', 'comment', 'compressed', 'copyright-mark', 'credit-card', 'cutlery', 'dashboard', 'download-alt', 'download', 'earphone', 'edit', 'eject', 'envelope', 'euro', 'exclamation-sign', 'expand', 'export', 'eye-close', 'eye-open', 'facetime-video', 'fast-backward', 'fast-forward', 'file', 'film', 'filter', 'fire', 'flag', 'flash', 'floppy-disk', 'floppy-open', 'floppy-remove', 'floppy-saved', 'floppy-save', 'folder-close', 'folder-open', 'font', 'forward', 'fullscreen', 'gbp', 'gift', 'glass', 'globe', 'hand-down', 'hand-left', 'hand-right', 'hand-up', 'hdd', 'hd-video', 'header', 'headphones', 'heart-empty', 'heart', 'home', 'import', 'inbox', 'indent-left', 'indent-right', 'info-sign', 'italic', 'leaf', 'link', 'list-alt', 'list', 'lock', 'log-in', 'log-out', 'magnet', 'map-marker', 'minus-sign', 'minus', 'move', 'music', 'new-window', 'off', 'ok-circle', 'ok-sign', 'ok', 'open', 'paperclip', 'pause', 'pencil', 'phone-alt', 'phone', 'picture', 'plane', 'play-circle', 'play', 'plus-sign', 'plus', 'print', 'pushpin', 'qrcode', 'question-sign', 'random', 'record', 'refresh', 'registration-mark', 'remove-circle', 'remove-sign', 'remove', 'repeat', 'resize-full', 'resize-horizontal', 'resize-small', 'resize-vertical', 'retweet', 'road', 'saved', 'save', 'screenshot', 'sd-video', 'search', 'send', 'share-alt', 'share', 'shopping-cart', 'signal', 'sort-by-alphabet-alt', 'sort-by-alphabet', 'sort-by-attributes-alt', 'sort-by-attributes', 'sort-by-order-alt', 'sort-by-order', 'sort', 'sound-5-1', 'sound-6-1', 'sound-7-1', 'sound-dolby', 'sound-stereo', 'star-empty', 'star', 'stats', 'step-backward', 'step-forward', 'stop', 'subtitles', 'tag', 'tags', 'tasks', 'text-height', 'text-width', 'th-large', 'th-list', 'th', 'thumbs-down', 'thumbs-up', 'time', 'tint', 'tower', 'transfer', 'trash', 'tree-conifer', 'tree-deciduous', 'unchecked', 'upload', 'usd', 'user', 'volume-down', 'volume-off', 'volume-up', 'warning-sign', 'wrench', 'zoom-in', 'zoom-out'
-
 [bootstrap3mix:customColumns] > jmix:templateMixin mixin
  extends = bootstrap3nt:columns
  - gridClasses (string) = 'col-md-8, col-md-4'
-
+ 
 [bootstrap3mix:advancedColumnProperties] mixin
  extends = bootstrap3nt:columns
  itemtype = content
  - sectionElement (string, choicelist[resourceBundle]) = 'div' autocreated < 'section', 'article', 'header', 'footer', 'aside', 'nav', 'div','no-section'
  - sectionId (string) < '[a-zA-Z0-0-_]+'
  - sectionCssClass (string)
+ - activeContainer (boolean) = 'true' mandatory autocreated indexed=no
  - containerCssClass (string)
  - gridLayout (string, choicelist[resourceBundle]) = 'fixed-width' autocreated < 'fixed-width', 'full-width'
+
+ 
+[bootstrap3mix:createAbsoluteAreas] mixin
+ extends = bootstrap3nt:columns
+ itemtype = content
+- level (string, choicelist[resourceBundle]) = '0' autocreated < '0', '1', '2', '3', '4', '5'
+
+[bootstrap3mix:text] mixin
+ - text (string, richtext[ckeditor.customConfig='$context/modules/bootstrap3-components/javascript/ckconfig.js']) i18n
+
+[bootstrap3mix:picto] mixin
+ - picto (string, choicelist[resourceBundle]) = 'ok' autocreated < 'adjust', 'align-center', 'align-justify', 'align-left', 'align-right', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up', 'asterisk', 'backward', 'ban-circle', 'barcode', 'bell', 'bold', 'bookmark', 'book', 'briefcase', 'bullhorn', 'calendar', 'camera', 'certificate', 'check', 'chevron-down', 'chevron-left', 'chevron-right', 'chevron-up', 'circle-arrow-down', 'circle-arrow-left', 'circle-arrow-right', 'circle-arrow-up', 'cloud-download', 'cloud', 'cloud-upload', 'cog', 'collapse-down', 'collapse-up', 'comment', 'compressed', 'copyright-mark', 'credit-card', 'cutlery', 'dashboard', 'download-alt', 'download', 'earphone', 'edit', 'eject', 'envelope', 'euro', 'exclamation-sign', 'expand', 'export', 'eye-close', 'eye-open', 'facetime-video', 'fast-backward', 'fast-forward', 'file', 'film', 'filter', 'fire', 'flag', 'flash', 'floppy-disk', 'floppy-open', 'floppy-remove', 'floppy-saved', 'floppy-save', 'folder-close', 'folder-open', 'font', 'forward', 'fullscreen', 'gbp', 'gift', 'glass', 'globe', 'hand-down', 'hand-left', 'hand-right', 'hand-up', 'hdd', 'hd-video', 'header', 'headphones', 'heart-empty', 'heart', 'home', 'import', 'inbox', 'indent-left', 'indent-right', 'info-sign', 'italic', 'leaf', 'link', 'list-alt', 'list', 'lock', 'log-in', 'log-out', 'magnet', 'map-marker', 'minus-sign', 'minus', 'move', 'music', 'new-window', 'off', 'ok-circle', 'ok-sign', 'ok', 'open', 'paperclip', 'pause', 'pencil', 'phone-alt', 'phone', 'picture', 'plane', 'play-circle', 'play', 'plus-sign', 'plus', 'print', 'pushpin', 'qrcode', 'question-sign', 'random', 'record', 'refresh', 'registration-mark', 'remove-circle', 'remove-sign', 'remove', 'repeat', 'resize-full', 'resize-horizontal', 'resize-small', 'resize-vertical', 'retweet', 'road', 'saved', 'save', 'screenshot', 'sd-video', 'search', 'send', 'share-alt', 'share', 'shopping-cart', 'signal', 'sort-by-alphabet-alt', 'sort-by-alphabet', 'sort-by-attributes-alt', 'sort-by-attributes', 'sort-by-order-alt', 'sort-by-order', 'sort', 'sound-5-1', 'sound-6-1', 'sound-7-1', 'sound-dolby', 'sound-stereo', 'star-empty', 'star', 'stats', 'step-backward', 'step-forward', 'stop', 'subtitles', 'tag', 'tags', 'tasks', 'text-height', 'text-width', 'th-large', 'th-list', 'th', 'thumbs-down', 'thumbs-up', 'time', 'tint', 'tower', 'transfer', 'trash', 'tree-conifer', 'tree-deciduous', 'unchecked', 'upload', 'usd', 'user', 'volume-down', 'volume-off', 'volume-up', 'warning-sign', 'wrench', 'zoom-in', 'zoom-out'
 
 [bootstrap3mix:siteLogo] mixin
  extends = jnt:virtualsite
