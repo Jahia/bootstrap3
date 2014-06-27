@@ -22,6 +22,7 @@
     <c:set var="sectionType" value="section"/>
 </c:if>
 <c:set var="sectionCssClass" value="${currentNode.properties['sectionCssClass'].string}"/>
+<c:set var="activeContainer" value="${currentNode.properties['activeContainer'].string}"/>
 <c:set var="containerCssClass" value="${currentNode.properties['containerCssClass'].string}"/>
 <c:set var="sectionId" value="${currentNode.properties['sectionId'].string}"/>
 
