@@ -16,38 +16,52 @@
 <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
+
 <c:set var="colName" value="${currentNode.name}"/>
 <c:set var="grid" value="${currentNode.properties['grid'].string}"/>
+<c:set var="activeContainer" value="${currentNode.properties['activeContainer'].string}"/>
 <c:set var="containerCssClass" value="${currentNode.properties['containerCssClass'].string}"/>
 <c:set var="gridLayout" value="${currentNode.properties['gridLayout'].string == 'full-width' ? 'container-fluid' : 'container'}"/>
-
 <c:set var="createAbsoluteAreas" value="${jcr:isNodeType(currentNode, 'bootstrap3mix:createAbsoluteAreas')}"/>
 <c:set var="moduleType" value="${createAbsoluteAreas? 'absoluteArea' : 'area'}"/>
 <c:set var="level" value="${createAbsoluteAreas? currentNode.properties['level'].string : '0'}"/>
 
+<c:if test="${renderContext.editMode}">
+	<p class="bg-info">
+	<c:if test="${activeContainer == true }">
+	<fmt:message key="bootstrap3mix_predefinedColumns.message.activeContainer" />
+	</c:if>
+	<c:if test="${activeContainer == false }">
+	<fmt:message key="bootstrap3mix_predefinedColumns.message.unactiveContainer" />
+	</c:if>
+	</p>
+</c:if>
+
+
+
+<c:if test="${activeContainer == true }">
+	<div class="${gridLayout} ${containerClass}">
+</c:if>
+
 <c:choose>
+
     <c:when test="${grid == '4_8'}">
-        <div class="${gridLayout} ${containerClass}">
             <div class="row">
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-8"><template:area path="${colName}-main" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
             </div>
-        </div>
     </c:when>
     <c:when test="${grid == '8_4'}">
-        <div class="${gridLayout} ${containerClass}">
             <div class="row">
                 <div class="col-md-8"><template:area path="${colName}-main" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
             </div>
-        </div>
     </c:when>
     <c:when test="${grid == '3_9'}">
-        <div class="${gridLayout} ${containerClass}">
             <div class="row">
                 <div class="col-md-3"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}"
@@ -56,10 +70,8 @@
                                                      moduleType="${moduleType}"
                                                      level="${level}"/></div>
             </div>
-        </div>
     </c:when>
     <c:when test="${grid == '9_3'}">
-        <div class="${gridLayout} ${containerClass}">
             <div class="row">
                 <div class="col-md-9"><template:area path="${colName}-main" areaAsSubNode="true"
                                                      moduleType="${moduleType}"
@@ -68,10 +80,8 @@
                                                      moduleType="${moduleType}"
                                                      level="${level}"/></div>
             </div>
-        </div>
     </c:when>
     <c:when test="${grid == '2_10'}">
-        <div class="${gridLayout} ${containerClass}">
             <div class="row">
                 <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}"
@@ -80,10 +90,8 @@
                                                       moduleType="${moduleType}"
                                                       level="${level}"/></div>
             </div>
-        </div>
     </c:when>
     <c:when test="${grid == '10_2'}">
-        <div class="${gridLayout} ${containerClass}">
             <div class="row">
                 <div class="col-md-10"><template:area path="${colName}-main" areaAsSubNode="true"
                                                       moduleType="${moduleType}"
@@ -92,10 +100,8 @@
                                                      moduleType="${moduleType}"
                                                      level="${level}"/></div>
             </div>
-        </div>
     </c:when>
     <c:when test="${grid == '4_4_4'}">
-        <div class="${gridLayout} ${containerClass}">
             <div class="row">
                 <div class="col-md-4"><template:area path="${colName}-main" areaAsSubNode="true"
                                                      moduleType="${moduleType}"
@@ -107,10 +113,8 @@
                                                      moduleType="${moduleType}"
                                                      level="${level}"/></div>
             </div>
-        </div>
     </c:when>
     <c:when test="${grid == '3_6_3'}">
-        <div class="${gridLayout} ${containerClass}">
             <div class="row">
                 <div class="col-md-3"><template:area path="${colName}-side1" areaAsSubNode="true"
                                                      moduleType="${moduleType}"
@@ -122,10 +126,8 @@
                                                      moduleType="${moduleType}"
                                                      level="${level}"/></div>
             </div>
-        </div>
     </c:when>
     <c:when test="${grid == '3_3_3_3'}">
-        <div class="${gridLayout} ${containerClass}">
             <div class="row">
                 <div class="col-md-3"><template:area path="${colName}-main" areaAsSubNode="true"
                                                      moduleType="${moduleType}"
@@ -139,31 +141,24 @@
                 <div class="col-md-3"><template:area path="${colName}-extra2" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
             </div>
-        </div>
     </c:when>
     <c:when test="${grid == '6_6'}">
-        <div class="${gridLayout} ${containerClass}">
             <div class="row">
                 <div class="col-md-6"><template:area path="${colName}-main" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-6"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
             </div>
-        </div>
     </c:when>
     <c:when test="${grid == '12'}">
-        <div class="${gridLayout} ${containerClass}">
             <div class="row">
                 <div class="col-md-12"><template:area path="${colName}-main" areaAsSubNode="true"
                                                       moduleType="${moduleType}"
                                                       level="${level}"/></div>
             </div>
-        </div>
     </c:when>
     <c:when test="${grid == '0'}">
-        <div class="${gridLayout} ${containerClass}">
             <template:area path="${colName}" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/>
-        </div>
     </c:when>
     <c:when test="${grid == '00'}">
         <template:area path="${colName}" areaAsSubNode="true" moduleType="${moduleType}" level="${level}"/>
@@ -185,3 +180,7 @@
         </c:if>
     </c:otherwise>
 </c:choose>
+
+<c:if test="${activeContainer == true }">
+	</div>
+</c:if>
