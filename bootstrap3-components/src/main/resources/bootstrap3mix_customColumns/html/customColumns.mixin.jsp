@@ -21,6 +21,7 @@
 <c:set var="colName" value="${currentNode.name}" />
 <c:set var="activeContainer" value="${currentNode.properties['activeContainer'].string}" />
 <c:set var="containerCssClass" value="${currentNode.properties['containerCssClass'].string}" />
+<c:set var="rowCssClass" value="${currentNode.properties['rowCssClass'].string}" />
 <c:set var="gridLayout" value="${currentNode.properties['gridLayout'].string == 'full-width' ? 'container-fluid' : 'container'}" />
 <c:set var="createAbsoluteAreas" value="${jcr:isNodeType(currentNode, 'bootstrap3mix:createAbsoluteAreas')}" />
 <c:set var="moduleType" value="${createAbsoluteAreas? 'absoluteArea' : 'area'}" />
@@ -44,7 +45,7 @@
 <c:choose>
 
 	<c:when test="${! empty columns}">
-		<div class="row">
+		<div class="row ${rowCssClass}">
 			<c:forTokens items="${columns}" delims="," varStatus="status"
 				var="col">
 				<div class="${fn:trim(col)}">

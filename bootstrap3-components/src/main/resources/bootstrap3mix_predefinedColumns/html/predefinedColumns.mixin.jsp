@@ -21,6 +21,7 @@
 <c:set var="grid" value="${currentNode.properties['grid'].string}"/>
 <c:set var="activeContainer" value="${currentNode.properties['activeContainer'].string}"/>
 <c:set var="containerCssClass" value="${currentNode.properties['containerCssClass'].string}"/>
+<c:set var="rowCssClass" value="${currentNode.properties['rowCssClass'].string}" />
 <c:set var="gridLayout" value="${currentNode.properties['gridLayout'].string == 'full-width' ? 'container-fluid' : 'container'}"/>
 <c:set var="createAbsoluteAreas" value="${jcr:isNodeType(currentNode, 'bootstrap3mix:createAbsoluteAreas')}"/>
 <c:set var="moduleType" value="${createAbsoluteAreas? 'absoluteArea' : 'area'}"/>
@@ -47,7 +48,7 @@
 
 
 	<c:when test="${grid == '8_8'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-8"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-8"><template:area path="${colName}-main" areaAsSubNode="true"
@@ -56,7 +57,7 @@
     </c:when>
     
 	<c:when test="${grid == '8_4_4'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-8"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-4"><template:area path="${colName}-main" areaAsSubNode="true"
@@ -67,7 +68,7 @@
     </c:when>
 
 	<c:when test="${grid == '4_8_4'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-8"><template:area path="${colName}-main" areaAsSubNode="true"
@@ -78,7 +79,7 @@
     </c:when>
 
 	<c:when test="${grid == '4_4_8'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-4"><template:area path="${colName}-main" areaAsSubNode="true"
@@ -89,7 +90,7 @@
     </c:when>
 
 	<c:when test="${grid == '4_4_4_4'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-4"><template:area path="${colName}-main" areaAsSubNode="true"
@@ -102,7 +103,7 @@
     </c:when>
 
 	<c:when test="${grid == '4_4_4_4'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-4"><template:area path="${colName}-main" areaAsSubNode="true"
@@ -115,7 +116,7 @@
     </c:when>
 
 	<c:when test="${grid == '2_2_4_4_4'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"
@@ -130,7 +131,7 @@
     </c:when>
 
 	<c:when test="${grid == '2_4_2_4_4'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
@@ -145,7 +146,7 @@
     </c:when>
 
 	<c:when test="${grid == '2_4_4_2_4'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
@@ -160,7 +161,7 @@
     </c:when>
 
 	<c:when test="${grid == '2_4_4_4_2'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
@@ -175,7 +176,7 @@
     </c:when>
 
 	<c:when test="${grid == '4_2_2_4_4'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"
@@ -190,7 +191,7 @@
     </c:when>
 
 	<c:when test="${grid == '4_4_2_2_4'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
@@ -205,7 +206,7 @@
     </c:when>
 
 	<c:when test="${grid == '4_4_4_2_2'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
@@ -220,7 +221,7 @@
     </c:when>
 
 	<c:when test="${grid == '4_2_4_2_4'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"
@@ -235,7 +236,7 @@
     </c:when>
 
 	<c:when test="${grid == '4_2_4_4_2'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"
@@ -250,7 +251,7 @@
     </c:when>
 
 	<c:when test="${grid == '4_4_2_4_2'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
@@ -266,7 +267,7 @@
 
 
 	<c:when test="${grid == '2_4_2_4_4'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
@@ -282,7 +283,7 @@
 
 
 	<c:when test="${grid == '2_2_2_2_2_2_2_2'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"
@@ -303,7 +304,7 @@
     </c:when>
 
     <c:when test="${grid == '4_8'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-8"><template:area path="${colName}-main" areaAsSubNode="true"
@@ -311,7 +312,7 @@
             </div>
     </c:when>
     <c:when test="${grid == '8_4'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-8"><template:area path="${colName}-main" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-4"><template:area path="${colName}-side" areaAsSubNode="true"
@@ -319,7 +320,7 @@
             </div>
     </c:when>
     <c:when test="${grid == '3_9'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-3"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}"
                                                      level="${level}"/></div>
@@ -329,7 +330,7 @@
             </div>
     </c:when>
     <c:when test="${grid == '9_3'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-9"><template:area path="${colName}-main" areaAsSubNode="true"
                                                      moduleType="${moduleType}"
                                                      level="${level}"/></div>
@@ -339,7 +340,7 @@
             </div>
     </c:when>
     <c:when test="${grid == '2_10'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-2"><template:area path="${colName}-side" areaAsSubNode="true"
                                                      moduleType="${moduleType}"
                                                      level="${level}"/></div>
@@ -349,7 +350,7 @@
             </div>
     </c:when>
     <c:when test="${grid == '10_2'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-10"><template:area path="${colName}-main" areaAsSubNode="true"
                                                       moduleType="${moduleType}"
                                                       level="${level}"/></div>
@@ -359,7 +360,7 @@
             </div>
     </c:when>
     <c:when test="${grid == '4_4_4'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-4"><template:area path="${colName}-main" areaAsSubNode="true"
                                                      moduleType="${moduleType}"
                                                      level="${level}"/></div>
@@ -372,7 +373,7 @@
             </div>
     </c:when>
     <c:when test="${grid == '3_6_3'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-3"><template:area path="${colName}-side1" areaAsSubNode="true"
                                                      moduleType="${moduleType}"
                                                      level="${level}"/></div>
@@ -385,7 +386,7 @@
             </div>
     </c:when>
     <c:when test="${grid == '3_3_3_3'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-3"><template:area path="${colName}-main" areaAsSubNode="true"
                                                      moduleType="${moduleType}"
                                                      level="${level}"/></div>
@@ -400,7 +401,7 @@
             </div>
     </c:when>
     <c:when test="${grid == '6_6'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-6"><template:area path="${colName}-main" areaAsSubNode="true"
                                                      moduleType="${moduleType}" level="${level}"/></div>
                 <div class="col-md-6"><template:area path="${colName}-side" areaAsSubNode="true"
@@ -408,7 +409,7 @@
             </div>
     </c:when>
     <c:when test="${grid == '12'}">
-            <div class="row">
+            <div  class="row ${rowCssClass}">
                 <div class="col-md-12"><template:area path="${colName}-main" areaAsSubNode="true"
                                                       moduleType="${moduleType}"
                                                       level="${level}"/></div>
@@ -423,7 +424,7 @@
     <c:otherwise>
         <c:if test="${renderContext.editMode}">
             <div class="${gridLayout} ${containerClass}">
-                <div class="row">
+                <div  class="row ${rowCssClass}">
                     <div class="col-md-12">
                         <div class="alert">
                             <button type="button" class="close" data-dismiss="alert">×</button>
