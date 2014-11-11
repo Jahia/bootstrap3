@@ -103,3 +103,10 @@
  - openText (string) = 'Launch demo modal' i18n mandatory
  - closeText (string) = 'Close' i18n mandatory
  + * (jmix:droppableContent) = jmix:droppableContent
+
+[bootstrap3nt:carouselItem] > jnt:content, mix:title
+ - image (weakreference, picker[type='image']) i18n mandatory < jnt:file
+ - caption (string,textarea) i18n
+
+[bootstrap3nt:carousel] > jnt:content, bootstrap3mix:component
++ * (bootstrap3nt:carouselItem)
