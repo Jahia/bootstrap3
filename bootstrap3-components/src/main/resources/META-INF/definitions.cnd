@@ -94,3 +94,12 @@
 
 [bootstrap3nt:pagination] > jnt:content, bootstrap3mix:component, jmix:bindedComponent
  - displayPager (boolean) = 'true' autocreated
+
+[bootstrap3mix:advancedModal] mixin
+ extends = bootstrap3nt:modal
+- size (string, choicelist[resourceBundle]) = 'default' indexed=no autocreated < 'default', 'lg', 'sm'
+
+[bootstrap3nt:modal] >  jnt:content, bootstrap3mix:component, mix:title
+ - openText (string) = 'Launch demo modal' i18n mandatory
+ - closeText (string) = 'Close' i18n mandatory
+ + * (jmix:droppableContent) = jmix:droppableContent
