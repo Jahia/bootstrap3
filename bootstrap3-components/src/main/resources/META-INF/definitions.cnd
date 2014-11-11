@@ -110,3 +110,6 @@
 
 [bootstrap3nt:carousel] > jnt:content, bootstrap3mix:component
 + * (bootstrap3nt:carouselItem)
+
+[bootstrap3nt:collapse] > jnt:content, bootstrap3mix:component
++ * (bootstrap3nt:panel)
