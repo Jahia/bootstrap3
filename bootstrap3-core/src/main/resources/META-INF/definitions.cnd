@@ -5,5 +5,8 @@
 
 [bootstrap3mix:component] > jmix:droppableContent, jmix:editorialContent mixin
 
+[bootstrap3mix:glyphicon] mixin
+ - glyphicon (string, choicelist[iconInitializer,resourceBundle])
+
 [bootstrap3nt:version] > jnt:content, bootstrap3mix:component
 
