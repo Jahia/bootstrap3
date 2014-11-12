@@ -10,9 +10,14 @@
     <groupId>org.jahia.modules</groupId>
     <artifactId>bootstrap3-core</artifactId>
     <name>Bootstrap 3 Core</name>
-    <version>1.3.0</version>
+    <version>1.4.0-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <description>This is the custom module (Bootstrap 3 Core) for running on a Jahia server.</description>
+    <scm>
+        <connection>scm:git:git@github.com:Jahia/bootstrap3.git</connection>
+        <developerConnection>scm:git:git@github.com:Jahia/bootstrap3.git</developerConnection>
+        <url>scm:git:git@github.com:Jahia/bootstrap3.git</url>
+    </scm>
     <build>
         <plugins>
             <plugin>
