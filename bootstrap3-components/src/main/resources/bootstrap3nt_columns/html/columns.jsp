@@ -17,27 +17,46 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 <template:addResources type="css" resources="bootstrap.min.css"/>
-<c:set var="sectionType" value="${currentNode.properties['sectionElement'].string}"/>
-<c:if test="${empty sectionType}">
-    <c:set var="sectionType" value="section"/>
-</c:if>
-<c:set var="sectionCssClass" value="${currentNode.properties['sectionCssClass'].string}"/>
-<c:set var="activeContainer" value="${currentNode.properties['activeContainer'].string}"/>
-<c:set var="containerCssClass" value="${currentNode.properties['containerCssClass'].string}"/>
-<c:set var="sectionId" value="${currentNode.properties['sectionId'].string}"/>
 
-<c:if test="${! empty containerCssClass}">
-    <c:set var="containerClass">class="${containerCssClass}"</c:set>
+
+<c:set var="createSection" value="${jcr:isNodeType(currentNode,'bootstrap3mix:createSection')}"/>
+<c:set var="createContainer" value="${jcr:isNodeType(currentNode,'bootstrap3mix:createContainer')}"/>
+<c:set var="createRow" value="${jcr:isNodeType(currentNode,'bootstrap3mix:createRow')}"/>
+
+<c:set var="columnsType" value="${currentNode.properties.columnsType.string}"/>
+
+<c:if test="${createSection}">
+    <c:set var="sectionType" value="${currentNode.properties['sectionElement'].string}"/>
+    <c:set var="sectionCssClass" value="${currentNode.properties['sectionCssClass'].string}"/>
+
+    <c:set var="sectionId" value="${currentNode.properties['sectionId'].string}"/>
+    <${sectionType}<c:if test="${! empty sectionId}"> id="${sectionId}"</c:if><c:if test="${! empty sectionCssClass}"> class="${sectionCssClass}"</c:if>>
 </c:if>
-<c:if test="${sectionType != 'no-section'}">
-    <c:if test="${empty sectionId}">
-        <c:set var="sectionId" value="${fn:replace(currentNode.name,' ','')}"/>
-    </c:if>
-    <${sectionType} class="${sectionCssClass}" id="${sectionId}">
+
+<c:if test="${createContainer}">
+    <c:set var="containerId" value="${currentNode.properties['containerId'].string}"/>
+    <c:set var="containerCssClass" value="${currentNode.properties['containerCssClass'].string}"/>
+    <c:set var="gridLayout" value="${currentNode.properties['gridLayout'].string == 'full-width' ? 'container-fluid' : 'container'}"/>
+    <div<c:if test="${! empty containerId}"> id="${containerId}"</c:if> class="${gridLayout}<c:if test="${! empty containerCssClass}"> ${containerCssClass}</c:if>">
 </c:if>
-    <template:module nodeTypes="bootstrap3mix:predefinedColumns,bootstrap3mix:customColumns"
-                     node="${currentNode}" view="mixin" editable="false"/>
-<c:if test="${sectionType != 'no-section'}">
+
+<c:if test="${createRow}">
+    <c:set var="rowId" value="${currentNode.properties['rowId'].string}"/>
+    <c:set var="rowCssClass" value="${currentNode.properties['rowCssClass'].string}"/>
+    <div class="${gridLayout} "></div>
+    <div<c:if test="${! empty rowId}"> id="${rowId}"</c:if> class="row<c:if test="${! empty rowCssClass}"> ${rowCssClass}</c:if>">
+</c:if>
+
+<template:module node="${currentNode}" view="hidden.${columnsType}" editable="false"/>
+
+<c:if test="${createRow}">
+    </div>
+</c:if>
+
+<c:if test="${createContainer}">
+    </div>
+</c:if>
+
+<c:if test="${createSection}">
     </${sectionType}>
 </c:if>
-
