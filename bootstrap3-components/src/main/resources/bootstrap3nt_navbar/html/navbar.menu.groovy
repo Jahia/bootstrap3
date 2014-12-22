@@ -35,7 +35,7 @@ printMenu = { node, navMenuLevel ->
                         listItemCssClass = "class=\"" + (inpath || active ? "active " : "") + (hasChildren && navMenuLevel > 1 ? "dropdown-menu" : "dropdown") + "\"";
                         description = menuItem.properties['jcr:description'];
                         linkTitle = description ? " title=\"${description.string}\"" : ""
-                        link = menuItem.url;
+                        link = menuItem.isNodeType("jnt:nodeLink") ? menuItem.properties['j:node'].node.url : menuItem.url;
                         if (navMenuLevel == 1   ) {
                             if (!ulIsOpen) {
                                 ulClass = "nav navbar-nav navbar-right";
