@@ -14,33 +14,6 @@
                 <templates j:rootTemplatePath="/base" jcr:primaryType="jnt:templatesFolder">
                     <files jcr:primaryType="jnt:folder"/>
                     <contents jcr:primaryType="jnt:contentFolder"/>
-                    <site-settings-base j:view="siteSettings"
-                                jcr:mixinTypes="jmix:useUILocale"
-                                jcr:primaryType="jnt:template">
-                        <site-settings j:applyOn="jnt:virtualsite"
-                              j:defaultTemplate="false"
-                              j:hiddenTemplate="false"
-                              jcr:primaryType="jnt:contentTemplate">
-                            <j:translation_en jcr:language="en"
-                                    jcr:mixinTypes="mix:title"
-                                    jcr:primaryType="jnt:translation"
-                                    jcr:title="site settings"/>
-                            <pagecontent jcr:primaryType="jnt:contentList"/>
-                        </site-settings>
-                    </site-settings-base>
-                    <portfolio-item j:applyOn="bootstrap3nt:portfolioItem"
-                            j:defaultTemplate="true"
-                            j:hiddenTemplate="false"
-                            j:priority="1"
-                            jcr:primaryType="jnt:contentTemplate">
-                        <j:translation_en jcr:language="en"
-                                 jcr:mixinTypes="mix:title"
-                                 jcr:primaryType="jnt:translation"
-                                 jcr:title="Portfolio item"/>
-                        <pagecontent jcr:primaryType="jnt:contentList">
-                            <main-resource-display j:mainResourceView="detail" jcr:primaryType="jnt:mainResourceDisplay"/>
-                        </pagecontent>
-                    </portfolio-item>
                 </templates>
                 
             </bootstrap3-components>
