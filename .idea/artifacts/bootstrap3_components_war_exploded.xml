@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="bootstrap3-components:war exploded">
+    <output-path>$PROJECT_DIR$/bootstrap3-components/target/bootstrap3-components-1.2.1-SNAPSHOT</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="bootstrap3-components" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/bootstrap3-components/target/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="bootstrap3-components/web/Web" />
+    </root>
+  </artifact>
+</component>

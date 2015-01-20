@@ -16,8 +16,6 @@ import org.jahia.services.content.nodetypes.initializers.ModuleChoiceListInitial
 import org.jahia.services.content.nodetypes.renderer.AbstractChoiceListRenderer;
 import org.jahia.services.content.nodetypes.renderer.ModuleChoiceListRenderer;
 import org.jahia.services.render.RenderContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.jcr.PropertyType;
 import javax.jcr.RepositoryException;
@@ -27,7 +25,6 @@ import java.util.*;
 
 public class ColumnInitializer extends AbstractChoiceListRenderer implements ModuleChoiceListInitializer, ModuleChoiceListRenderer {
 
-    private static final Logger logger = LoggerFactory.getLogger(ColumnInitializer.class);
 
     private String key;
 

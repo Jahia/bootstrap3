@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.apache.jackrabbit:jackrabbit-jcr-servlet:2.2.4-rev1068882-patch7">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/jackrabbit/jackrabbit-jcr-servlet/2.2.4-rev1068882-patch7/jackrabbit-jcr-servlet-2.2.4-rev1068882-patch7.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/jackrabbit/jackrabbit-jcr-servlet/2.2.4-rev1068882-patch7/jackrabbit-jcr-servlet-2.2.4-rev1068882-patch7-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/jackrabbit/jackrabbit-jcr-servlet/2.2.4-rev1068882-patch7/jackrabbit-jcr-servlet-2.2.4-rev1068882-patch7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

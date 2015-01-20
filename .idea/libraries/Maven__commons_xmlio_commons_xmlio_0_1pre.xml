@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: commons-xmlio:commons-xmlio:0.1pre">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/commons-xmlio/commons-xmlio/0.1pre/commons-xmlio-0.1pre.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/commons-xmlio/commons-xmlio/0.1pre/commons-xmlio-0.1pre-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/commons-xmlio/commons-xmlio/0.1pre/commons-xmlio-0.1pre-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

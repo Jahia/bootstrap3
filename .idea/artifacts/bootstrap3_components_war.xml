@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="bootstrap3-components:war">
+    <output-path>$PROJECT_DIR$/bootstrap3-components/target</output-path>
+    <root id="archive" name="bootstrap3-components-1.2.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="bootstrap3-components:war exploded" />
+    </root>
+  </artifact>
+</component>
