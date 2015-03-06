@@ -9,7 +9,7 @@
   </parent>
   <groupId>org.jahia.modules</groupId>
   <artifactId>bootstrap3-components</artifactId>
-  <version>2.0.2-SNAPSHOT</version>
+  <version>2.0.3-SNAPSHOT</version>
   <packaging>bundle</packaging>
   <name>Bootstrap 3 Components</name>
   <description>This is the custom module (Bootstrap 3 Components) for running on a Jahia server.</description>
@@ -24,7 +24,7 @@
     <scm>
         <connection>scm:git:git@github.com:Jahia/bootstrap3.git</connection>
         <developerConnection>scm:git:git@github.com:Jahia/bootstrap3.git</developerConnection>
-        <url>scm:git:git@github.com:Jahia/bootstrap3.git</url>
+        <url>scm:https://github.com/Jahia/bootstrap3.git</url>
     </scm>
 
     <build>
