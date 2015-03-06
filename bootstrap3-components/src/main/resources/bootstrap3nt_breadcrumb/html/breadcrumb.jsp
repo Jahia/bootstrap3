@@ -31,9 +31,12 @@
     </c:choose>
 </c:if>
 <c:if test="${fn:length(pageNodes) > 1}">
-    <ul class="pull-right breadcrumb">
+    <c:set var="cssClass"/>
+    <c:if test="${jcr:isNodeType(currentNode,'bootstrap3mix:advancedBreadcrumb' )}">
+        <c:set var="cssClass" value="${currentNode.properties.cssClass.string}"/>
+    </c:if>
+    <ul class='breadcrumb<c:if test="${! empty cssClass}"><c:out value=" "/>${cssClass}</c:if>'>
         <c:forEach items="${functions:reverse(pageNodes)}" var="pageNode" varStatus="status">
-
             <c:choose>
                 <c:when test="${jcr:findDisplayableNode(pageNode, renderContext) ne pageNode}">
                     <li><a href="#"><c:out value="${pageNode.displayableName}"/></a></li>

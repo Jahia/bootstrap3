@@ -16,7 +16,7 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 <template:addResources type="css" resources="bootstrap.min.css"/>
-
+<%-- DERECATED VIEW --%>
 <c:set var="pageNodes" value="${jcr:getParentsOfType(currentNode, 'jnt:page')}"/>
 <c:if test="${empty pageNodes}">
     <c:choose>
@@ -31,9 +31,12 @@
     </c:choose>
 </c:if>
 <c:if test="${fn:length(pageNodes) > 1}">
-    <ul class="pull-left breadcrumb">
+    <c:set var="cssClass" value="pull-left"/>
+    <c:if test="${jcr:isNodeType(currentNode,'bootstrap3mix:advancedBreadcrumb' )}">
+        <c:set var="cssClass" value="${currentNode.properties.cssClass.string}"/>
+    </c:if>
+    <ul class='breadcrumb<c:if test="${! empty cssClass}"><c:out value=" "/>${cssClass}</c:if>'>
         <c:forEach items="${functions:reverse(pageNodes)}" var="pageNode" varStatus="status">
-
             <c:choose>
                 <c:when test="${jcr:findDisplayableNode(pageNode, renderContext) ne pageNode}">
                     <li><a href="#"><c:out value="${pageNode.displayableName}"/></a></li>

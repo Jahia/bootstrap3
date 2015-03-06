@@ -71,7 +71,20 @@
 
 [bootstrap3nt:loginbar] > jnt:content, bootstrap3mix:component, jmix:studioOnly
 
-[bootstrap3nt:pageTitle] > jnt:content, bootstrap3mix:component, jmix:studioOnly
+[bootstrap3mix:advancedPageTitle] mixin
+ extends = bootstrap3nt:pageTitle
+ itemtype = content
+ - cssClass (string) = 'pull-right'
+ - hx (string, choicelist[resourceBundle,moduleImage='png']) = 'h1' autocreated < 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+
+
+[bootstrap3nt:pageTitle] > jnt:content, bootstrap3mix:component
+
+[bootstrap3mix:advancedBreadcrumb] mixin
+ extends = bootstrap3nt:breadcrumb
+ itemtype = content
+ - cssClass (string) = 'pull-left'
+
 [bootstrap3nt:breadcrumb] > jnt:content, bootstrap3mix:component, jmix:studioOnly
 
 [bootstrap3mix:contextualState] mixin
