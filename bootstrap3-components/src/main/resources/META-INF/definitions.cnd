@@ -22,6 +22,7 @@
  - sectionElement (string, choicelist[resourceBundle]) = 'div' autocreated < 'section', 'article', 'header', 'footer', 'aside', 'nav', 'div'
  - sectionId (string) < '[a-zA-Z0-0-_]+'
  - sectionCssClass (string)
+ - sectionRole (string)
 
 [bootstrap3mix:createContainer] mixin
  extends = bootstrap3nt:columns
@@ -55,7 +56,7 @@
 [bootstrap3mix:navbarAdvanced] mixin
  extends = bootstrap3nt:navbar
  itemtype = content
- - navbarClass (string) = 'navbar navbar-default'
+ - navbarClass (string) = 'navbar navbar-default navbar-static-top'
  - ulClass (string) = 'nav navbar-nav navbar-right'
 
 [bootstrap3mix:hx] mixin

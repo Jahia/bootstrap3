@@ -28,9 +28,10 @@
 <c:if test="${createSection}">
     <c:set var="sectionType" value="${currentNode.properties['sectionElement'].string}"/>
     <c:set var="sectionCssClass" value="${currentNode.properties['sectionCssClass'].string}"/>
-
     <c:set var="sectionId" value="${currentNode.properties['sectionId'].string}"/>
-    <${sectionType}<c:if test="${! empty sectionId}"> id="${sectionId}"</c:if><c:if test="${! empty sectionCssClass}"><c:out value=" "/>class="${sectionCssClass}"</c:if>>
+    <c:set var="sectionRole" value="${currentNode.properties['sectionRole'].string}"/>
+
+    <${sectionType}<c:if test="${! empty sectionId}"> id="${sectionId}"</c:if><c:if test="${! empty sectionCssClass}"><c:out value=" "/>class="${sectionCssClass}"</c:if><c:if test="${! empty sectionRole}"><c:out value=" "/>role="${sectionRole}"</c:if>>
 </c:if>
 
 <c:if test="${createContainer}">

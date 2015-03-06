@@ -21,7 +21,7 @@
     <c:set var="ulClass" value="${currentNode.properties['ulClass'].string}"/>
 </c:if>
 
-<div class="${navbarClass}" role="navigation">
+<nav class="${navbarClass}" role="navigation">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -143,4 +143,4 @@
             --%>
         </div>
     </div>
-</div>
+</nav>
