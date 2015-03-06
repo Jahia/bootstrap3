@@ -19,26 +19,29 @@
 <c:set var="navigation" value="${currentNode.properties['navigation'].string}"/>
 <c:set var="fadeEffect" value="${currentNode.properties['fadeEffect'].boolean}"/>
 
+<div role="tabpanel">
 
-<%-- Nav tabs --%>
-<ul class="nav nav-${navigation}s">
-    <c:forEach items="${jcr:getChildrenOfType(currentNode, 'jnt:contentList')}" var="contentList" varStatus="status">
-        <li <c:if test="${status.first}"> class="active"</c:if>> <a
-                href="#${contentList.name}" data-toggle="${navigation}">${contentList.displayableName}</a></li>
-    </c:forEach>
-</ul>
+    <%-- Nav tabs --%>
+    <ul class="nav nav-${navigation}s">
+        <c:forEach items="${jcr:getChildrenOfType(currentNode, 'jnt:contentList')}" var="contentList"
+                   varStatus="status">
+            <li <c:if test="${status.first}"> class="active"</c:if>><a
+                    href="#${contentList.name}" data-toggle="${navigation}">${contentList.displayableName}</a></li>
+        </c:forEach>
+    </ul>
 
-<%-- Tab panes --%>
-<div class="tab-content">
-<c:forEach items="${jcr:getChildrenOfType(currentNode, 'jnt:contentList')}" var="contentList" varStatus="status">
-    <c:set var="active" value="${status.first ? ' active in' : ''}"/>
-    <c:set var="fade" value="${fadeEffect ? ' fade' : ''}"/>
-    <div class="tab-pane ${active} ${fade}" id="${contentList.name}">
-    <template:module node="${contentList}"/>
+    <%-- Tab panes --%>
+    <div class="tab-content">
+        <c:forEach items="${jcr:getChildrenOfType(currentNode, 'jnt:contentList')}" var="contentList"
+                   varStatus="status">
+            <c:set var="active" value="${status.first ? ' active in' : ''}"/>
+            <c:set var="fade" value="${fadeEffect ? ' fade' : ''}"/>
+            <div class="tab-pane ${active} ${fade}" id="${contentList.name}">
+                <template:module node="${contentList}"/>
+            </div>
+        </c:forEach>
     </div>
-</c:forEach>
 </div>
-
 <c:if test="${renderContext.editMode}">
     <template:module path="*" nodeTypes="jnt:contentList"/>
 </c:if>
