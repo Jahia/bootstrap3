@@ -24,7 +24,7 @@
     <scm>
         <connection>scm:git:git@github.com:Jahia/bootstrap3.git</connection>
         <developerConnection>scm:git:git@github.com:Jahia/bootstrap3.git</developerConnection>
-        <url>scm:https://github.com/Jahia/bootstrap3.git</url>
+        <url>https://github.com/Jahia/bootstrap3.git</url>
     </scm>
 
     <build>
