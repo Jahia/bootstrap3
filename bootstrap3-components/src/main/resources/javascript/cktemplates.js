@@ -187,6 +187,24 @@ CKEDITOR.addTemplates('default',
                     '<h1>Hello, world!</h1>' +
                     '<p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>' +
                     '<p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>'
+            },
+            {
+                title:'',
+                image:'blockquote.png',
+                description:'',
+                html:'<blockquote>' +
+                '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>' +
+                '<footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>' +
+                '</blockquote>'
+            },
+            {
+                title:'',
+                image:'blockquote-right.png',
+                description:'',
+                html:'<blockquote class="blockquote-reverse">' +
+                '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>' +
+                '<footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>' +
+                '</blockquote>'
             }
         ]
     });
