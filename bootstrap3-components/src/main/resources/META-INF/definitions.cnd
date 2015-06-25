@@ -12,6 +12,9 @@
  extends = bootstrap3nt:columns
  - gridClasses (string) = 'col-md-8, col-md-4'
 
+[bootstrap3mix:glyphicon] mixin
+ - glyphicon (string, choicelist[glyphiconInitializer,resourceBundle])
+
 [bootstrap3nt:columns] > jnt:content, bootstrap3mix:component, jmix:studioLayout
  - columnsType (string, choicelist[columnInitializer,resourceBundle]) = 'predefinedColumns' autocreated < 'nogrid', 'predefinedColumns', 'customColumns'
  + * (jmix:droppableContent) = jmix:droppableContent
@@ -65,7 +68,8 @@
 [bootstrap3nt:navbar] > jnt:content, bootstrap3mix:component, jmix:studioOnly, jmix:navMenuComponent
 
 [bootstrap3nt:sidemenu] > jnt:content, jnt:content, bootstrap3mix:component, jmix:navMenuComponent
- - level (string, choicelist[resourceBundle]) = '0' autocreated < '0', '1', '2', '3', '4', '5'
+ - level (string, choicelist[resourceBundle]) = '0' autocreated < '0', '1', '2', '3', '4', '5','-1'
+ - displaySubpages (boolean) = 'false' autocreated indexed=no
 
 [bootstrap3nt:textBox] > jnt:content, bootstrap3mix:component, mix:title, bootstrap3mix:hx, bootstrap3mix:text
 - secondaryTitle (string) i18n

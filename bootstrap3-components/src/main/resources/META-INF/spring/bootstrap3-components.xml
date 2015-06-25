@@ -11,4 +11,7 @@
         <property name="key" value="sliderInitializer" />
     </bean>
 
+    <bean id="glyphiconInitializer" class="org.jahia.initializers.GlyphiconInitializer">
+        <property name="key" value="glyphiconInitializer" />
+    </bean>
 </beans>
