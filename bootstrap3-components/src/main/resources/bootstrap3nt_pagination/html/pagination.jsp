@@ -35,7 +35,7 @@
                 <c:set var="pageSiteValue" value="${currentNode.properties['pageSize'].long}"/>
             </c:if>
 
-            <c:set var="pageSize" value="${renderContext.editMode ? 1000 : pageSiteValue}"/>
+            <c:set var="pageSize" value="${renderContext.editMode ? 100 : pageSiteValue}"/>
         </c:otherwise>
     </c:choose>
     <c:set target="${moduleMap}" property="pageSize" value="${pageSize}"/>
