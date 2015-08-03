@@ -113,6 +113,7 @@
  itemtype = content
  - pageSize (long) = '10' autocreated
  - nbOfPages (long) = '10' autocreated
+ - nbOfPagesInEdit (long) = '100' autocreated
  - align (string,choicelist[resourceBundle]) = 'center-block' indexed=no autocreated  < 'center-block', 'pull-left', 'pull-right'
  - layout (string,choicelist[resourceBundle]) = 'default' indexed=no autocreated   < 'pagination-lg', 'default', 'pagination-sm'
 

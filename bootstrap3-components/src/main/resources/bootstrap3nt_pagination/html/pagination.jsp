@@ -31,11 +31,13 @@
         </c:when>
         <c:otherwise>
             <c:set var="pageSiteValue" value="10"/>
+            <c:set var="nbOfPagesInEdit" value="100"/>
             <c:if test="${jcr:isNodeType(currentNode, 'bootstrap3mix:advancedPagination')}">
                 <c:set var="pageSiteValue" value="${currentNode.properties['pageSize'].long}"/>
+                <c:set var="nbOfPagesInEdit" value="${currentNode.properties['nbOfPagesInEdit'].long}"/>
             </c:if>
 
-            <c:set var="pageSize" value="${renderContext.editMode ? 100 : pageSiteValue}"/>
+            <c:set var="pageSize" value="${renderContext.editMode ? nbOfPagesInEdit : pageSiteValue}"/>
         </c:otherwise>
     </c:choose>
     <c:set target="${moduleMap}" property="pageSize" value="${pageSize}"/>
