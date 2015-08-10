@@ -16,16 +16,19 @@
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="hx" value="${currentNode.properties['hx'].string}"/>
 <c:set var="secondaryTitle" value="${currentNode.properties['secondaryTitle'].string}"/>
-<c:if test="${! empty secondaryTitle}">
 
-</c:if>
-
-<c:if test="${empty hx}">
-    <c:set var="hx" value="h2"/>
-</c:if>
-<c:if test="${! empty title}">
-    <div class="headline">
-        <${hx}>${title}<c:if test="${! empty secondaryTitle}"> <small>${secondaryTitle}</small></c:if></${hx}>
+<div itemscope itemtype="http://schema.org/Article">
+    <c:if test="${empty hx}">
+        <c:set var="hx" value="h2"/>
+    </c:if>
+    <c:if test="${not empty title}">
+        <div class="headline">
+            <${hx} itemprop="name">${title}<c:if test="${not empty secondaryTitle}">
+            <small itemprop="headline">${secondaryTitle}</small>
+            </c:if></${hx}>
+        </div>
+    </c:if>
+    <div itemprop="articleBody">
+        ${currentNode.properties['text'].string}
     </div>
-</c:if>
-${currentNode.properties['text'].string}
+</div>

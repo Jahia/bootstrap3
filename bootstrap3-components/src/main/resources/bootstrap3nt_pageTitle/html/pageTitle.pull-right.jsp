@@ -17,4 +17,4 @@
     <c:set var="hx" value="h1"/>
 </c:if>
 
-<${hx}<c:if test="${! empty cssClass}"><c:out value=" "/>class="${cssClass}"</c:if>>${renderContext.mainResource.node.displayableName}</${hx}>
+<${hx}<c:if test="${not empty cssClass}"><c:out value=" "/>class="${cssClass}"</c:if>>${renderContext.mainResource.node.displayableName}</${hx}>

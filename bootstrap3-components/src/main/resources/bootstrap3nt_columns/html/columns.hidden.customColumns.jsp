@@ -37,7 +37,7 @@
 </c:if>
 
 <c:choose>
-    <c:when test="${! empty columns}">
+    <c:when test="${not empty columns}">
         <c:forTokens items="${columns}" delims="," varStatus="status" var="col">
             <div class="${fn:trim(col)}">${displayAbsoluteArea}
                 <template:area path="${colName}-col${status.index}"

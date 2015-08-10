@@ -20,7 +20,7 @@
 <c:set var="footer" value="${currentNode.properties['footer'].string}"/>
 
 <div class="panel panel-${state}">
-    <c:if test="${! empty title}">
+    <c:if test="${not empty title}">
         <div class="panel-heading">
             <h3 class="panel-title">${title}</h3>
         </div>
@@ -33,7 +33,7 @@
             <template:module path="*" nodeTypes="jmix:droppableContent"/>
         </c:if>
     </div>
-    <c:if test="${! empty footer}">
+    <c:if test="${not empty footer}">
         <div class="panel-footer">${footer}</div>
     </c:if>
 

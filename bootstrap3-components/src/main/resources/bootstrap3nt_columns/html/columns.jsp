@@ -31,20 +31,20 @@
     <c:set var="sectionId" value="${currentNode.properties['sectionId'].string}"/>
     <c:set var="sectionRole" value="${currentNode.properties['sectionRole'].string}"/>
 
-    <${sectionType}<c:if test="${! empty sectionId}"> id="${sectionId}"</c:if><c:if test="${! empty sectionCssClass}"><c:out value=" "/>class="${sectionCssClass}"</c:if><c:if test="${! empty sectionRole}"><c:out value=" "/>role="${sectionRole}"</c:if>>
+    <${sectionType}<c:if test="${not empty sectionId}"> id="${sectionId}"</c:if><c:if test="${not empty sectionCssClass}"><c:out value=" "/>class="${sectionCssClass}"</c:if><c:if test="${not empty sectionRole}"><c:out value=" "/>role="${sectionRole}"</c:if>>
 </c:if>
 
 <c:if test="${createContainer}">
     <c:set var="containerId" value="${currentNode.properties['containerId'].string}"/>
     <c:set var="containerCssClass" value="${currentNode.properties['containerCssClass'].string}"/>
     <c:set var="gridLayout" value="${currentNode.properties['gridLayout'].string == 'full-width' ? 'container-fluid' : 'container'}"/>
-    <div<c:if test="${! empty containerId}"> id="${containerId}"</c:if> class="${gridLayout}<c:if test="${! empty containerCssClass}"><c:out value=" "/>${containerCssClass}</c:if>">
+    <div<c:if test="${not empty containerId}"> id="${containerId}"</c:if> class="${gridLayout}<c:if test="${not empty containerCssClass}"><c:out value=" "/>${containerCssClass}</c:if>">
 </c:if>
 
 <c:if test="${createRow}">
     <c:set var="rowId" value="${currentNode.properties['rowId'].string}"/>
     <c:set var="rowCssClass" value="${currentNode.properties['rowCssClass'].string}"/>
-    <div<c:if test="${! empty rowId}"> id="${rowId}"</c:if> class="row<c:if test="${! empty rowCssClass}"><c:out value=" "/>${rowCssClass}</c:if>">
+    <div<c:if test="${not empty rowId}"> id="${rowId}"</c:if> class="row<c:if test="${not empty rowCssClass}"><c:out value=" "/>${rowCssClass}</c:if>">
 </c:if>
 
 <template:module node="${currentNode}" view="hidden.${columnsType}" editable="false"/>

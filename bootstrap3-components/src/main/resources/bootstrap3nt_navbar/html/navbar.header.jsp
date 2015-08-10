@@ -14,7 +14,6 @@
 <template:addResources type="javascript" resources="jquery.min.js"/>
 <template:addResources type="javascript" resources="bootstrap.min.js"/>
 <template:addResources type="javascript" resources="bootstrap-hover-dropdown.min.js"/>
-
 <c:set var="navbarClass" value="navbar navbar-default"/>
 <c:if test="${jcr:isNodeType(currentNode, 'bootstrap3mix:navbarAdvanced')}">
     <c:set var="navbarClass" value="${currentNode.properties['navbarClass'].string}"/>

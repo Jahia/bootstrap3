@@ -26,10 +26,10 @@
                 <img src="${imageUrl}" alt="${fn:escapeXml(image.node.displayableName)}" style="width: 64px"/>
             </a>
             <div class="media-body">
-                <c:if test="${! empty title}">
+                <c:if test="${not empty title}">
                     <h4 class="media-heading">${title}</h4>
                 </c:if>
-                <c:if test="${! empty caption}">
+                <c:if test="${not empty caption}">
                     <p>${caption}</p>
                 </c:if>
             </div>
@@ -38,10 +38,10 @@
     <c:otherwise>
         <img src="${imageUrl}" alt="${fn:escapeXml(image.node.displayableName)}"/>
         <div class="carousel-caption">
-            <c:if test="${! empty title}">
+            <c:if test="${not empty title}">
                 <h3>${title}</h3>
             </c:if>
-            <c:if test="${! empty caption}">
+            <c:if test="${not empty caption}">
                 <p>${caption}</p>
             </c:if>
         </div>

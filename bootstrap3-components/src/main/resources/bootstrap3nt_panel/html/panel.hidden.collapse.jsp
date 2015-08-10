@@ -45,7 +45,7 @@
                 <template:module path="*" nodeTypes="jmix:droppableContent"/>
             </c:if>
         </div>
-        <c:if test="${! empty footer}">
+        <c:if test="${not empty footer}">
             <div class="panel-footer">${footer}</div>
         </c:if>
 
