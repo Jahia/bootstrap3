@@ -23,14 +23,14 @@
  extends = bootstrap3nt:columns
  itemtype = content
  - sectionElement (string, choicelist[resourceBundle]) = 'div' autocreated < 'section', 'article', 'header', 'footer', 'aside', 'nav', 'div'
- - sectionId (string) < '[a-zA-Z0-0-_]+'
+ - sectionId (string) < '[a-zA-Z0-9-_]+'
  - sectionCssClass (string)
  - sectionRole (string)
 
 [bootstrap3mix:createContainer] mixin
  extends = bootstrap3nt:columns
  itemtype = content
- - containerId (string) < '[a-zA-Z0-0-_]+'
+ - containerId (string) < '[a-zA-Z0-9-_]+'
  - containerCssClass (string)
  - gridLayout (string, choicelist[resourceBundle]) = 'fixed-width' autocreated < 'fixed-width', 'full-width'
 
@@ -38,7 +38,7 @@
  extends = bootstrap3nt:columns
  itemtype = content
  - rowCssClass (string)
- - rowId (string) < '[a-zA-Z0-0-_]+'
+ - rowId (string) < '[a-zA-Z0-9-_]+'
 
 [bootstrap3mix:createAbsoluteAreas] mixin
  extends = bootstrap3nt:columns
