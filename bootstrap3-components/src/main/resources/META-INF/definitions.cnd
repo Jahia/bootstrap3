@@ -133,7 +133,7 @@
  - image (weakreference, picker[type='image']) i18n mandatory < jnt:file
  - caption (string,textarea) i18n
 
-[bootstrap3nt:carousel] > jnt:content, bootstrap3mix:component
+[bootstrap3nt:carousel] > jnt:content, bootstrap3mix:component, jmix:manuallyOrderable, jmix:list orderable
 + * (bootstrap3nt:carouselItem)
 
 [bootstrap3nt:collapse] > jnt:content, bootstrap3mix:component
