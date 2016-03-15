@@ -17,8 +17,9 @@
 <jcr:nodeProperty var="image" node="${currentNode}" name="image"/>
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="caption" value="${currentNode.properties['caption'].string}"/>
-<c:url var="imageUrl" value="${image.node.url}" context="/"/>
-
+<c:if test="${! empty image.node.url}">
+    <c:url var="imageUrl" value="${image.node.url}" context="/"/>
+</c:if>
 <c:choose>
     <c:when test="${renderContext.editMode}">
         <div class="media">
