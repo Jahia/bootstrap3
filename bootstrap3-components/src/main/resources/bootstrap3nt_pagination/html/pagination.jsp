@@ -93,7 +93,7 @@
             <c:set var="layout" value="default"/>
             <c:if test="${jcr:isNodeType(currentNode, 'bootstrap3mix:advancedPagination')}">
                 <c:set var="align" value="${currentNode.properties.align.string}"/>
-                <c:set var="layout" value="${currentNode.properties.layout.string}"/>
+                <c:set var="layout" value=" ${currentNode.properties.layout.string}"/>
             </c:if>
             <c:set target="${moduleMap}" property="basePaginationUrl" value="${basePaginationUrl}"/>
             <nav>
