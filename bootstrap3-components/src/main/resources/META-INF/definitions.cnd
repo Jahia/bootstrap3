@@ -99,9 +99,12 @@
  - footer (string) i18n
  + * (jmix:droppableContent) = jmix:droppableContent
 
-[bootstrap3nt:tabs] > jnt:content, bootstrap3mix:component, jmix:manuallyOrderable orderable
+[bootstrap3nt:tabs] > jnt:content, bootstrap3mix:component, jmix:manuallyOrderable, jmix:list orderable
  - navigation (string, choicelist[resourceBundle,moduleImage='png']) = 'tab' indexed=no autocreated < 'tab', 'pill'
  - fadeEffect (boolean) = 'true' mandatory autocreated indexed=no
+ - tabsPosition (string, choicelist[resourceBundle]) = 'top' indexed=no < 'top', 'below'
+ - navJustified (boolean) indexed=no
+ - navStacked (boolean) indexed=no
  + * (jnt:contentList) = jnt:contentList
 
 [bootstrap3nt:well] >  jnt:content, bootstrap3mix:component
