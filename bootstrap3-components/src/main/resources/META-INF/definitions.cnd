@@ -138,3 +138,38 @@
 
 [bootstrap3nt:collapse] > jnt:content, bootstrap3mix:component, jmix:list
 + * (bootstrap3nt:panel)
+
+[bootstrap3nt:container] > jnt:content, bootstrap3mix:component, jmix:list
+ - fluid (boolean) indexed=no
+ + * (jmix:droppableContent) = jmix:droppableContent
+
+[bootstrap3nt:row] > jnt:content, bootstrap3mix:component, jmix:list orderable
+ + * (bootstrap3nt:column) = bootstrap3nt:column
+
+[bootstrap3nt:column] > jnt:content, bootstrap3mix:component, jmix:list
+ - span (long) = '1' indexed=no
+ - offset (long) = '0' indexed=no
+ + * (jmix:droppableContent) = jmix:droppableContent
+
+[bootstrap3mix:htmlID] mixin
+ extends = bootstrap3nt:container, bootstrap3nt:row, bootstrap3nt:column
+ - htmlID (string) indexed=no
+
+[bootstrap3mix:cssClass] mixin
+ extends = bootstrap3nt:container, bootstrap3nt:row, bootstrap3nt:column
+ - cssClass (string) indexed=no
+
+[bootstrap3mix:columnExtraSmallDevices] mixin
+ extends = bootstrap3nt:column
+ - extraSmallDevicesSpan (long) indexed=no
+ - extraSmallDevicesOffset (long) indexed=no
+
+[bootstrap3mix:columnSmallDevices] mixin
+ extends = bootstrap3nt:column
+ - smallDevicesSpan (long) indexed=no
+ - smallDevicesOffset (long) indexed=no
+
+[bootstrap3mix:columnLargeDevices] mixin
+ extends = bootstrap3nt:column
+ - largeDevicesSpan (long) indexed=no
+ - largeDevicesOffset (long) indexed=no
