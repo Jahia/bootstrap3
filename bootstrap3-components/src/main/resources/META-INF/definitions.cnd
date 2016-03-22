@@ -176,3 +176,7 @@
  extends = bootstrap3nt:column
  - largeDevicesSpan (long) indexed=no
  - largeDevicesOffset (long) indexed=no
+
+[bootstrap3mix:simplePager] mixin
+ extends = bootstrap3nt:pagination
+ - useArrowNextPrevious (boolean)
