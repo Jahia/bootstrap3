@@ -16,27 +16,24 @@
 <template:addResources type="css" resources="bootstrap.min.css"/>
 
 <c:set var="state" value="${currentNode.properties['state'].string}"/>
-<c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 <c:set var="footer" value="${currentNode.properties['footer'].string}"/>
 
-<c:set var="parent" value="${currentResource.moduleParams.parent}"/>
 <c:set var="index" value="${currentResource.moduleParams.index}"/>
-
-<c:set var="visible" value="${index == 0 || renderContext.editMode}"/>
+<c:set var="visible" value="${index == 0}"/>
 
 <div class="panel panel-${state}">
-    <div class="panel-heading" role="tab" id="heading${currentNode.name}">
+    <div class="panel-heading" role="tab" id="heading_${currentNode.identifier}">
         <h4 class="panel-title">
-            <a data-toggle="collapse" data-parent="#accordion${parent}" href="#collapse${currentNode.name}"
-               aria-expanded="${visible ? 'true' : 'false'}" aria-controls="collapse${currentNode.name}"
-               <c:if test="${! visible}">class="collapsed"</c:if>>
-                ${empty title ? currentNode.name : title}
+            <a role="button" data-toggle="collapse" href="#collapse_${currentNode.identifier}"
+               aria-expanded="${visible ? 'true' : 'false'}" aria-controls="collapse_${currentNode.identifier}"
+               data-parent="#accordion_${currentNode.parent.identifier}">
+                ${fn:escapeXml(currentNode.displayableName)}
             </a>
         </h4>
     </div>
-    <div id="collapse${currentNode.name}"
+    <div id="collapse_${currentNode.identifier}"
          class="panel-collapse collapse <c:if test='${visible}'>in</c:if>" role="tabpanel"
-         aria-labelledby="heading${currentNode.name}">
+         aria-labelledby="heading_${currentNode.name}">
         <div class="panel-body">
             <c:forEach items="${jcr:getChildrenOfType(currentNode, 'jmix:droppableContent')}" var="droppableContent">
                 <template:module path="${droppableContent.path}"/>
@@ -48,6 +45,5 @@
         <c:if test="${not empty footer}">
             <div class="panel-footer">${footer}</div>
         </c:if>
-
     </div>
 </div>
