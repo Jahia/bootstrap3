@@ -17,19 +17,33 @@
 <template:addResources type="css" resources="bootstrap.min.css"/>
 <template:addResources type="javascript" resources="jquery.min.js,bootstrap.min.js"/>
 
-<c:set var="items" value="${jcr:getChildrenOfType(currentNode, 'bootstrap3nt:panel')}"/>
+<c:if test="${not renderContext.editMode}">
+    <c:set var="cookieName" value="accordion-activatedCollapse_${currentNode.identifier}"/>
+    <c:set var="activatedCollapse" value="${not empty cookie[cookieName]?cookie[cookieName].value:''}"/>
+    <template:addResources type="inlinejavascript">
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#accordion_${currentNode.identifier} a[data-toggle="collapse"]').click(function() {
+                    document.cookie = "accordion-activatedCollapse_${currentNode.identifier}=" + this.attributes['href'].value;
+                });
 
-<c:if test="${renderContext.editMode}">
-    <h2><fmt:message key="bootstrap3nt_collapse"/></h2>
+                <c:if test="${not empty activatedCollapse}">
+                $('#accordion_${currentNode.identifier}').find('a[href="${activatedCollapse}"]').click();
+                </c:if>
+            });
+        </script>
+    </template:addResources>
 </c:if>
-<div class="panel-group" id="accordion${currentNode.name}" role="tablist" aria-multiselectable="true">
+
+<div id="accordion_${currentNode.identifier}" class="panel-group" role="tablist" aria-multiselectable="true">
+    <c:set var="items" value="${jcr:getChildrenOfType(currentNode, 'bootstrap3nt:panel')}"/>
     <c:forEach items="${items}" var="item" varStatus="status">
         <template:module node="${item}" nodeTypes="bootstrap3nt:panel" editable="true" view="hidden.collapse">
-            <template:param name="parent" value="${currentNode.name}"/>
             <template:param name="index" value="${status.index}"/>
         </template:module>
     </c:forEach>
+
+    <c:if test="${renderContext.editMode}">
+        <template:module path="*" nodeTypes="bootstrap3nt:panel"/>
+    </c:if>
 </div>
-<c:if test="${renderContext.editMode}">
-    <template:module path="*" nodeTypes="bootstrap3nt:panel"/>
-</c:if>
