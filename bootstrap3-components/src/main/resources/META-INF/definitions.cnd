@@ -180,3 +180,23 @@
 [bootstrap3mix:simplePager] mixin
  extends = bootstrap3nt:pagination
  - useArrowNextPrevious (boolean)
+
+[bootstrap3mix:navBarItem] mixin
+ - position (string, choicelist[resourceBundle]) indexed=no < '', 'left', 'right'
+
+[bootstrap3nt:enhancedNavBar] > jnt:content, mix:title, jmix:list, bootstrap3mix:component orderable
+ - option (string, choicelist[resourceBundle]) indexed=no < '', 'navbar-fixed-top', 'navbar-fixed-bottom', 'navbar-static-top'
+ - responsive (boolean) indexed=no
+ - inverse (boolean) indexed=no
+ - fluid (boolean) indexed=no
+ - j:styleName (string) indexed=no
+ + * (bootstrap3mix:navBarItem) = bootstrap3mix:navBarItem
+
+[bootstrap3nt:navBarItemMenu] > jnt:navMenu, bootstrap3mix:navBarItem orderable
+
+[bootstrap3nt:navBarItemSimpleSearchForm] > jnt:content, mix:title, bootstrap3mix:navBarItem, jmix:link, jmix:studioOnly
+ - result (weakreference) mandatory < 'jnt:page'
+
+[bootstrap3nt:navBarItemLoginForm] > jnt:content, mix:title, bootstrap3mix:navBarItem, jmix:link, jmix:studioOnly
+
+[bootstrap3nt:navBarItemLanguageSwitcher] > jnt:languageSwitcher, bootstrap3mix:navBarItem
