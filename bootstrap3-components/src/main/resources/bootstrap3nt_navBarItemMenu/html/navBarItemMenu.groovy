@@ -5,7 +5,6 @@ import org.jahia.services.render.Resource
 import org.jahia.taglibs.jcr.node.JCRTagUtils
 
 import javax.jcr.ItemNotFoundException
-import javax.jcr.PathNotFoundException
 
 baseline = currentNode.properties['j:baselineNode']
 maxDepth = currentNode.properties['j:maxDepth']
@@ -13,7 +12,6 @@ startLevel = currentNode.properties['j:startLevel']
 styleName = currentNode.properties['j:styleName']
 layoutID = currentNode.properties['j:layoutID']
 position = currentNode.properties['position']
-// menuItemView = currentNode.properties['j:menuItemView'] ignored
 
 def base;
 if (!baseline || baseline.string == 'home') {
@@ -28,9 +26,7 @@ startLevelValue = startLevel ? startLevel.long : 0
 
 def empty = true
 def printMenu;
-def entries=0;
 printMenu = { node, navMenuLevel, omitFormatting ->
-//    System.out.println("Menu for node "+(entries++)+" "+node.path);
     firstEntry = true;
 
     if (node) {
@@ -73,7 +69,6 @@ printMenu = { node, navMenuLevel, omitFormatting ->
             }
             if (!referenceIsBroken && correctType && (startLevelValue < navMenuLevel || inpath)) {
                 hasChildren = navMenuLevel < maxDepth.long && JCRTagUtils.hasChildrenOfType(menuItem, "jnt:page,jnt:nodeLink,jnt:externalLink")
-//                System.out.println("Menu for node "+(entries++)+" "+menuItem.path);
                 if (startLevelValue < navMenuLevel) {
                     Resource resource = new Resource(menuItem, "html", (hasChildren && navMenuLevel == 1 ? "menuDropdown" : "menuElement"), currentResource.getContextConfiguration());
                     currentResource.getDependencies().add(menuItem.getCanonicalPath())
