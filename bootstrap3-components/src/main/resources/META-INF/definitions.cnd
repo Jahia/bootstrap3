@@ -192,11 +192,17 @@
  - j:styleName (string) indexed=no
  + * (bootstrap3mix:navBarItem) = bootstrap3mix:navBarItem
 
-[bootstrap3nt:navBarItemMenu] > jnt:navMenu, bootstrap3mix:navBarItem orderable
+[bootstrap3nt:navBarItemMenu] > jnt:content, mix:title, bootstrap3mix:navBarItem orderable
+ - j:baselineNode (string,choicelist) nofulltext < 'home', 'currentPage'
+ - j:maxDepth (long) = 2
+ - j:startLevel (long) = 0
+ - j:styleName (string) nofulltext
+ - j:layoutID (string) nofulltext
 
 [bootstrap3nt:navBarItemSimpleSearchForm] > jnt:content, mix:title, bootstrap3mix:navBarItem, jmix:link, jmix:studioOnly
  - result (weakreference) mandatory < 'jnt:page'
 
 [bootstrap3nt:navBarItemLoginForm] > jnt:content, mix:title, bootstrap3mix:navBarItem, jmix:link, jmix:studioOnly
 
-[bootstrap3nt:navBarItemLanguageSwitcher] > jnt:languageSwitcher, bootstrap3mix:navBarItem
+[bootstrap3nt:navBarItemLanguageSwitcher] > jnt:content, bootstrap3mix:navBarItem, jmix:studioOnly
+ - typeOfDisplay (string, choicelist[resourceBundle]) = 'isoLocaleCountryCode' mandatory indexed=no < 'isoLocaleCountryCode', 'languageCode', 'doubleLetter', 'letter', 'nameInLocale', 'nameCurrentLocale', 'flag'
