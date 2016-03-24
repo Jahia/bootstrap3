@@ -19,39 +19,65 @@
 <c:set var="navigation" value="${currentNode.properties['navigation'].string}"/>
 <c:set var="fadeEffect" value="${currentNode.properties['fadeEffect'].boolean}"/>
 
-<div role="tabpanel">
+<c:choose>
+    <c:when test="${not empty currentNode.properties['tabsPosition']}">
+        <c:set var="tabsPosition" value="${currentNode.properties['tabsPosition'].string}"/>
+    </c:when>
+    <c:otherwise>
+        <c:set var="tabsPosition" value="top"/>
+    </c:otherwise>
+</c:choose>
 
-    <%-- Nav tabs --%>
-    <ul class="nav nav-${navigation}s">
-        <c:forEach items="${jcr:getChildrenOfType(currentNode, 'jnt:contentList')}" var="contentList"
-                   varStatus="status">
-            <li <c:if test="${status.first}"> class="active"</c:if>><a
-                    href="#${contentList.name}" data-toggle="${navigation}">${contentList.displayableName}</a></li>
-        </c:forEach>
-    </ul>
+<c:set var="subLists" value="${jcr:getChildrenOfType(currentNode, 'jnt:contentList')}"/>
 
-    <%-- Tab panes --%>
+<c:set var="menuTabsCSSClass" value="nav-${navigation}s"/>
+<c:if test="${not empty currentNode.properties['navJustified'] and currentNode.properties['navJustified'].boolean}">
+    <c:set var="menuTabsCSSClass" value="${menuTabsCSSClass} nav-justified"/>
+</c:if>
+<c:if test="${not empty currentNode.properties['navStacked'] and currentNode.properties['navStacked'].boolean}">
+    <c:set var="menuTabsCSSClass" value="${menuTabsCSSClass} nav-stacked"/>
+</c:if>
+
+<c:if test="${not renderContext.editMode}">
+    <c:set var="cookieName" value="bootstrapTabularList-activatedTab_${currentNode.identifier}"/>
+    <c:set var="activatedTab" value="${not empty cookie[cookieName]?cookie[cookieName].value:''}"/>
+    <template:addResources type="inlinejavascript">
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#bootstrapTabsList_${currentNode.identifier} ul li a').click(function() {
+                    document.cookie = "bootstrapTabularList-activatedTab_${currentNode.identifier}=" + this.attributes['href'].value;
+                });
+
+                <c:if test="${not empty activatedTab}">
+                $('#bootstrapTabsList_${currentNode.identifier}').find('a[href="${activatedTab}"]').tab('show');
+                </c:if>
+            });
+        </script>
+    </template:addResources>
+</c:if>
+
+<div id="bootstrapTabsList_${currentNode.identifier}" role="tabpanel">
+    <c:if test="${tabsPosition eq 'top'}">
+        <%@include file="navTabsLoop.jspf" %>
+    </c:if>
+
     <div class="tab-content">
-        <c:forEach items="${jcr:getChildrenOfType(currentNode, 'jnt:contentList')}" var="contentList"
-                   varStatus="status">
-            <c:set var="active" value="${status.first ? ' active in' : ''}"/>
-            <c:set var="fade" value="${fadeEffect ? ' fade' : ''}"/>
-            <div class="tab-pane ${active} ${fade}" id="${contentList.name}">
-                <template:module node="${contentList}"/>
-            </div>
+        <c:forEach items="${subLists}" var="subList" varStatus="status">
+            <template:module node="${subList}" view="bootstrap3TabsList" editable="false">
+                <template:param name="first" value="${status.first}"/>
+                <template:param name="count" value="${status.count}"/>
+                <template:param name="id" value="${currentNode.identifier}"/>
+                <template:param name="fade" value="${fadeEffect}"/>
+                <template:param name="isTabContent" value="true"/>
+            </template:module>
         </c:forEach>
     </div>
+
+    <c:if test="${tabsPosition eq 'below'}">
+        <%@include file="navTabsLoop.jspf" %>
+    </c:if>
+
+    <c:if test="${renderContext.editMode}">
+        <template:module path="*" nodeTypes="jnt:contentList"/>
+    </c:if>
 </div>
-<c:if test="${renderContext.editMode}">
-    <template:module path="*" nodeTypes="jnt:contentList"/>
-</c:if>
-<template:addResources type="inline">
-    <script>
-        $(document).ready(function () {
-            if (location.hash !== '') $('a[href="' + location.hash + '"]').tab('show');
-            return $('a[data-toggle="tab"],a[data-toggle="pill"]').on('shown', function (e) {
-                return location.hash = $(e.target).attr('href').substr(1);
-            });
-        });
-    </script>
-</template:addResources>

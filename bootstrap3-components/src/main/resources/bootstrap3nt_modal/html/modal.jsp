@@ -23,18 +23,18 @@
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal${currentNode.name}">
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_${currentNode.identifier}">
     ${currentNode.properties.openText.string}
 </button>
 
 <!-- Modal -->
-<div class="<c:if test='${!renderContext.editMode}'>modal fade</c:if>" id="myModal${currentNode.name}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel${currentNode.name}" aria-hidden="${renderContext.editMode ? 'false' : 'true'}">
+<div class="modal fade" id="modal_${currentNode.identifier}" tabindex="-1" role="dialog" aria-labelledby="modalLabel_${currentNode.identifier}" aria-hidden="${renderContext.editMode ? 'false' : 'true'}">
     <div class="modal-dialog ${size}"<c:if test='${renderContext.editMode}'> style="margin:5px;"</c:if>>
         <div class="modal-content">
             <c:if test="${not empty title}">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel${currentNode.name}">${title}</h4>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">${currentNode.properties.closeText.string}</span></button>
+                    <h4 class="modal-title" id="modalLabel_${currentNode.identifier}">${title}</h4>
                 </div>
             </c:if>
             <div class="modal-body">
@@ -51,4 +51,3 @@
         </div>
     </div>
 </div>
-

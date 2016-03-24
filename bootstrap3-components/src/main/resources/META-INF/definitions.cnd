@@ -74,7 +74,7 @@
 [bootstrap3nt:textBox] > jnt:content, bootstrap3mix:component, mix:title, bootstrap3mix:hx, bootstrap3mix:text
 - secondaryTitle (string) i18n
 
-[bootstrap3nt:loginbar] > jnt:content, bootstrap3mix:component, jmix:studioOnly
+[bootstrap3nt:loginbar] > jnt:content, jmix:studioOnly
 
 [bootstrap3mix:advancedPageTitle] mixin
  extends = bootstrap3nt:pageTitle
@@ -95,13 +95,16 @@
 [bootstrap3mix:contextualState] mixin
  - state (string, choicelist[resourceBundle,moduleImage='png']) = 'default' indexed=no autocreated < 'default', 'primary', 'success', 'info', 'warning', 'danger'
 
-[bootstrap3nt:panel] >  jnt:content, bootstrap3mix:component, mix:title, bootstrap3mix:contextualState
+[bootstrap3nt:panel] >  jnt:content, bootstrap3mix:component, mix:title, bootstrap3mix:contextualState, jmix:list
  - footer (string) i18n
  + * (jmix:droppableContent) = jmix:droppableContent
 
-[bootstrap3nt:tabs] > jnt:content, bootstrap3mix:component, jmix:manuallyOrderable orderable
+[bootstrap3nt:tabs] > jnt:content, bootstrap3mix:component, jmix:manuallyOrderable, jmix:list orderable
  - navigation (string, choicelist[resourceBundle,moduleImage='png']) = 'tab' indexed=no autocreated < 'tab', 'pill'
  - fadeEffect (boolean) = 'true' mandatory autocreated indexed=no
+ - tabsPosition (string, choicelist[resourceBundle]) = 'top' indexed=no < 'top', 'below'
+ - navJustified (boolean) indexed=no
+ - navStacked (boolean) indexed=no
  + * (jnt:contentList) = jnt:contentList
 
 [bootstrap3nt:well] >  jnt:content, bootstrap3mix:component
@@ -136,5 +139,71 @@
 [bootstrap3nt:carousel] > jnt:content, bootstrap3mix:component, jmix:manuallyOrderable, jmix:list orderable
 + * (bootstrap3nt:carouselItem)
 
-[bootstrap3nt:collapse] > jnt:content, bootstrap3mix:component
+[bootstrap3nt:collapse] > jnt:content, bootstrap3mix:component, jmix:list
 + * (bootstrap3nt:panel)
+
+[bootstrap3nt:container] > jnt:content, bootstrap3mix:component, jmix:list
+ - fluid (boolean) indexed=no
+ + * (jmix:droppableContent) = jmix:droppableContent
+
+[bootstrap3nt:row] > jnt:content, bootstrap3mix:component, jmix:list orderable
+ + * (bootstrap3nt:column) = bootstrap3nt:column
+
+[bootstrap3nt:column] > jnt:content, bootstrap3mix:component, jmix:list
+ - span (long) = '1' indexed=no
+ - offset (long) = '0' indexed=no
+ + * (jmix:droppableContent) = jmix:droppableContent
+
+[bootstrap3mix:htmlID] mixin
+ extends = bootstrap3nt:container, bootstrap3nt:row, bootstrap3nt:column
+ - htmlID (string) indexed=no
+
+[bootstrap3mix:cssClass] mixin
+ extends = bootstrap3nt:container, bootstrap3nt:row, bootstrap3nt:column
+ - cssClass (string) indexed=no
+
+[bootstrap3mix:columnExtraSmallDevices] mixin
+ extends = bootstrap3nt:column
+ - extraSmallDevicesSpan (long) indexed=no
+ - extraSmallDevicesOffset (long) indexed=no
+
+[bootstrap3mix:columnSmallDevices] mixin
+ extends = bootstrap3nt:column
+ - smallDevicesSpan (long) indexed=no
+ - smallDevicesOffset (long) indexed=no
+
+[bootstrap3mix:columnLargeDevices] mixin
+ extends = bootstrap3nt:column
+ - largeDevicesSpan (long) indexed=no
+ - largeDevicesOffset (long) indexed=no
+
+[bootstrap3mix:simplePager] mixin
+ extends = bootstrap3nt:pagination
+ - useArrowNextPrevious (boolean)
+
+[bootstrap3mix:navBarItem] mixin
+ - position (string, choicelist[resourceBundle]) = 'right' indexed=no < 'left', 'right'
+
+[bootstrap3nt:enhancedNavBar] > jnt:content, mix:title, jmix:list, bootstrap3mix:component orderable
+ - option (string, choicelist[resourceBundle]) indexed=no < '', 'navbar-fixed-top', 'navbar-fixed-bottom', 'navbar-static-top'
+ - responsive (boolean) indexed=no
+ - inverse (boolean) indexed=no
+ - fluid (boolean) indexed=no
+ - j:styleName (string) indexed=no
+ + * (bootstrap3mix:navBarItem) = bootstrap3mix:navBarItem
+
+[bootstrap3nt:navBarItemMenu] > jnt:content, bootstrap3mix:navBarItem orderable
+ - j:baselineNode (string,choicelist) nofulltext < 'home', 'currentPage'
+ - j:maxDepth (long) = 2
+ - j:startLevel (long) = 0
+ - j:styleName (string) nofulltext
+ - j:layoutID (string) nofulltext
+
+[bootstrap3nt:navBarItemSimpleSearchForm] > jnt:content, bootstrap3mix:navBarItem, jmix:studioOnly
+ - result (weakreference) mandatory < 'jnt:page'
+
+[bootstrap3nt:navBarItemLoginForm] > jnt:content, bootstrap3mix:navBarItem, jmix:studioOnly
+ - view (string, choicelist[resourceBundle]) = 'menu' indexed=no < 'menu', 'button'
+
+[bootstrap3nt:navBarItemLanguageSwitcher] > jnt:content, bootstrap3mix:navBarItem, jmix:studioOnly
+ - typeOfDisplay (string, choicelist[resourceBundle]) = 'isoLocaleCountryCode' mandatory indexed=no < 'isoLocaleCountryCode', 'languageCode', 'doubleLetter', 'letter', 'nameInLocale', 'nameCurrentLocale', 'flag'

@@ -89,15 +89,28 @@
                     </c:url>
                 </c:otherwise>
             </c:choose>
-            <c:set var="align" value="center-block"/>
-            <c:set var="layout" value="default"/>
+            <c:set var="cssClassPager" value=""/>
             <c:if test="${jcr:isNodeType(currentNode, 'bootstrap3mix:advancedPagination')}">
-                <c:set var="align" value="${currentNode.properties.align.string}"/>
-                <c:set var="layout" value=" ${currentNode.properties.layout.string}"/>
+                <c:choose>
+                    <c:when test="${not empty currentNode.properties.align}">
+                        <c:set var="cssClassPager" value="${currentNode.properties.align.string}"/>
+                    </c:when>
+                    <c:otherwise>
+                        <c:set var="cssClassPager" value="center-block"/>
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${not empty currentNode.properties.layout}">
+                        <c:set var="cssClassPager" value="${cssClassPager} ${currentNode.properties.layout.string}"/>
+                    </c:when>
+                    <c:otherwise>
+                        <c:set var="cssClassPager" value="${cssClassPager} default"/>
+                    </c:otherwise>
+                </c:choose>
             </c:if>
             <c:set target="${moduleMap}" property="basePaginationUrl" value="${basePaginationUrl}"/>
             <nav>
-                <ul class="pagination ${align} ${layout}">
+                <ul class="pagination ${cssClassPager}">
                     <c:url value="${basePaginationUrl}" var="previousUrl" context="/">
                         <c:param name="${beginid}" value="${(moduleMap.currentPage-2) * moduleMap.pageSize }"/>
                         <c:param name="${endid}" value="${ (moduleMap.currentPage-1)*moduleMap.pageSize-1}"/>
