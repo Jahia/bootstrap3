@@ -74,7 +74,7 @@
 [bootstrap3nt:textBox] > jnt:content, bootstrap3mix:component, mix:title, bootstrap3mix:hx, bootstrap3mix:text
 - secondaryTitle (string) i18n
 
-[bootstrap3nt:loginbar] > jnt:content, bootstrap3mix:component, jmix:studioOnly
+[bootstrap3nt:loginbar] > jnt:content, jmix:studioOnly
 
 [bootstrap3mix:advancedPageTitle] mixin
  extends = bootstrap3nt:pageTitle
@@ -182,7 +182,7 @@
  - useArrowNextPrevious (boolean)
 
 [bootstrap3mix:navBarItem] mixin
- - position (string, choicelist[resourceBundle]) indexed=no < '', 'left', 'right'
+ - position (string, choicelist[resourceBundle]) = 'right' indexed=no < 'left', 'right'
 
 [bootstrap3nt:enhancedNavBar] > jnt:content, mix:title, jmix:list, bootstrap3mix:component orderable
  - option (string, choicelist[resourceBundle]) indexed=no < '', 'navbar-fixed-top', 'navbar-fixed-bottom', 'navbar-static-top'
@@ -192,17 +192,18 @@
  - j:styleName (string) indexed=no
  + * (bootstrap3mix:navBarItem) = bootstrap3mix:navBarItem
 
-[bootstrap3nt:navBarItemMenu] > jnt:content, mix:title, bootstrap3mix:navBarItem orderable
+[bootstrap3nt:navBarItemMenu] > jnt:content, bootstrap3mix:navBarItem orderable
  - j:baselineNode (string,choicelist) nofulltext < 'home', 'currentPage'
  - j:maxDepth (long) = 2
  - j:startLevel (long) = 0
  - j:styleName (string) nofulltext
  - j:layoutID (string) nofulltext
 
-[bootstrap3nt:navBarItemSimpleSearchForm] > jnt:content, mix:title, bootstrap3mix:navBarItem, jmix:link, jmix:studioOnly
+[bootstrap3nt:navBarItemSimpleSearchForm] > jnt:content, bootstrap3mix:navBarItem, jmix:studioOnly
  - result (weakreference) mandatory < 'jnt:page'
 
-[bootstrap3nt:navBarItemLoginForm] > jnt:content, mix:title, bootstrap3mix:navBarItem, jmix:link, jmix:studioOnly
+[bootstrap3nt:navBarItemLoginForm] > jnt:content, bootstrap3mix:navBarItem, jmix:studioOnly
+ - view (string, choicelist[resourceBundle]) = 'menu' indexed=no < 'menu', 'button'
 
 [bootstrap3nt:navBarItemLanguageSwitcher] > jnt:content, bootstrap3mix:navBarItem, jmix:studioOnly
  - typeOfDisplay (string, choicelist[resourceBundle]) = 'isoLocaleCountryCode' mandatory indexed=no < 'isoLocaleCountryCode', 'languageCode', 'doubleLetter', 'letter', 'nameInLocale', 'nameCurrentLocale', 'flag'

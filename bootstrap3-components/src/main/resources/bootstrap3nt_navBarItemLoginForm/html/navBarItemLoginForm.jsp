@@ -13,51 +13,10 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 <%--@elvariable id="currentAliasUser" type="org.jahia.services.usermanager.JahiaUser"--%>
-<template:addResources type="css" resources="bootstrap.min.css"/>
-<template:addResources type="javascript" resources="bootstrap.min.js"/>
 
-<jcr:nodeProperty node="${currentNode}" name="position" var="position"/>
-<c:set var="pullClass" value="" />
-<c:if test="${not empty position}">
-    <c:set var="pullClass" value=" navbar-${position.string}" />
+<c:set var="view" value="${currentNode.properties['view'].string}"/>
+<c:if test="${empty view}">
+    <c:set var="view" value="menu"/>
 </c:if>
-<c:if test="${not renderContext.loggedIn or currentAliasUser.username eq 'guest'}">
-    <script type="text/javascript">
-        document.onkeydown = function (e) {
-            if ((e || window.event).keyCode == 13) document.loginForm.submit();
-        };
-    </script>
-    <ui:loginArea class="navbar-form${pullClass}">
-        <div class="form-group">
-            <input class="form-control" type="text" maxlength="250" name="username" id="username" placeholder="<fmt:message key="bootstrap3nt_navBarItemLoginForm.username"/>" value=""/>
-        </div>
-        <div class="form-group">
-            <input class="form-control" type="password" maxlength="250" name="password" id="password" placeholder="<fmt:message key="bootstrap3nt_navBarItemLoginForm.password"/>" autocomplete="off"/>
-        </div>
 
-        <button type="submit" class="btn btn-default">
-            <fmt:message key='bootstrap3nt_navBarItemLoginForm.button.login'/>
-        </button>
-
-        <ui:isLoginError var="loginResult">
-            <div class="alert alert-danger" role="alert">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <fmt:message key="${loginResult == 'account_locked' ? 'message.accountLocked' : 'message.invalidUsernamePassword'}"/>
-            </div>
-        </ui:isLoginError>
-
-        <c:if test="${not empty param['loginError']}">
-            <div class="alert alert-danger" role="alert">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <fmt:message key="${param['loginError'] == 'account_locked' ? 'message.accountLocked' : 'message.invalidUsernamePassword'}"/>
-            </div>
-        </c:if>
-    </ui:loginArea>
-</c:if>
-<c:if test="${renderContext.loggedIn and not (currentAliasUser.username eq 'guest')}">
-    <jcr:node var="user" path="${renderContext.user.localPath}"/>
-    <form action='<c:url value="${url.logout}"/>' class="navbar-form${pullClass}">
-        ${jcr:userFullName(user)}<c:if test="${not empty currentAliasUser}">&nbsp;(as&nbsp;${currentAliasUser.username})</c:if>
-        <button type="submit" class="btn btn-default"><fmt:message key="bootstrap3nt_navBarItemLoginForm.button.logout"/></button>
-    </form>
-</c:if>
+<template:module node="${currentNode}" view="hidden.${view}"/>
