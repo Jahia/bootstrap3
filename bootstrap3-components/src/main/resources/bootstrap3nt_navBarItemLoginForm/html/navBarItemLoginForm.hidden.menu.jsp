@@ -115,10 +115,10 @@
                 <c:choose>
                     <c:when test="${not empty picture}">
                         <template:addCacheDependency flushOnPathMatchingRegexp="${userNode.path}/files/profile/.*"/>
-                        <img class='user-photo' src="${picture.node.thumbnailUrls['avatar_120']}" alt="${fn:escapeXml(firstname)} ${fn:escapeXml(lastname)}" height="20"/>
+                        <img src="${picture.node.thumbnailUrls['avatar_120']}" alt="${fn:escapeXml(firstname)} ${fn:escapeXml(lastname)}" height="16"/>
                     </c:when>
                     <c:otherwise>
-                        <img class='user-photo' src="<c:url value="${url.currentModule}/images/user.png"/>" alt="${fn:escapeXml(firstname)} ${fn:escapeXml(lastname)}" height="20"/>
+                        <img src="<c:url value="${url.currentModule}/images/user.png"/>" alt="${fn:escapeXml(firstname)} ${fn:escapeXml(lastname)}" height="16"/>
                     </c:otherwise>
                 </c:choose>
                 ${fn:escapeXml(empty firstname and empty lastname ? userNode.name : firstname)}&nbsp;${fn:escapeXml(lastname)} <span class="caret"></span>

@@ -12,7 +12,7 @@
 <jcr:nodeProperty node="${currentNode}" name="j:styleName" var="styleName"/>
 <jcr:nodeProperty node="${currentNode}" name="option" var="option"/>
 <jcr:nodeProperty node="${currentNode}" name="inverse" var="inverse"/>
-<c:set var="navbarClasses" value="" />
+<c:set var="navbarClasses" value=" "/>
 <c:if test="${not empty option and not empty option.string}">
     <c:set var="navbarClasses" value="${navbarClasses} ${option.string}" />
 </c:if>
@@ -25,7 +25,6 @@
 
 <nav class="navbar navbar-default ${navbarClasses}">
     <div class="container${currentNode.properties.fluid.boolean ? '-fluid' : ''}">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse_${currentNode.identifier}" aria-expanded="false">
                 <span class="sr-only"><fmt:message key="bootstrap3nt_enhancedNavBar.title.toggleNavigation"/></span>
@@ -39,13 +38,12 @@
                         <img alt="<c:if test="${not empty title}">${fn:escapeXml(title.string)}</c:if>" src="${renderContext.site.properties['siteLogo'].node.url}" height="20"/>
                     </c:when>
                     <c:otherwise>
-                        <c:if test="${not empty title}">${fn:escapeXml(title.string)}</c:if>
+                        <c:if test="${not empty title}">${title.string}</c:if>
                     </c:otherwise>
                 </c:choose>
             </a>
         </div>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse_${currentNode.identifier}">
             <c:forEach items="${jcr:getChildrenOfType(currentNode, 'bootstrap3mix:navBarItem')}" var="child" varStatus="status">
                 <template:module node="${child}" />
@@ -55,6 +53,6 @@
                     <li><template:module path="*"/></li>
                 </ul>
             </c:if>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </div>
+    </div>
 </nav>
