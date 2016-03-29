@@ -50,8 +50,10 @@
         </c:forEach>
         <c:if test="${not jcr:isNodeType(renderContext.mainResource.node, 'jnt:page')}">
             <c:set var="pageNode" value="${renderContext.mainResource.node}"/>
-            <li><a href="${url.base}${pageNode.path}.html"><c:out
-                    value="${functions:abbreviate(renderContext.mainResource.node.displayableName,15,30,'...')}"/></a>
+            <li>
+                <a href="<c:url value="${url.base}${pageNode.path}.html"/>">
+                    <c:out value="${functions:abbreviate(renderContext.mainResource.node.displayableName,15,30,'...')}"/>
+                </a>
             </li>
         </c:if>
     </ol>
