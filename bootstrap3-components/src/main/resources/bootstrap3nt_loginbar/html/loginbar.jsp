@@ -47,10 +47,10 @@
     <%-- TODO: hardoded --%>
     <c:choose>
         <c:when test="${renderContext.editMode}">
-            <li><a href="<c:url value='${url.logout}'/>">Logout</a></li>
+            <li><a href="<c:url value='${url.logout}'/>"><fmt:message key="bootstrap3compoments.loginbar.logout"/></a></li>
         </c:when>
         <c:otherwise>
-            <li><a href="<c:url value='${url.login}'/>">Login</a></li>
+            <li><a href="<c:url value='${url.login}'/>"><fmt:message key="bootstrap3compoments.loginbar.login"/></a></li>
         </c:otherwise>
     </c:choose>
 

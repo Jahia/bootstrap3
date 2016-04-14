@@ -25,10 +25,12 @@
 	<c:set var="displayAbsoluteArea">
 		<div class="panel panel-danger">
 			<div class="panel-heading">
-				<h3 class="panel-title"><span class="glyphicon glyphicon-lock"></span> Absolute Area</h3>
+				<h3 class="panel-title"><span class="glyphicon glyphicon-lock"></span><fmt:message key="bootstrap3compoments.columns.absolute.area.title"/></h3>
 			</div>
 			<div class="panel-body">
-				Define area for level ${level}.
+				<fmt:message key="bootstrap3compoments.columns.absolute.area.desc">
+					<fmt:param value="${level}"/>
+				</fmt:message>
 			</div>
 		</div>
 	</c:set>

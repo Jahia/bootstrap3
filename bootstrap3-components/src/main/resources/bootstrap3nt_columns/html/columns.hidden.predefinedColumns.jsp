@@ -87,9 +87,10 @@
             <div class="col-md-12">
                 <div class="alert">
                     <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong><fmt:message key="bootstrap3mix_predefinedColumns.message.warning"/>!</strong>
-                    <fmt:message
-                            key="bootstrap3mix_predefinedColumns.message.couldNotDisplayGrid"/> ${grid}.
+                    <strong><fmt:message key="bootstrap3compoments.columns.warning"/></strong>
+                    <fmt:message key="bootstrap3compoments.columns.couldNotDisplayGrid">
+                        <fmt:param value="${columns}"/>
+                    </fmt:message>
                 </div>
             </div>
         </c:if>
