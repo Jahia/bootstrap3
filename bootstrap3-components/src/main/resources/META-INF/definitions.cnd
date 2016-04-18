@@ -37,8 +37,8 @@
 [bootstrap3mix:createRow] mixin
  extends = bootstrap3nt:columns
  itemtype = content
- - rowCssClass (string)
  - rowId (string) < '[a-zA-Z0-9-_]+'
+ - rowCssClass (string)
 
 [bootstrap3mix:createAbsoluteAreas] mixin
  extends = bootstrap3nt:columns

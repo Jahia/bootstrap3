@@ -28,7 +28,7 @@
         </div>
         <div class="collapse navbar-collapse navbar-responsive-collapse">
             <c:choose>
-                <c:when test="${fn:startsWith(renderContext.mainResource.path,'/templateSets/')}">
+                <c:when test="${fn:startsWith(renderContext.mainResource.path,'/modules/')}">
                     <c:set var="ulClass" value="nav navbar-nav"/>
                     <c:if test="${jcr:isNodeType(renderContext.site, 'bootstrap3mix:loginbarAdvanced')}">
                         <c:set var="ulClass" value="${currentNode.properties['ulClass'].string}"/>

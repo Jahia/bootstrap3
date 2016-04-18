@@ -27,6 +27,7 @@ startLevelValue = startLevel ? startLevel.long : 0
 def empty = true
 def printMenu;
 printMenu = { node, navMenuLevel, omitFormatting ->
+//    System.out.println("Menu for node "+(entries++)+" "+node.path+"and nav menu level is "+navMenuLevel);
     firstEntry = true;
 
     if (node) {
@@ -67,21 +68,25 @@ printMenu = { node, navMenuLevel, omitFormatting ->
                     correctType |= (it.string == currentNode.name)
                 }
             }
-            if (!referenceIsBroken && correctType && (startLevelValue < navMenuLevel || inpath)) {
-                hasChildren = navMenuLevel < maxDepth.long && JCRTagUtils.hasChildrenOfType(menuItem, "jnt:page,jnt:nodeLink,jnt:externalLink")
+            // here we have to add <= to startLevel + maxDepth to be sure to go at least on the sub children at least once
+            if (!referenceIsBroken && correctType && ( navMenuLevel <= (startLevelValue + maxDepth.long) || inpath)) {
+                // Here we check that the current nav menu level is less than start + maxDepth so we do not display a dropdown menu entry without any entries in it
+                hasChildren = navMenuLevel < (startLevelValue+maxDepth.long) && JCRTagUtils.hasChildrenOfType(menuItem, "jnt:page,jnt:nodeLink,jnt:externalLink")
+//                System.out.println("Menu for node "+(entries++)+" "+menuItem.path+ " and has children is "+hasChildren);
                 if (startLevelValue < navMenuLevel) {
-                    Resource resource = new Resource(menuItem, "html", (hasChildren && navMenuLevel == 1 ? "menuDropdown" : "menuElement"), currentResource.getContextConfiguration());
+                    def isCurrentMenuTopLevel = navMenuLevel == (startLevelValue + 1)
+                    Resource resource = new Resource(menuItem, "html", (hasChildren && isCurrentMenuTopLevel ? "menuDropdown" : "menuElement"), currentResource.getContextConfiguration());
                     currentResource.getDependencies().add(menuItem.getCanonicalPath())
                     def render = RenderService.getInstance().render(resource, renderContext)
                     if (render != "") {
                         if (firstEntry) {
                             empty = false;
                             print("<ul");
-                            if (navMenuLevel == 1 && layoutID) {
+                            if (isCurrentMenuTopLevel && layoutID) {
                                 print(" id=\"${layoutID.string}\"");
                             }
                             print(" class=\"");
-                            if (navMenuLevel == 1) {
+                            if (isCurrentMenuTopLevel) {
                                 print("nav navbar-nav");
                                 if (position && !"".equals(position.string)) {
                                     print(" navbar-${position.string}");
@@ -97,7 +102,7 @@ printMenu = { node, navMenuLevel, omitFormatting ->
                         }
                         def listItemCssClass = "";
                         if (hasChildren) {
-                            if (navMenuLevel == 1) {
+                            if (isCurrentMenuTopLevel) {
                                 listItemCssClass = "dropdown";
                             } else {
                                 listItemCssClass = "dropdown-submenu";
