@@ -39,13 +39,20 @@
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                             data-target="#navbar-collapse_${currentNode.identifier}" aria-expanded="false">
-                        <span class="sr-only"><fmt:message
-                                key="bootstrap3nt_enhancedNavBar.title.toggleNavigation"/></span>
+                        <span class="sr-only"><fmt:message key="bootstrap3nt_enhancedNavBar.title.toggleNavigation"/></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="<c:url value="${renderContext.site.home.url}" context="/"/>">
+                    <c:choose>
+                        <c:when test="${not empty renderContext.site.home.url}">
+                            <c:url var="siteUrl" value="${renderContext.site.home.url}" context="/"/>
+                        </c:when>
+                        <c:otherwise>
+                            <c:set var="siteUrl" value="#"/>
+                        </c:otherwise>
+                    </c:choose>
+                    <a class="navbar-brand" href="${siteUrl}">
                         <c:choose>
                             <c:when test="${jcr:isNodeType(renderContext.site, 'bootstrap3mix:siteLogo')}">
                                 <img alt="<c:if test="${not empty title}">${fn:escapeXml(title.string)}</c:if>"
