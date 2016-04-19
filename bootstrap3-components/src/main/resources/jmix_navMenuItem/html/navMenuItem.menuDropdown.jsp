@@ -9,4 +9,4 @@
     <c:set var="linkTitle"> title="<c:out value="${description.string}" escapeXml="true"/>"</c:set>
 </c:if>
 
-<a href="${currentNode.url}" data-hover="dropdown" data-delay="500" class="dropdown-toggle"${linkTitle}>${currentNode.displayableName} <b class="caret"></b></a>
+<a href="<c:url value="${currentNode.url}" context="/"/>" data-hover="dropdown" data-delay="500" class="dropdown-toggle"${linkTitle}>${currentNode.displayableName} <b class="caret"></b></a>

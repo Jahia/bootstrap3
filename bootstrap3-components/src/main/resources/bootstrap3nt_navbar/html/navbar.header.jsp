@@ -37,7 +37,7 @@
     </c:when>
     <c:when test="${empty siteLogo.node && renderContext.editMode}">
         <a class="navbar-brand" href="<c:url value='${url.base}${renderContext.site.home.path}.html'/>">
-            <img id="logo-header" src="<c:url value='${url.currentModule}/img/nologo.png' context='/'/>"
+            <img id="logo-header" src="<c:url value='${url.currentModule}/img/nologo.png'/>"
                  alt="${siteName}"/>
         </a>
     </c:when>

@@ -33,7 +33,7 @@
             renderContext.mainResource.node.path == menuItem.properties['j:node'].node.path :
             renderContext.mainResource.node.path == menuItem.path}"/>
                 <c:set var="aClass" value="${active ? 'list-group-item active' : 'list-group-item'}"/>
-                <c:url var="linkUrl" value="${menuItem.url}"/>
+                <c:url var="linkUrl" value="${menuItem.url}" context="/"/>
                 <a href="${linkUrl}" class="${aClass}">${menuItem.displayableName}</a>
             </c:forEach>
         </div>

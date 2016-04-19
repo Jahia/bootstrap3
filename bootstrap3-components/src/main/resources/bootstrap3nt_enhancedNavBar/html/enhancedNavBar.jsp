@@ -45,11 +45,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="${renderContext.site.home.url}">
+                    <a class="navbar-brand" href="<c:url var="${renderContext.site.home.url}" context="/"/>">
                         <c:choose>
                             <c:when test="${jcr:isNodeType(renderContext.site, 'bootstrap3mix:siteLogo')}">
                                 <img alt="<c:if test="${not empty title}">${fn:escapeXml(title.string)}</c:if>"
-                                     src="${renderContext.site.properties['siteLogo'].node.url}" height="20"/>
+                                     src="<c:url var="${renderContext.site.properties['siteLogo'].node.url}" context="/"/>" height="20"/>
                             </c:when>
                             <c:otherwise>
                                 <c:if test="${not empty title}">${title.string}</c:if>
