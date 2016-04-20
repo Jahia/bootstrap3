@@ -56,7 +56,7 @@ printMenu = { node, navMenuLevel, omitFormatting ->
                     referenceIsBroken = true;
                 }
             } else {
-                selected = renderContext.mainResource.node.path == itemPath
+                selected = pathMainResource == itemPath
             }
             correctType = true
             if(menuItem.isNodeType("jmix:navMenu")){
@@ -75,7 +75,15 @@ printMenu = { node, navMenuLevel, omitFormatting ->
 //                System.out.println("Menu for node "+(entries++)+" "+menuItem.path+ " and has children is "+hasChildren);
                 if (startLevelValue < navMenuLevel) {
                     def isCurrentMenuTopLevel = navMenuLevel == (startLevelValue + 1)
-                    Resource resource = new Resource(menuItem, "html", (hasChildren && isCurrentMenuTopLevel ? "menuDropdown" : "menuElement"), currentResource.getContextConfiguration());
+                    def elToRender
+                    if (hasChildren && isCurrentMenuTopLevel) {
+                        elToRender = "menuDropdown"
+                    } else if (hasChildren && !isCurrentMenuTopLevel) {
+                        elToRender = "menuSubElement"
+                    } else {
+                        elToRender = "menuElement"
+                    }
+                    Resource resource = new Resource(menuItem, "html", elToRender, currentResource. getContextConfiguration());
                     currentResource.getDependencies().add(menuItem.getCanonicalPath())
                     def render = RenderService.getInstance().render(resource, renderContext)
                     if (render != "") {
@@ -98,6 +106,14 @@ printMenu = { node, navMenuLevel, omitFormatting ->
                                 print("dropdown-menu");
                             }
                             print("\">");
+                            if (!isCurrentMenuTopLevel) {
+                                def cssClassActive = ""
+                                if (node.path == pathMainResource) {
+                                    cssClassActive = " class=\"active\""
+                                }
+                                print "<li" + cssClassActive + "><a href=\"" + node.url + "\">" + node.displayableName + "</a></li>"
+                                print "<li role=\"separator\" class=\"divider\"></li>"
+                            }
                             closeUl = true;
                         }
                         def listItemCssClass = "";

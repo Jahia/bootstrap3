@@ -9,5 +9,4 @@
     <c:set var="linkTitle"> title="<c:out value="${description.string}" escapeXml="true"/>"</c:set>
 </c:if>
 
-<a href="#" data-toggle="dropdown" class="dropdown-toggle"${linkTitle}
-   role="button" aria-haspopup="true" aria-expanded="false">${currentNode.displayableName} <span class="caret"></span></a>
+<a href="#"${linkTitle} class="sub-menu-trigger" role="button">${currentNode.displayableName}</a>
