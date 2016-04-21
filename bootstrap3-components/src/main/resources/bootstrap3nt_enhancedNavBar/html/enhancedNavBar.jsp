@@ -55,8 +55,9 @@
                     <a class="navbar-brand" href="${siteUrl}">
                         <c:choose>
                             <c:when test="${jcr:isNodeType(renderContext.site, 'bootstrap3mix:siteLogo')}">
+                                <c:url value="${renderContext.site.properties['siteLogo'].node.url}" context="/" var="siteLogoUrl"/>
                                 <img alt="<c:if test="${not empty title}">${fn:escapeXml(title.string)}</c:if>"
-                                     src="<c:url value="${renderContext.site.properties['siteLogo'].node.url}" context="/"/>" height="20"/>
+                                     src="${siteLogoUrl}" height="20"/>
                             </c:when>
                             <c:otherwise>
                                 <c:if test="${not empty title}">${title.string}</c:if>

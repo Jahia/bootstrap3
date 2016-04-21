@@ -56,7 +56,7 @@
 </c:if>
 <c:if test="${renderContext.loggedIn and not (currentAliasUser.username eq 'guest')}">
     <jcr:node var="user" path="${renderContext.user.localPath}"/>
-    <form action='<c:url value="${url.logout}"/>' class="navbar-form${pullClass}">
+    <form action="<c:url value='${url.logout}'/>" class="navbar-form${pullClass}">
         <button type="submit" class="btn btn-default">
             <fmt:message key="bootstrap3nt_navBarItemLoginForm.button.logout"/>
             ${' '}${jcr:userFullName(user)}<c:if test="${not empty currentAliasUser}">&nbsp;(as&nbsp;${currentAliasUser.username})</c:if>
