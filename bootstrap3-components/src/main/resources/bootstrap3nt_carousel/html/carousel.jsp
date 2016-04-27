@@ -18,43 +18,49 @@
 <template:addResources type="javascript" resources="jquery.min.js,bootstrap.min.js"/>
 
 <c:set var="items" value="${jcr:getChildrenOfType(currentNode, 'bootstrap3nt:carouselItem')}"/>
-<c:choose>
-    <c:when test="${renderContext.editMode}">
-        <h2><fmt:message key="bootstrap3nt_carousel"/></h2>
+
+<div id="carousel_${currentNode.identifier}" class="carousel slide" data-ride="carousel">
+    <%-- Indicators --%>
+    <c:set var="useIndicators" value="true"/>
+    <c:if test="${not empty currentNode.properties.useIndicators}">
+        <c:set var="useIndicators" value="${currentNode.properties.useIndicators.boolean}"/>
+    </c:if>
+    <c:if test="${useIndicators}">
+        <ol class="carousel-indicators">
+            <c:forEach items="${items}" var="item" varStatus="status">
+                <li data-target="#carousel_${currentNode.identifier}" data-slide-to="${status.index}" <c:if test='${status.index == 0}'>class="active"</c:if>></li>
+            </c:forEach>
+        </ol>
+    </c:if>
+
+    <%-- Wrapper for slides --%>
+    <div class="carousel-inner" role="listbox"  <c:if test="${not empty currentNode.properties.height and not empty currentNode.properties.height.long}"> style="height: ${currentNode.properties.height.long}px"</c:if> >
         <c:forEach items="${items}" var="item" varStatus="status">
-            <template:module node="${item}" nodeTypes="bootstrap3nt:carouselItem" editable="true"/>
-        </c:forEach>
-        <template:module path="*" nodeTypes="bootstrap3nt:carouselItem"/>
-    </c:when>
-    <c:otherwise>
-        <div id="carousel${currentNode.name}" class="carousel slide" data-ride="carousel">
-                <%-- Indicators --%>
-            <ol class="carousel-indicators">
-                <c:forEach items="${items}" var="item" varStatus="status">
-                    <li data-target="#carousel${currentNode.name}" data-slide-to="${status.index}" <c:if test='${status.index == 0}'>class="active"</c:if>></li>
-                </c:forEach>
-            </ol>
-
-                <%-- Wrapper for slides --%>
-            <div class="carousel-inner" role="listbox">
-                <c:forEach items="${items}" var="item" varStatus="status">
-                    <div class="item <c:if test='${status.index == 0}'>active</c:if>">
-                        <template:module node="${item}" nodeTypes="bootstrap3nt:carouselItem"/>
-                    </div>
-                </c:forEach>
+            <div class="item <c:if test='${status.first}'>active</c:if>">
+                <template:module node="${item}" nodeTypes="bootstrap3nt:carouselItem">
+                    <template:param name="maxHeight" value="${(not empty currentNode.properties.height and not empty currentNode.properties.height.long)?currentNode.properties.height.long:''}"/>
+                </template:module>
             </div>
+        </c:forEach>
+    </div>
 
-                <%-- Controls --%>
-            <a class="left carousel-control" href="#carousel${currentNode.name}" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only"><fmt:message key="bootstrap3nt_carousel.label.previous"/></span>
-            </a>
-            <a class="right carousel-control" href="#carousel${currentNode.name}" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only"><fmt:message key="bootstrap3nt_carousel.label.next"/></span>
-            </a>
-        </div>
+    <%-- Controls --%>
+    <c:set var="useLeftAndRightControls" value="true"/>
+    <c:if test="${not empty currentNode.properties.useLeftAndRightControls}">
+        <c:set var="useLeftAndRightControls" value="${currentNode.properties.useLeftAndRightControls.boolean}"/>
+    </c:if>
+    <c:if test="${useLeftAndRightControls}">
+        <a class="left carousel-control" href="#carousel${currentNode.name}" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only"><fmt:message key="bootstrap3nt_carousel.label.previous"/></span>
+        </a>
+        <a class="right carousel-control" href="#carousel${currentNode.name}" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only"><fmt:message key="bootstrap3nt_carousel.label.next"/></span>
+        </a>
+    </c:if>
+</div>
 
-    </c:otherwise>
-
-</c:choose>
+<c:if test="${renderContext.editMode}">
+    <template:module path="*" nodeTypes="bootstrap3nt:carouselItem"/>
+</c:if>

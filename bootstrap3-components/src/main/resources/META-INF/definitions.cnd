@@ -135,9 +135,14 @@
 [bootstrap3nt:carouselItem] > jnt:content, mix:title
  - image (weakreference, picker[type='image']) i18n mandatory < jnt:file
  - caption (string,textarea) i18n
+ - displayTitle (boolean) indexed=no
+ - displayCaption (boolean) indexed=no
 
 [bootstrap3nt:carousel] > jnt:content, bootstrap3mix:component, jmix:manuallyOrderable, jmix:list orderable
-+ * (bootstrap3nt:carouselItem)
+ - height (long) indexed=no
+ - useIndicators (boolean) indexed=no
+ - useLeftAndRightControls (boolean) indexed=no
+ + * (bootstrap3nt:carouselItem)
 
 [bootstrap3nt:collapse] > jnt:content, bootstrap3mix:component, jmix:list
 + * (bootstrap3nt:panel)
