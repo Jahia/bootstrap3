@@ -90,13 +90,15 @@
                 </c:otherwise>
             </c:choose>
             <c:set var="cssClassPager" value=""/>
+            <c:set var="cssNavPager" value=" class=\"text-center\""/>
             <c:if test="${jcr:isNodeType(currentNode, 'bootstrap3mix:advancedPagination')}">
                 <c:choose>
-                    <c:when test="${not empty currentNode.properties.align}">
+                    <c:when test="${not empty currentNode.properties.align and currentNode.properties.align.string ne 'center-block'}">
                         <c:set var="cssClassPager" value="${currentNode.properties.align.string}"/>
+                        <c:set var="cssNavPager" value=""/>
                     </c:when>
                     <c:otherwise>
-                        <c:set var="cssClassPager" value="center-block"/>
+                        <c:set var="cssNavPager" value=" class=\"text-center\""/>
                     </c:otherwise>
                 </c:choose>
                 <c:choose>
@@ -109,7 +111,7 @@
                 </c:choose>
             </c:if>
             <c:set target="${moduleMap}" property="basePaginationUrl" value="${basePaginationUrl}"/>
-            <nav>
+            <nav ${cssNavPager}>
                 <ul class="pagination ${cssClassPager}">
                     <c:url value="${basePaginationUrl}" var="previousUrl" context="/">
                         <c:param name="${beginid}" value="${(moduleMap.currentPage-2) * moduleMap.pageSize }"/>
