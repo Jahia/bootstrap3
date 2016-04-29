@@ -54,7 +54,7 @@
     </parent>
     <artifactId>bootstrap3-core</artifactId>
     <name>Bootstrap 3 Core</name>
-    <version>3.3.6</version>
+    <version>3.3.7-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <description>This is the custom module (Bootstrap 3 Core) for running on a Jahia server.</description>
     <scm>
