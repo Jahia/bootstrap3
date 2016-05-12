@@ -144,7 +144,7 @@
  - useLeftAndRightControls (boolean) indexed=no
  + * (bootstrap3nt:carouselItem)
 
-[bootstrap3nt:collapse] > jnt:content, bootstrap3mix:component, jmix:list
+[bootstrap3nt:collapse] > jnt:content, bootstrap3mix:component, jmix:list orderable
 + * (bootstrap3nt:panel)
 
 [bootstrap3nt:container] > jnt:content, bootstrap3mix:component, jmix:list, jmix:studioOnly
