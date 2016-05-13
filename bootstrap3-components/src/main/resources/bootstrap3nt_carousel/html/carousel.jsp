@@ -50,11 +50,11 @@
         <c:set var="useLeftAndRightControls" value="${currentNode.properties.useLeftAndRightControls.boolean}"/>
     </c:if>
     <c:if test="${useLeftAndRightControls}">
-        <a class="left carousel-control" href="#carousel${currentNode.name}" role="button" data-slide="prev">
+        <a class="left carousel-control" href="#carousel_${currentNode.identifier}" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
             <span class="sr-only"><fmt:message key="bootstrap3nt_carousel.label.previous"/></span>
         </a>
-        <a class="right carousel-control" href="#carousel${currentNode.name}" role="button" data-slide="next">
+        <a class="right carousel-control" href="#carousel_${currentNode.identifier}" role="button" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
             <span class="sr-only"><fmt:message key="bootstrap3nt_carousel.label.next"/></span>
         </a>

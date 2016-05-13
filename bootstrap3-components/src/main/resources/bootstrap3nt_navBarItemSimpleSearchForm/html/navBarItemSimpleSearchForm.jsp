@@ -15,7 +15,6 @@
     </c:if>
     <s:form method="post" class="navbar-form${pullClass}" action="${searchUrl}" role="search">
         <div class="form-group">
-            <span class="glyphicon glyphicon-search"></span>
             <fmt:message key='bootstrap3nt_navBarItemSimpleSearchForm.startSearching' var="startSearching"/>
             <s:term match="all_words" id="searchTerm" searchIn="siteContent,tags,files"
                    class="search-query form-control" placeholder="${startSearching}"/>

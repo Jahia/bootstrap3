@@ -144,17 +144,17 @@
  - useLeftAndRightControls (boolean) indexed=no
  + * (bootstrap3nt:carouselItem)
 
-[bootstrap3nt:collapse] > jnt:content, bootstrap3mix:component, jmix:list
+[bootstrap3nt:collapse] > jnt:content, bootstrap3mix:component, jmix:list orderable
 + * (bootstrap3nt:panel)
 
-[bootstrap3nt:container] > jnt:content, bootstrap3mix:component, jmix:list
+[bootstrap3nt:container] > jnt:content, bootstrap3mix:component, jmix:list, jmix:studioOnly
  - fluid (boolean) indexed=no
  + * (jmix:droppableContent) = jmix:droppableContent
 
-[bootstrap3nt:row] > jnt:content, bootstrap3mix:component, jmix:list orderable
+[bootstrap3nt:row] > jnt:content, bootstrap3mix:component, jmix:list, jmix:studioOnly orderable
  + * (bootstrap3nt:column) = bootstrap3nt:column
 
-[bootstrap3nt:column] > jnt:content, bootstrap3mix:component, jmix:list
+[bootstrap3nt:column] > jnt:content, bootstrap3mix:component, jmix:list, jmix:studioOnly
  - span (long) = '1' indexed=no
  - offset (long) = '0' indexed=no
  + * (jmix:droppableContent) = jmix:droppableContent
@@ -191,7 +191,6 @@
 
 [bootstrap3nt:enhancedNavBar] > jnt:content, mix:title, jmix:list, bootstrap3mix:component orderable
  - option (string, choicelist[resourceBundle]) indexed=no < '', 'navbar-fixed-top', 'navbar-fixed-bottom', 'navbar-static-top'
- - responsive (boolean) indexed=no
  - inverse (boolean) indexed=no
  - fluid (boolean) indexed=no
  - j:styleName (string) indexed=no

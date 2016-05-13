@@ -1,7 +1,7 @@
 import org.jahia.taglibs.jcr.node.JCRTagUtils
 
-baseline = currentNode.properties['j:baselineNode']
-maxDepth = currentNode.properties['j:maxDepth']
+baseline = currentResource.node.properties['j:baselineNode']
+maxDepth = currentResource.node.properties['j:maxDepth']
 
 def base;
 if (!baseline || baseline.string == 'home') {
