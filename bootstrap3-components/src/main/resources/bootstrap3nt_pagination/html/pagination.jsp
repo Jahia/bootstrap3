@@ -127,7 +127,8 @@
                     <c:choose>
                         <c:when test="${nbOfPages > 1}">
                             <c:set var="paginationBegin"
-                                   value="${moduleMap.currentPage < nbOfPages ? 1 : moduleMap.currentPage - (nbOfPages - 2)}"/>
+                                   value="${moduleMap.currentPage < nbOfPages ? 1 : moduleMap.currentPage -
+                                   (nbOfPages-1)}"/>
                         </c:when>
                         <c:otherwise>
                             <c:set var="paginationBegin" value="${moduleMap.currentPage}"/>
