@@ -28,7 +28,8 @@
                 });
 
                 <c:if test="${not empty activatedCollapse}">
-                $('#accordion_${currentNode.identifier}').find('a[href="${activatedCollapse}"]').click();
+                $("#accordion_${currentNode.identifier} .collapse").removeClass('in');
+                $("${activatedCollapse}").addClass("in");
                 </c:if>
             });
         </script>
