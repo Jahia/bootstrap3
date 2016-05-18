@@ -69,7 +69,7 @@
 
 [bootstrap3nt:sidemenu] > jnt:content, jnt:content, bootstrap3mix:component, jmix:navMenuComponent
  - level (string, choicelist[resourceBundle]) = '0' autocreated < '0', '1', '2', '3', '4', '5','-1'
- - displaySubpages (boolean) = 'false' autocreated indexed=no
+ - displaySubpages (boolean) = 'false' hidden autocreated indexed=no
 
 [bootstrap3nt:textBox] > jnt:content, bootstrap3mix:component, mix:title, bootstrap3mix:hx, bootstrap3mix:text
 - secondaryTitle (string) i18n
