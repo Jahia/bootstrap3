@@ -113,13 +113,15 @@
             <c:set target="${moduleMap}" property="basePaginationUrl" value="${basePaginationUrl}"/>
             <nav ${cssNavPager}>
                 <ul class="pagination ${cssClassPager}">
+                    <c:set var="paginationUrl">
                     <c:url value="${basePaginationUrl}" var="previousUrl" context="/">
                         <c:param name="${beginid}" value="${(moduleMap.currentPage-2) * moduleMap.pageSize }"/>
                         <c:param name="${endid}" value="${ (moduleMap.currentPage-1)*moduleMap.pageSize-1}"/>
                         <c:param name="${pagesizeid}" value="${moduleMap.pageSize}"/>
                     </c:url>
+                    </c:set>
                     <li <c:if test="${empty moduleMap.currentPage or moduleMap.currentPage le 1}">class="disabled"</c:if>>
-                        <a href="${empty moduleMap.currentPage or moduleMap.currentPage le 1 ? '#' : fn:escapeXml(previousUrl)}" aria-label="<fmt:message key='bootstrap3mix_advancedPagination.label.previous'/>"><span aria-hidden="true">&laquo;</span></a>
+                        <a href="${empty moduleMap.currentPage or moduleMap.currentPage le 1 ? '#' : fn:escapeXml(paginationUrl)}" aria-label="<fmt:message key='bootstrap3mix_advancedPagination.label.previous'/>"><span aria-hidden="true">&laquo;</span></a>
                     </li>
                     <c:if test="${empty nbOfPages}">
                         <c:set var="nbOfPages" value="5"/>
@@ -145,7 +147,7 @@
                     </c:choose>
                     <c:forEach begin="${paginationBegin}" end="${paginationEnd}" var="i">
                         <c:if test="${i != moduleMap.currentPage}">
-                            <c:url value="${basePaginationUrl}" var="paginationPageUrl" context="/">
+                            <c:url value="${paginationUrl}" var="paginationPageUrl">
                                 <c:param name="${beginid}" value="${ (i-1) * moduleMap.pageSize }"/>
                                 <c:param name="${endid}" value="${ i*moduleMap.pageSize-1}"/>
                                 <c:param name="${pagesizeid}" value="${moduleMap.pageSize}"/>
