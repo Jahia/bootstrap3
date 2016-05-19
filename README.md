@@ -40,6 +40,7 @@ Adds a paragraph with the option to add a localized title, a secondary localized
 ## Row
 Adds a Bootstrap row with the option to add a HTML id or a specific css class
 ## Section / Container / Row / Grid
+Switch the user choice divs can be added using a combination  of Sections, Containers, Rows, Absolute Areas and Grids
 ## Side menu
 Add a basic sidebar menu in the page that shows the list of pages in a specific level of the current page.
 ## Tab
