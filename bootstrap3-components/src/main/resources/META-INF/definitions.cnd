@@ -154,10 +154,9 @@
 [bootstrap3nt:row] > jnt:content, bootstrap3mix:component, jmix:list, jmix:studioOnly orderable
  + * (bootstrap3nt:column) = bootstrap3nt:column
 
-[bootstrap3nt:column] > jnt:content, bootstrap3mix:component, jmix:list, jmix:studioOnly
+[bootstrap3nt:column] > jnt:area, bootstrap3mix:component, jmix:list
  - span (long) = '1' indexed=no
  - offset (long) = '0' indexed=no
- + * (jmix:droppableContent) = jmix:droppableContent
 
 [bootstrap3mix:htmlID] mixin
  extends = bootstrap3nt:container, bootstrap3nt:row, bootstrap3nt:column
