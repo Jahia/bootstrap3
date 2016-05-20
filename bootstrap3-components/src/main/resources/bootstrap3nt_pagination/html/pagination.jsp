@@ -94,7 +94,7 @@
             </c:if>
             <nav ${cssNavPager}>
                 <ul class="pagination ${cssClassPager}">
-                    <c:url value="${searchUrl}" var="previousUrl" context="/">
+                    <c:url value="${searchUrl}" var="previousUrl">
                         <c:param name="${beginid}" value="${(moduleMap.currentPage-2) * moduleMap.pageSize }"/>
                         <c:param name="${endid}" value="${ (moduleMap.currentPage-1)*moduleMap.pageSize-1}"/>
                         <c:param name="${pagesizeid}" value="${moduleMap.pageSize}"/>
@@ -177,7 +177,7 @@
                     </c:forEach>
 
 
-                    <c:url value="${searchUrl}" var="nextUrl" context="/">
+                    <c:url value="${searchUrl}" var="nextUrl">
                         <c:param name="${beginid}" value="${ moduleMap.currentPage * moduleMap.pageSize }"/>
                         <c:param name="${endid}" value="${ (moduleMap.currentPage+1)*moduleMap.pageSize-1}"/>
                         <c:param name="${pagesizeid}" value="${moduleMap.pageSize}"/>
