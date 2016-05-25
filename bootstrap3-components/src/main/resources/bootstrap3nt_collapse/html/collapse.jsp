@@ -19,18 +19,23 @@
 
 <c:if test="${not renderContext.editMode}">
     <c:set var="cookieName" value="accordion-activatedCollapse_${currentNode.identifier}"/>
-    <c:set var="activatedCollapse" value="${not empty cookie[cookieName]?cookie[cookieName].value:''}"/>
     <template:addResources type="inlinejavascript">
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#accordion_${currentNode.identifier} a[data-toggle="collapse"]').click(function() {
                     document.cookie = "accordion-activatedCollapse_${currentNode.identifier}=" + this.attributes['href'].value;
                 });
-
-                <c:if test="${not empty activatedCollapse}">
-                $("#accordion_${currentNode.identifier} .collapse").removeClass('in');
-                $("${activatedCollapse}").addClass("in");
-                </c:if>
+                var c = document.cookie;
+                var pos = c.indexOf("${cookieName}=");
+                if (pos > -1) {
+                    var id = c.substr(pos);
+                    id = id.substr(id.indexOf('=')+1);
+                    if (id.indexOf(';') > -1) {
+                        id = id.substr(0,id.indexOf(';'));
+                    }
+                    $("#accordion_${currentNode.identifier} .collapse").removeClass('in');
+                    $(id).addClass("in");
+                }
             });
         </script>
     </template:addResources>
