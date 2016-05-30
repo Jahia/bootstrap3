@@ -8,7 +8,7 @@
 <%--@elvariable id="renderContext" type="org.jahia.services.render.RenderContext"--%>
 <template:addResources type="css" resources="bootstrap.min.css"/>
 <template:addResources type="javascript" resources="jquery.js,bootstrap.min.js"/>
-<jcr:nodeProperty node="${currentNode}" name="jcr:title" var="title"/>
+<c:set value="${renderContext.site.properties['j:title'].string}" var="title"/>
 <jcr:nodeProperty node="${currentNode}" name="j:styleName" var="styleName"/>
 <jcr:nodeProperty node="${currentNode}" name="option" var="option"/>
 <jcr:nodeProperty node="${currentNode}" name="inverse" var="inverse"/>
@@ -56,11 +56,11 @@
                         <c:choose>
                             <c:when test="${jcr:isNodeType(renderContext.site, 'bootstrap3mix:siteLogo')}">
                                 <c:url value="${renderContext.site.properties['siteLogo'].node.url}" context="/" var="siteLogoUrl"/>
-                                <img alt="<c:if test="${not empty title}">${fn:escapeXml(title.string)}</c:if>"
+                                <img alt="<c:if test="${not empty title}">${fn:escapeXml(title)}</c:if>"
                                      src="${siteLogoUrl}" height="20"/>
                             </c:when>
                             <c:otherwise>
-                                <c:if test="${not empty title}">${title.string}</c:if>
+                                <c:if test="${not empty title}">${title}</c:if>
                             </c:otherwise>
                         </c:choose>
                     </a>
