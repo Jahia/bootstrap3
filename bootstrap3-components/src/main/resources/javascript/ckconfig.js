@@ -56,7 +56,7 @@ CKEDITOR.editorConfig = function (config) {
 
 
     config.toolbar_Tinny = [
-        ['Source', '-', 'Templates', 'PasteText','SpellChecker','Styles'],
+        ['Source', '-', 'Templates', 'PasteText', 'wsc','Scayt', 'ACheck', 'SpellChecker','Styles'],
         ['Bold','Italic'],
         ['NumberedList', 'BulletedList', 'Outdent','Indent', 'Blockquote'],
         ['JustifyLeft','JustifyCenter','JustifyRight'],
@@ -64,7 +64,7 @@ CKEDITOR.editorConfig = function (config) {
         ['RemoveFormat','HorizontalRule','ShowBlocks']
     ];
 
-    config.extraPlugins = 'acheck';
+    config.extraPlugins = 'acheck,wsc,scayt,macrosdropdown';
     config.templates_replaceContent = false;
 
 

@@ -33,7 +33,14 @@
             renderContext.mainResource.node.path == menuItem.properties['j:node'].node.path :
             renderContext.mainResource.node.path == menuItem.path}"/>
                 <c:set var="aClass" value="${active ? 'list-group-item active' : 'list-group-item'}"/>
-                <c:url var="linkUrl" value="${menuItem.url}" context="/"/>
+                <c:choose>
+                    <c:when test="${jcr:isNodeType(menuItem, 'jnt:nodeLink')}">
+                        <c:url var="linkUrl" value="${menuItem.properties['j:node'].node.url}" context="/"/>
+                    </c:when>
+                    <c:otherwise>
+                        <c:url var="linkUrl" value="${menuItem.url}" context="/"/>
+                    </c:otherwise>
+                </c:choose>
                 <a href="${linkUrl}" class="${aClass}">${menuItem.displayableName}</a>
             </c:forEach>
         </div>

@@ -122,12 +122,13 @@
 
 [bootstrap3nt:pagination] > jnt:content, bootstrap3mix:component, jmix:bindedComponent
  - displayPager (boolean) = 'true' autocreated
+ - simplePager (boolean)
 
 [bootstrap3mix:advancedModal] mixin
  extends = bootstrap3nt:modal
 - size (string, choicelist[resourceBundle]) = 'default' indexed=no autocreated < 'default', 'lg', 'sm'
 
-[bootstrap3nt:modal] >  jnt:content, bootstrap3mix:component, mix:title
+[bootstrap3nt:modal] >  jnt:content, bootstrap3mix:contextualState, bootstrap3mix:component, mix:title
  - openText (string) = 'Launch demo modal' i18n mandatory
  - closeText (string) = 'Close' i18n mandatory
  + * (jmix:droppableContent) = jmix:droppableContent
@@ -135,11 +136,8 @@
 [bootstrap3nt:carouselItem] > jnt:content, mix:title
  - image (weakreference, picker[type='image']) i18n mandatory < jnt:file
  - caption (string,textarea) i18n
- - displayTitle (boolean) indexed=no
- - displayCaption (boolean) indexed=no
 
 [bootstrap3nt:carousel] > jnt:content, bootstrap3mix:component, jmix:manuallyOrderable, jmix:list orderable
- - height (long) indexed=no
  - useIndicators (boolean) indexed=no
  - useLeftAndRightControls (boolean) indexed=no
  + * (bootstrap3nt:carouselItem)
@@ -181,14 +179,10 @@
  - largeDevicesSpan (long) indexed=no
  - largeDevicesOffset (long) indexed=no
 
-[bootstrap3mix:simplePager] mixin
- extends = bootstrap3nt:pagination
- - useArrowNextPrevious (boolean)
-
 [bootstrap3mix:navBarItem] mixin
  - position (string, choicelist[resourceBundle]) = 'right' indexed=no < 'left', 'right'
 
-[bootstrap3nt:enhancedNavBar] > jnt:content, mix:title, jmix:list, bootstrap3mix:component orderable
+[bootstrap3nt:enhancedNavBar] > jnt:content, mix:title, jmix:list, bootstrap3mix:component, jmix:studioOnly  orderable
  - option (string, choicelist[resourceBundle]) indexed=no < '', 'navbar-fixed-top', 'navbar-fixed-bottom', 'navbar-static-top'
  - inverse (boolean) indexed=no
  - fluid (boolean) indexed=no

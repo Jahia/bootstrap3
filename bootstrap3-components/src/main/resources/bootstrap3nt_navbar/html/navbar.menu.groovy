@@ -39,8 +39,10 @@ printMenu = { node, navMenuLevel ->
                             link = menuItem.properties['j:node'].node.url;
                         } else if (menuItem.isNodeType('jnt:externalLink')) {
                             link = menuItem.properties['j:url'].string;
+                        } else if (menuItem.isNodeType("jnt:navMenuText")) {
+                            link = "#";
                         } else {
-                            link = menuItem.url;
+                                link = menuItem.url;
                         }
                         if (navMenuLevel == 1   ) {
                             if (!ulIsOpen) {

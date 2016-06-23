@@ -16,6 +16,7 @@
 <template:addResources type="css" resources="bootstrap.min.css"/>
 <template:addResources type="javascript" resources="jquery.min.js,bootstrap.min.js"/>
 
+<c:set var="state" value="${currentNode.properties['state'].string}"/>
 <c:set var="size"/>
 <c:if test="${jcr:isNodeType(currentNode, 'bootstrap3mix:advancedModal')}">
     <c:set var="size" value="modal-${currentNode.properties.size.string}"/>
@@ -23,7 +24,7 @@
 <c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal_${currentNode.identifier}">
+<button type="button" class="btn btn-${state} btn-lg" data-toggle="modal" data-target="#modal_${currentNode.identifier}">
     ${currentNode.properties.openText.string}
 </button>
 
@@ -46,7 +47,7 @@
                 </c:if>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">${currentNode.properties.closeText.string}</button>
+                <button type="button" class="btn btn-${state}" data-dismiss="modal">${currentNode.properties.closeText.string}</button>
             </div>
         </div>
     </div>

@@ -34,12 +34,10 @@
     </c:if>
 
     <%-- Wrapper for slides --%>
-    <div class="carousel-inner" role="listbox"  <c:if test="${not empty currentNode.properties.height and not empty currentNode.properties.height.long}"> style="height: ${currentNode.properties.height.long}px"</c:if> >
+    <div class="carousel-inner" role="listbox">
         <c:forEach items="${items}" var="item" varStatus="status">
             <div class="item <c:if test='${status.first}'>active</c:if>">
-                <template:module node="${item}" nodeTypes="bootstrap3nt:carouselItem">
-                    <template:param name="maxHeight" value="${(not empty currentNode.properties.height and not empty currentNode.properties.height.long)?currentNode.properties.height.long:''}"/>
-                </template:module>
+                <template:module node="${item}" nodeTypes="bootstrap3nt:carouselItem"/>
             </div>
         </c:forEach>
     </div>

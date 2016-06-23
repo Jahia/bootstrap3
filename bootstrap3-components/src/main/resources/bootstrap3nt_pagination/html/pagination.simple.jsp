@@ -93,7 +93,7 @@
                             <c:if test="${currentNode.properties['useArrowNextPrevious'].boolean}">
                                 <span aria-hidden="true">&larr;</span>${' '}
                             </c:if>
-                            <fmt:message key="bootstrap3mix_simplePager.previous"/>
+                            <fmt:message key="bootstrap3nt_pagination.previous"/>
                         </a>
                     </li>
 
@@ -104,7 +104,7 @@
                     </c:url>
                     <li class="<c:if test="${moduleMap.currentPage ge moduleMap.nbPages}">disabled</c:if><c:if test="${currentNode.properties['useArrowNextPrevious'].boolean}"> next</c:if>">
                         <a href="${fn:escapeXml(nextUrl)}">
-                            <fmt:message key="bootstrap3mix_simplePager.next"/>
+                            <fmt:message key="bootstrap3nt_pagination.next"/>
                             <c:if test="${currentNode.properties['useArrowNextPrevious'].boolean}">
                                 ${' '}<span aria-hidden="true">&rarr;</span>
                             </c:if>

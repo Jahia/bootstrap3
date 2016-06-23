@@ -15,27 +15,39 @@
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
 <jcr:nodeProperty var="image" node="${currentNode}" name="image"/>
-
-<c:if test="${not empty image.node.url}">
+<c:set var="title" value="${currentNode.properties['jcr:title'].string}"/>
+<c:set var="caption" value="${currentNode.properties['caption'].string}"/>
+<c:if test="${! empty image.node.url}">
     <c:url var="imageUrl" value="${image.node.url}" context="/"/>
 </c:if>
-<img src="${imageUrl}" alt="${fn:escapeXml(image.node.displayableName)}" <c:if test="${not empty currentResource.moduleParams['maxHeight']}"> style="max-height: ${currentResource.moduleParams['maxHeight']}px; width: 100%;"</c:if> >
-<div class="carousel-caption">
-    <c:set var="displayTitle" value="true"/>
-    <c:if test="${not empty currentNode.properties.displayTitle}">
-        <c:set var="displayTitle" value="${currentNode.properties.displayTitle.boolean}"/>
-    </c:if>
-    <c:if test="${displayTitle}">
-        <h3>${currentNode.displayableName}</h3>
-    </c:if>
-    <c:set var="displayCaption" value="true"/>
-    <c:if test="${not empty currentNode.properties.displayCaption}">
-        <c:set var="displayCaption" value="${currentNode.properties.displayCaption.boolean}"/>
-    </c:if>
-    <c:if test="${displayCaption}">
-        <p>${currentNode.properties.caption.string}</p>
-    </c:if>
-</div>
+<c:choose>
+    <c:when test="${renderContext.editMode}">
+        <div class="media">
+            <a class="media-left" href="#">
+                <img src="${imageUrl}" alt="${fn:escapeXml(image.node.displayableName)}" style="width: 64px"/>
+            </a>
+            <div class="media-body">
+                <c:if test="${not empty title}">
+                    <h4 class="media-heading">${title}</h4>
+                </c:if>
+                <c:if test="${not empty caption}">
+                    <p>${caption}</p>
+                </c:if>
+            </div>
+        </div>
+    </c:when>
+    <c:otherwise>
+        <img src="${imageUrl}" alt="${fn:escapeXml(image.node.displayableName)}"/>
+        <div class="carousel-caption">
+            <c:if test="${not empty title}">
+                <h3>${title}</h3>
+            </c:if>
+            <c:if test="${not empty caption}">
+                <p>${caption}</p>
+            </c:if>
+        </div>
+    </c:otherwise>
+</c:choose>
 
 
 
