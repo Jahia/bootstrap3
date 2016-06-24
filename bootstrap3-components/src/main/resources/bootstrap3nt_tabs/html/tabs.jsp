@@ -40,17 +40,23 @@
 
 <c:if test="${not renderContext.editMode}">
     <c:set var="cookieName" value="bootstrapTabularList-activatedTab_${currentNode.identifier}"/>
-    <c:set var="activatedTab" value="${not empty cookie[cookieName]?cookie[cookieName].value:''}"/>
     <template:addResources type="inlinejavascript">
         <script type="text/javascript">
             $(document).ready(function () {
                 $('#bootstrapTabsList_${currentNode.identifier} ul li a').click(function() {
                     document.cookie = "bootstrapTabularList-activatedTab_${currentNode.identifier}=" + this.attributes['href'].value;
                 });
-
-                <c:if test="${not empty activatedTab}">
-                $('#bootstrapTabsList_${currentNode.identifier}').find('a[href="${activatedTab}"]').tab('show');
-                </c:if>
+                var c = document.cookie;
+                var pos = c.indexOf("${cookieName}=");
+                if (pos > -1) {
+                    var id = c.substr(pos);
+                    id = id.substr(id.indexOf('=')+1);
+                    if (id.indexOf(';') > -1) {
+                        id = id.substr(0,id.indexOf(';'));
+                    }
+                    $('#bootstrapTabsList_${currentNode.identifier}').find('a[href="'+ id + '"]').tab('show');
+                    $(id).addClass("in");
+                }
             });
         </script>
     </template:addResources>
