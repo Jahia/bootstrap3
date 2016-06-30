@@ -55,7 +55,6 @@
                         id = id.substr(0,id.indexOf(';'));
                     }
                     $('#bootstrapTabsList_${currentNode.identifier}').find('a[href="'+ id + '"]').tab('show');
-                    $(id).addClass("in");
                 }
             });
         </script>
