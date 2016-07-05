@@ -34,7 +34,8 @@
         </c:otherwise>
     </c:choose>
     <c:set target="${moduleMap}" property="pageSize" value="${pageSize}"/>
-    <c:set target="${moduleMap}" property="pageStart" value="${not empty param[beginid] ? fn:escapeXml(param[beginid]) : param[beginid]}"/>
+    <c:set target="${moduleMap}" property="pageStart"
+           value="${not empty param[beginid] ? fn:escapeXml(param[beginid]) : param[beginid]}"/>
     <template:option node="${boundComponent}" nodetype="${boundComponent.primaryNodeTypeName},jmix:list"
                      view="hidden.header"/>
     <c:set var="sizeNotExact"
@@ -58,7 +59,8 @@
                         <c:if test="${not empty param}">
                             <c:forEach items="${param}" var="extraParam">
                                 <c:if test="${extraParam.key ne beginid and extraParam.key ne endid and extraParam.key ne pagesizeid and !fn:startsWith(extraParam.key, 'src_')}">
-                                    <c:param name="${extraParam.key}" value="${not empty extraParam.value ? fn:escapeXml(extraParam.value) : extraParam.value}"/>
+                                    <c:param name="${extraParam.key}"
+                                             value="${not empty extraParam.value ? fn:escapeXml(extraParam.value) : extraParam.value}"/>
                                 </c:if>
                             </c:forEach>
                         </c:if>
@@ -71,7 +73,8 @@
                         <c:if test="${not empty param}">
                             <c:forEach items="${param}" var="extraParam">
                                 <c:if test="${extraParam.key ne beginid and extraParam.key ne endid and extraParam.key ne pagesizeid}">
-                                    <c:param name="${extraParam.key}" value="${not empty extraParam.value ? fn:escapeXml(extraParam.value) : extraParam.value}"/>
+                                    <c:param name="${extraParam.key}"
+                                             value="${not empty extraParam.value ? fn:escapeXml(extraParam.value) : extraParam.value}"/>
                                 </c:if>
                             </c:forEach>
                         </c:if>
@@ -84,32 +87,36 @@
             <nav>
                 <ul class="pager">
                     <c:url value="${basePaginationUrl}" var="previousUrl" context="/">
-                        <c:param name="${beginid}" value="${(moduleMap.currentPage-2) * moduleMap.pageSize }"/>
-                        <c:param name="${endid}" value="${ (moduleMap.currentPage-1)*moduleMap.pageSize-1}"/>
+                        <c:param name="${beginid}" value="${(moduleMap.currentPage - 2) * moduleMap.pageSize}"/>
+                        <c:param name="${endid}" value="${(moduleMap.currentPage - 1) * moduleMap.pageSize - 1}"/>
                         <c:param name="${pagesizeid}" value="${moduleMap.pageSize}"/>
                     </c:url>
-                    <li class="<c:if test="${empty moduleMap.currentPage or moduleMap.currentPage le 1}">disabled</c:if><c:if test="${currentNode.properties['useArrowNextPrevious'].boolean}"> previous</c:if>">
-                        <a href="${fn:escapeXml(previousUrl)}">
-                            <c:if test="${currentNode.properties['useArrowNextPrevious'].boolean}">
-                                <span aria-hidden="true">&larr;</span>${' '}
-                            </c:if>
-                            <fmt:message key="bootstrap3nt_pagination.previous"/>
-                        </a>
-                    </li>
+                    <c:if test="${not (empty moduleMap.currentPage or moduleMap.currentPage le 1)}">
+                        <li class="<c:if test="${currentNode.properties['useArrowNextPrevious'].boolean}">previous</c:if>">
+                            <a href="${fn:escapeXml(previousUrl)}">
+                                <c:if test="${currentNode.properties['useArrowNextPrevious'].boolean}">
+                                    <span aria-hidden="true">&larr;</span>${' '}
+                                </c:if>
+                                <fmt:message key="bootstrap3nt_pagination.previous"/>
+                            </a>
+                        </li>
+                    </c:if>
 
                     <c:url value="${basePaginationUrl}" var="nextUrl" context="/">
                         <c:param name="${beginid}" value="${ moduleMap.currentPage * moduleMap.pageSize }"/>
                         <c:param name="${endid}" value="${ (moduleMap.currentPage+1)*moduleMap.pageSize-1}"/>
                         <c:param name="${pagesizeid}" value="${moduleMap.pageSize}"/>
                     </c:url>
-                    <li class="<c:if test="${moduleMap.currentPage ge moduleMap.nbPages}">disabled</c:if><c:if test="${currentNode.properties['useArrowNextPrevious'].boolean}"> next</c:if>">
-                        <a href="${fn:escapeXml(nextUrl)}">
-                            <fmt:message key="bootstrap3nt_pagination.next"/>
-                            <c:if test="${currentNode.properties['useArrowNextPrevious'].boolean}">
-                                ${' '}<span aria-hidden="true">&rarr;</span>
-                            </c:if>
-                        </a>
-                    </li>
+                    <c:if test="${moduleMap.currentPage lt moduleMap.nbPages}">
+                        <li class="<c:if test="${currentNode.properties['useArrowNextPrevious'].boolean}">next</c:if>">
+                            <a href="${fn:escapeXml(nextUrl)}">
+                                <fmt:message key="bootstrap3nt_pagination.next"/>
+                                <c:if test="${currentNode.properties['useArrowNextPrevious'].boolean}">
+                                    ${' '}<span aria-hidden="true">&rarr;</span>
+                                </c:if>
+                            </a>
+                        </li>
+                    </c:if>
                 </ul>
             </nav>
             <c:set target="${moduleMap}" property="usePagination" value="false"/>
