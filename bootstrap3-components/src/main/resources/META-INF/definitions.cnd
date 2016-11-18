@@ -15,7 +15,7 @@
 [bootstrap3mix:glyphicon] mixin
  - glyphicon (string, choicelist[glyphiconInitializer,resourceBundle])
 
-[bootstrap3nt:columns] > jnt:content, bootstrap3mix:component, jmix:studioLayout
+[bootstrap3nt:columns] > jnt:content, bootstrap3mix:component, jmix:studioLayout, jmix:list
  - columnsType (string, choicelist[columnInitializer,resourceBundle]) = 'predefinedColumns' autocreated < 'nogrid', 'predefinedColumns', 'customColumns'
  + * (jmix:droppableContent) = jmix:droppableContent
 
@@ -107,7 +107,7 @@
  - navStacked (boolean) indexed=no
  + * (jnt:contentList) = jnt:contentList
 
-[bootstrap3nt:well] >  jnt:content, bootstrap3mix:component
+[bootstrap3nt:well] >  jnt:content, bootstrap3mix:component, jmix:list
  - size (string, choicelist[resourceBundle]) = 'default' indexed=no autocreated < 'default', 'well-lg', 'well-sm'
  + * (jmix:droppableContent) = jmix:droppableContent
 
@@ -128,7 +128,7 @@
  extends = bootstrap3nt:modal
 - size (string, choicelist[resourceBundle]) = 'default' indexed=no autocreated < 'default', 'lg', 'sm'
 
-[bootstrap3nt:modal] >  jnt:content, bootstrap3mix:contextualState, bootstrap3mix:component, mix:title
+[bootstrap3nt:modal] >  jnt:content, bootstrap3mix:contextualState, bootstrap3mix:component, mix:title, jmix:list
  - openText (string) = 'Launch demo modal' i18n mandatory
  - closeText (string) = 'Close' i18n mandatory
  + * (jmix:droppableContent) = jmix:droppableContent
@@ -145,11 +145,11 @@
 [bootstrap3nt:collapse] > jnt:content, bootstrap3mix:component, jmix:list orderable
 + * (bootstrap3nt:panel)
 
-[bootstrap3nt:container] > jnt:content, bootstrap3mix:component, jmix:list, jmix:studioOnly
+[bootstrap3nt:container] > jnt:content, bootstrap3mix:component, jmix:list
  - fluid (boolean) indexed=no
  + * (jmix:droppableContent) = jmix:droppableContent
 
-[bootstrap3nt:row] > jnt:content, bootstrap3mix:component, jmix:list, jmix:studioOnly orderable
+[bootstrap3nt:row] > jnt:content, bootstrap3mix:component, jmix:list orderable
  + * (bootstrap3nt:column) = bootstrap3nt:column
 
 [bootstrap3nt:column] > jnt:area, bootstrap3mix:component, jmix:list
