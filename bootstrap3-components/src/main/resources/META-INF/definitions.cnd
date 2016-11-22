@@ -15,7 +15,7 @@
 [bootstrap3mix:glyphicon] mixin
  - glyphicon (string, choicelist[glyphiconInitializer,resourceBundle])
 
-[bootstrap3nt:columns] > jnt:content, bootstrap3mix:component, jmix:studioLayout, jmix:list
+[bootstrap3nt:columns] > jnt:content, bootstrap3mix:component, jmix:studioLayout, jmix:list, jmix:siteContent
  - columnsType (string, choicelist[columnInitializer,resourceBundle]) = 'predefinedColumns' autocreated < 'nogrid', 'predefinedColumns', 'customColumns'
  + * (jmix:droppableContent) = jmix:droppableContent
 
@@ -95,11 +95,11 @@
 [bootstrap3mix:contextualState] mixin
  - state (string, choicelist[resourceBundle,moduleImage='png']) = 'default' indexed=no autocreated < 'default', 'primary', 'success', 'info', 'warning', 'danger'
 
-[bootstrap3nt:panel] >  jnt:content, bootstrap3mix:component, mix:title, bootstrap3mix:contextualState, jmix:list
+[bootstrap3nt:panel] >  jnt:content, bootstrap3mix:component, mix:title, bootstrap3mix:contextualState, jmix:list, jmix:siteContent
  - footer (string) i18n
  + * (jmix:droppableContent) = jmix:droppableContent
 
-[bootstrap3nt:tabs] > jnt:content, bootstrap3mix:component, jmix:manuallyOrderable, jmix:list orderable
+[bootstrap3nt:tabs] > jnt:content, bootstrap3mix:component, jmix:manuallyOrderable, jmix:list, jmix:siteContent orderable
  - navigation (string, choicelist[resourceBundle,moduleImage='png']) = 'tab' indexed=no autocreated < 'tab', 'pill'
  - fadeEffect (boolean) = 'true' mandatory autocreated indexed=no
  - tabsPosition (string, choicelist[resourceBundle]) = 'top' indexed=no < 'top', 'below'
@@ -107,7 +107,7 @@
  - navStacked (boolean) indexed=no
  + * (jnt:contentList) = jnt:contentList
 
-[bootstrap3nt:well] >  jnt:content, bootstrap3mix:component, jmix:list
+[bootstrap3nt:well] >  jnt:content, bootstrap3mix:component, jmix:list, jmix:siteContent
  - size (string, choicelist[resourceBundle]) = 'default' indexed=no autocreated < 'default', 'well-lg', 'well-sm'
  + * (jmix:droppableContent) = jmix:droppableContent
 
@@ -128,7 +128,7 @@
  extends = bootstrap3nt:modal
 - size (string, choicelist[resourceBundle]) = 'default' indexed=no autocreated < 'default', 'lg', 'sm'
 
-[bootstrap3nt:modal] >  jnt:content, bootstrap3mix:contextualState, bootstrap3mix:component, mix:title, jmix:list
+[bootstrap3nt:modal] >  jnt:content, bootstrap3mix:contextualState, bootstrap3mix:component, mix:title, jmix:list, jmix:siteContent
  - openText (string) = 'Launch demo modal' i18n mandatory
  - closeText (string) = 'Close' i18n mandatory
  + * (jmix:droppableContent) = jmix:droppableContent
@@ -137,19 +137,19 @@
  - image (weakreference, picker[type='image']) i18n mandatory < jnt:file
  - caption (string,textarea) i18n
 
-[bootstrap3nt:carousel] > jnt:content, bootstrap3mix:component, jmix:manuallyOrderable, jmix:list orderable
+[bootstrap3nt:carousel] > jnt:content, bootstrap3mix:component, jmix:manuallyOrderable, jmix:list, jmix:siteContent orderable
  - useIndicators (boolean) indexed=no
  - useLeftAndRightControls (boolean) indexed=no
  + * (bootstrap3nt:carouselItem)
 
-[bootstrap3nt:collapse] > jnt:content, bootstrap3mix:component, jmix:list orderable
+[bootstrap3nt:collapse] > jnt:content, bootstrap3mix:component, jmix:list, jmix:siteContent orderable
 + * (bootstrap3nt:panel)
 
-[bootstrap3nt:container] > jnt:content, bootstrap3mix:component, jmix:list
+[bootstrap3nt:container] > jnt:content, bootstrap3mix:component, jmix:list, jmix:siteContent
  - fluid (boolean) indexed=no
  + * (jmix:droppableContent) = jmix:droppableContent
 
-[bootstrap3nt:row] > jnt:content, bootstrap3mix:component, jmix:list orderable
+[bootstrap3nt:row] > jnt:content, bootstrap3mix:component, jmix:list, jmix:siteContent orderable
  + * (bootstrap3nt:column) = bootstrap3nt:column
 
 [bootstrap3nt:column] > jnt:area, bootstrap3mix:component, jmix:list
