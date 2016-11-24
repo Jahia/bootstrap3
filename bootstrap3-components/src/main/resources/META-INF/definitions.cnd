@@ -15,7 +15,11 @@
 [bootstrap3mix:glyphicon] mixin
  - glyphicon (string, choicelist[glyphiconInitializer,resourceBundle])
 
+<<<<<<< HEAD
 [bootstrap3nt:columns] > jnt:content, bootstrap3mix:component, jmix:studioLayout, jmix:list, jmix:siteContent
+=======
+[bootstrap3nt:columns] > jnt:content, bootstrap3mix:component, jmix:list
+>>>>>>> 3_4_x
  - columnsType (string, choicelist[columnInitializer,resourceBundle]) = 'predefinedColumns' autocreated < 'nogrid', 'predefinedColumns', 'customColumns'
  + * (jmix:droppableContent) = jmix:droppableContent
 
