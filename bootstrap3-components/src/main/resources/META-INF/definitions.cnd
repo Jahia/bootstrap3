@@ -1,4 +1,4 @@
-<bootstrap3mix = 'http://www.jahia.org/bootstrap3/mix/1.0'>
+a<bootstrap3mix = 'http://www.jahia.org/bootstrap3/mix/1.0'>
 <bootstrap3nt = 'http://www.jahia.org/bootstrap3/nt/1.0'>
 <jmix = 'http://www.jahia.org/jahia/mix/1.0'>
 <jnt = 'http://www.jahia.org/jahia/nt/1.0'>
@@ -15,11 +15,7 @@
 [bootstrap3mix:glyphicon] mixin
  - glyphicon (string, choicelist[glyphiconInitializer,resourceBundle])
 
-<<<<<<< HEAD
-[bootstrap3nt:columns] > jnt:content, bootstrap3mix:component, jmix:studioLayout, jmix:list, jmix:siteContent
-=======
-[bootstrap3nt:columns] > jnt:content, bootstrap3mix:component, jmix:list
->>>>>>> 3_4_x
+[bootstrap3nt:columns] > jnt:content, bootstrap3mix:component, jmix:list, jmix:siteContent
  - columnsType (string, choicelist[columnInitializer,resourceBundle]) = 'predefinedColumns' autocreated < 'nogrid', 'predefinedColumns', 'customColumns'
  + * (jmix:droppableContent) = jmix:droppableContent
 
