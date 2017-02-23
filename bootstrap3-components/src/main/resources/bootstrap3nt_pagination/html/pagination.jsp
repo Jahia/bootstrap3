@@ -99,7 +99,7 @@
                     </c:if>
                     <nav ${cssNavPager}>
                         <ul class="pagination ${cssClassPager}">
-                            <c:url value="${searchUrl}" var="previousUrl">
+                            <c:url value="${searchUrl}" var="previousUrl" context="/">
                                 <c:param name="${beginid}" value="${(moduleMap.currentPage-2) * moduleMap.pageSize }"/>
                                 <c:param name="${endid}" value="${ (moduleMap.currentPage-1)*moduleMap.pageSize-1}"/>
                                 <c:param name="${pagesizeid}" value="${moduleMap.pageSize}"/>
@@ -149,7 +149,7 @@
                             </c:choose>
                             <c:forEach begin="${paginationBegin}" end="${paginationEnd}" var="i">
                                 <c:if test="${i != moduleMap.currentPage}">
-                                    <c:url value="${searchUrl}" var="paginationPageUrl">
+                                    <c:url value="${searchUrl}" var="paginationPageUrl" context="/">
                                         <c:param name="${beginid}" value="${ (i-1) * moduleMap.pageSize }"/>
                                         <c:param name="${endid}" value="${ i*moduleMap.pageSize-1}"/>
                                         <c:param name="${pagesizeid}" value="${moduleMap.pageSize}"/>
@@ -182,7 +182,7 @@
                             </c:forEach>
 
 
-                            <c:url value="${searchUrl}" var="nextUrl">
+                            <c:url value="${searchUrl}" var="nextUrl" context="/">
                                 <c:param name="${beginid}" value="${ moduleMap.currentPage * moduleMap.pageSize }"/>
                                 <c:param name="${endid}" value="${ (moduleMap.currentPage+1)*moduleMap.pageSize-1}"/>
                                 <c:param name="${pagesizeid}" value="${moduleMap.pageSize}"/>
