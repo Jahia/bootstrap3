@@ -28,7 +28,7 @@
         GNU General Public License for more details.
 
         You should have received a copy of the GNU General Public License
-        along with this program. If not, see <http://www.gnu.org/licenses/>.
+        along with this program. If not, see <http://www.gnu.org/licenses />.
 
 
         2/ JSEL - Commercial and Supported Versions of the program
@@ -54,7 +54,7 @@
     <artifactId>bootstrap3-modules</artifactId>
     <name>Bootstrap3 Modules</name>
     <packaging>pom</packaging>
-    <version>3.5.1-SNAPSHOT</version>
+    <version>3.5.1</version>
     <properties>
         <jahia.package.version>1.0</jahia.package.version>
     </properties>
@@ -62,7 +62,7 @@
         <connection>scm:git:git@github.com:Jahia/bootstrap3.git</connection>
         <developerConnection>scm:git:git@github.com:Jahia/bootstrap3.git</developerConnection>
         <url>https://github.com/Jahia/bootstrap3.git</url>
-      <tag>HEAD</tag>
+      <tag>3_5_1</tag>
   </scm>
     <repositories>
         <repository>
