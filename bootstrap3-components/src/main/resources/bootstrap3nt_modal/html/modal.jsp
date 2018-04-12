@@ -26,13 +26,14 @@
 <c:set var="hideOpenButton" value="${currentNode.properties['hideOpenButton'].boolean}"/>
 
 <!-- Button trigger modal -->
-<button type="button"
-        class="btn btn-${state} btn-lg"
-        data-toggle="modal"
-        data-target="#modal_${currentNode.identifier}"
-        style="<c:if test="${!renderContext.editMode and hideOpenButton}">visibility:hidden;</c:if>">
-    ${currentNode.properties.openText.string}
-</button>
+<c:if test="${renderContext.editMode or !hideOpenButton}">
+    <button type="button"
+            class="btn btn-${state} btn-lg"
+            data-toggle="modal"
+            data-target="#modal_${currentNode.identifier}">
+            ${currentNode.properties.openText.string}
+    </button>
+</c:if>
 
 <!-- Modal -->
 <div class="modal fade" id="modal_${currentNode.identifier}" tabindex="-1" role="dialog" aria-labelledby="modalLabel_${currentNode.identifier}" aria-hidden="${renderContext.editMode ? 'false' : 'true'}">
