@@ -131,6 +131,8 @@
 [bootstrap3nt:modal] >  jnt:content, bootstrap3mix:contextualState, bootstrap3mix:component, mix:title, jmix:list, jmix:siteContent
  - openText (string) = 'Launch demo modal' i18n mandatory
  - closeText (string) = 'Close' i18n mandatory
+ - openOnPageView (boolean) indexed=no
+ - hideOpenButton (boolean) indexed=no
  + * (jmix:droppableContent) = jmix:droppableContent
 
 [bootstrap3nt:carouselItem] > jnt:content, mix:title
