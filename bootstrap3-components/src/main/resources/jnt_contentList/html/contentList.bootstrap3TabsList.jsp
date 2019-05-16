@@ -17,10 +17,20 @@
 <%--@elvariable id="currentResource" type="org.jahia.services.render.Resource"--%>
 <%--@elvariable id="url" type="org.jahia.services.render.URLGenerator"--%>
 
+
+<c:choose>
+    <c:when test="${currentResource.moduleParams['useSystenNameAsAnchor'] eq 'true'}">
+        <c:set var="anchorName" value="${currentNode.name}"/>
+    </c:when>
+    <c:otherwise>
+        <c:set var="anchorName" value="tab${currentResource.moduleParams['anchorName']}_${currentNode.identifier}"/>
+    </c:otherwise>
+</c:choose>
+
 <c:choose>
     <c:when test="${currentResource.moduleParams['isTabContent'] eq 'false'}">
         <li ${currentResource.moduleParams.first ? 'class="active"' : ''} role="presentation">
-            <a href="#tab${currentResource.moduleParams.count}_${currentResource.moduleParams.id}" data-toggle="${currentResource.moduleParams.type}" role="tab">
+            <a href="#${anchorName}" data-toggle="${currentResource.moduleParams.type}" role="tab">
                     ${fn:escapeXml(currentNode.displayableName)}
             </a>
         </li>
@@ -36,7 +46,7 @@
                 <c:set var="tabPaneCSS" value="${tabPaneCSS} in"/>
             </c:if>
         </c:if>
-        <div id="tab${currentResource.moduleParams.count}_${currentResource.moduleParams.id}" class="${tabPaneCSS}" role="tabpanel">
+        <div id="${anchorName}" class="${tabPaneCSS}" role="tabpanel">
             <template:module path="${currentNode.path}" view="default"/>
         </div>
     </c:when>

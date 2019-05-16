@@ -18,6 +18,11 @@
 
 <c:set var="navigation" value="${currentNode.properties['navigation'].string}"/>
 <c:set var="fadeEffect" value="${currentNode.properties['fadeEffect'].boolean}"/>
+<c:set var="useSystenNameAsAnchor" value="${currentNode.properties['useSystenNameAsAnchor'].boolean}"/>
+
+
+<c:set var="anchorName" value="${currentNode.properties.useSystenNameAsAnchor.boolean ? currentNode.name : currentNode.identifier}"/>
+
 
 <c:choose>
     <c:when test="${not empty currentNode.properties['tabsPosition']}">
@@ -68,12 +73,14 @@
 
     <div class="tab-content">
         <c:forEach items="${subLists}" var="subList" varStatus="status">
+
+
             <template:module node="${subList}" view="bootstrap3TabsList" editable="false">
                 <template:param name="first" value="${status.first}"/>
                 <template:param name="count" value="${status.count}"/>
-                <template:param name="id" value="${currentNode.identifier}"/>
                 <template:param name="fade" value="${fadeEffect}"/>
                 <template:param name="isTabContent" value="true"/>
+                <template:param name="useSystenNameAsAnchor" value="${useSystenNameAsAnchor}"/>
             </template:module>
         </c:forEach>
     </div>
