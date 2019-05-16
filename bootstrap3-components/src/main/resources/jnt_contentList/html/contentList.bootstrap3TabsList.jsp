@@ -23,7 +23,7 @@
         <c:set var="anchorName" value="${currentNode.name}"/>
     </c:when>
     <c:otherwise>
-        <c:set var="anchorName" value="tab${currentResource.moduleParams['anchorName']}_${currentNode.identifier}"/>
+        <c:set var="anchorName" value="tab${currentResource.moduleParams['count']}_${currentResource.moduleParams['id']}"/>
     </c:otherwise>
 </c:choose>
 

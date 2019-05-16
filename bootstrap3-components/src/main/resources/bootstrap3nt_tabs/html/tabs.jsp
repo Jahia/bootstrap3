@@ -78,6 +78,7 @@
             <template:module node="${subList}" view="bootstrap3TabsList" editable="false">
                 <template:param name="first" value="${status.first}"/>
                 <template:param name="count" value="${status.count}"/>
+                <template:param name="id" value="${currentNode.identifier}"/>
                 <template:param name="fade" value="${fadeEffect}"/>
                 <template:param name="isTabContent" value="true"/>
                 <template:param name="useSystenNameAsAnchor" value="${useSystenNameAsAnchor}"/>
