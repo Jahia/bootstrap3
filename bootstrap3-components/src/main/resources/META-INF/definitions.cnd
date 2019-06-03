@@ -105,7 +105,7 @@
  - tabsPosition (string, choicelist[resourceBundle]) = 'top' indexed=no < 'top', 'below'
  - navJustified (boolean) indexed=no
  - navStacked (boolean) indexed=no
- - useSystenNameAsAnchor (boolean) = 'false' autocreated indexed=no
+ - useSystemNameAsAnchor (boolean) = 'false' autocreated indexed=no
  + * (jnt:contentList) = jnt:contentList
 
 [bootstrap3nt:well] >  jnt:content, bootstrap3mix:component, jmix:list, jmix:siteContent
