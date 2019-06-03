@@ -44,7 +44,8 @@ Switch the user choice divs can be added using a combination  of Sections, Conta
 ## Side menu
 Add a basic sidebar menu in the page that shows the list of pages in a specific level of the current page.
 ## Tab
-Adds a list of tabs with a choice of its style `Tab` or `Pill` and the tabs position `top` or `below`
+Adds a list of tabs with a choice of its style `Tab` or `Pill` and the tabs position `top` or `below`.
+Activate the `use system name as an anchor` option to generated anchors links using the system name of the tab objects instead of auto-generated anchors links. Note that using multiple tab menus on the same page that use the same system name is not supported.
 ## Version
 Adds a div describing the bootstrap version used
 ## Well
