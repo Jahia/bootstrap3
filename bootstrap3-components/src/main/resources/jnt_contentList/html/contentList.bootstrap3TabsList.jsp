@@ -19,7 +19,7 @@
 
 
 <c:choose>
-    <c:when test="${currentResource.moduleParams['useSystenNameAsAnchor'] eq 'true'}">
+    <c:when test="${currentResource.moduleParams['useSystemNameAsAnchor'] eq 'true'}">
         <c:set var="anchorName" value="${currentNode.name}"/>
     </c:when>
     <c:otherwise>
