@@ -105,6 +105,7 @@
  - tabsPosition (string, choicelist[resourceBundle]) = 'top' indexed=no < 'top', 'below'
  - navJustified (boolean) indexed=no
  - navStacked (boolean) indexed=no
+ - useSystemNameAsAnchor (boolean) = 'false' autocreated indexed=no
  + * (jnt:contentList) = jnt:contentList
 
 [bootstrap3nt:well] >  jnt:content, bootstrap3mix:component, jmix:list, jmix:siteContent
@@ -153,12 +154,12 @@
 
 [bootstrap3nt:row] > jnt:content, bootstrap3mix:component, jmix:list, jmix:siteContent orderable
  + * (bootstrap3nt:column) = bootstrap3nt:column
- 
+
 [bootstrap3nt:column] > jnt:content, bootstrap3mix:component, jmix:list
  - span (long) = '1' indexed=no
  - offset (long) = '0' indexed=no
 + * (jmix:droppableContent) = jmix:droppableContent
- 
+
 [bootstrap3mix:htmlID] mixin
  extends = bootstrap3nt:container, bootstrap3nt:row, bootstrap3nt:column
  - htmlID (string) indexed=no

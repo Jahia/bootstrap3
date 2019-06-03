@@ -16,6 +16,7 @@
             <template:param name="id" value="${currentNode.identifier}"/>
             <template:param name="type" value="${navigation}"/>
             <template:param name="isTabContent" value="false"/>
+            <template:param name="useSystemNameAsAnchor" value="${useSystemNameAsAnchor}"/>
         </template:module>
     </c:forEach>
 </ul>
