@@ -18,10 +18,10 @@
 
 <c:set var="navigation" value="${currentNode.properties['navigation'].string}"/>
 <c:set var="fadeEffect" value="${currentNode.properties['fadeEffect'].boolean}"/>
-<c:set var="useSystenNameAsAnchor" value="${currentNode.properties['useSystenNameAsAnchor'].boolean}"/>
+<c:set var="useSystemNameAsAnchor" value="${currentNode.properties['useSystemNameAsAnchor'].boolean}"/>
 
 
-<c:set var="anchorName" value="${currentNode.properties.useSystenNameAsAnchor.boolean ? currentNode.name : currentNode.identifier}"/>
+<c:set var="anchorName" value="${currentNode.properties.useSystemNameAsAnchor.boolean ? currentNode.name : currentNode.identifier}"/>
 
 
 <c:choose>
@@ -81,7 +81,7 @@
                 <template:param name="id" value="${currentNode.identifier}"/>
                 <template:param name="fade" value="${fadeEffect}"/>
                 <template:param name="isTabContent" value="true"/>
-                <template:param name="useSystenNameAsAnchor" value="${useSystenNameAsAnchor}"/>
+                <template:param name="useSystemNameAsAnchor" value="${useSystemNameAsAnchor}"/>
             </template:module>
         </c:forEach>
     </div>
