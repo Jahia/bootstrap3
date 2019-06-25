@@ -49,7 +49,7 @@
     <parent>
         <groupId>org.jahia.modules</groupId>
         <artifactId>bootstrap3-modules</artifactId>
-        <version>3.5.3</version>
+        <version>3.5.4-SNAPSHOT</version>
     </parent>
     <artifactId>bootstrap3-components</artifactId>
     <packaging>bundle</packaging>
@@ -67,7 +67,7 @@
         <connection>scm:git:git@github.com:Jahia/bootstrap3.git</connection>
         <developerConnection>scm:git:git@github.com:Jahia/bootstrap3.git</developerConnection>
         <url>https://github.com/Jahia/bootstrap3.git</url>
-      <tag>3_5_3</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <build>
