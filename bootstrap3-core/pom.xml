@@ -59,7 +59,7 @@
         <connection>scm:git:git@github.com:Jahia/bootstrap3.git</connection>
         <developerConnection>scm:git:git@github.com:Jahia/bootstrap3.git</developerConnection>
         <url>scm:git:git@github.com:Jahia/bootstrap3.git</url>
-      <tag>HEAD</tag>
+      <tag>3_5_x</tag>
   </scm>
     <build>
         <plugins>
