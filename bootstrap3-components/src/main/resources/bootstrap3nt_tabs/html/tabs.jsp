@@ -50,10 +50,17 @@
             $(document).ready(function () {
                 $('#bootstrapTabsList_${currentNode.identifier} ul li a').click(function() {
                     document.cookie = "bootstrapTabularList-activatedTab_${currentNode.identifier}=" + this.attributes['href'].value;
+                    location.href = location.href.split('#')[0] + this.attributes['href'].value;
                 });
+
                 var c = document.cookie;
                 var pos = c.indexOf("${cookieName}=");
-                if (pos > -1) {
+                var url = window.location.href;
+
+                if (url.indexOf("#") > 0) {
+                    var activeTab = url.substring(url.indexOf("#"));
+                    $('#bootstrapTabsList_${currentNode.identifier}').find('a[href="'+ activeTab + '"]').tab('show');
+                } else if (pos > -1) {
                     var id = c.substr(pos);
                     id = id.substr(id.indexOf('=')+1);
                     if (id.indexOf(';') > -1) {
