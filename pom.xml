@@ -57,7 +57,7 @@
     <version>4.0.0-SNAPSHOT</version>
     <properties>
         <jahia.package.version>1.0</jahia.package.version>
-        <Jahia-Signature>MCwCFFuYQJ8/rGH8aOS2Tw2tKOBmTGbhAhR07fDq3V5rsXzIfFS9FVHPzSyhng==</Jahia-Signature>
+        <jahia-module-signature>MCwCFFuYQJ8/rGH8aOS2Tw2tKOBmTGbhAhR07fDq3V5rsXzIfFS9FVHPzSyhng==</jahia-module-signature>
     </properties>
     <scm>
         <connection>scm:git:git@github.com:Jahia/bootstrap3.git</connection>
