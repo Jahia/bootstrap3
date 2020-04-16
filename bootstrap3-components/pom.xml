@@ -49,7 +49,7 @@
     <parent>
         <groupId>org.jahia.modules</groupId>
         <artifactId>bootstrap3-modules</artifactId>
-        <version>3.7.0-SNAPSHOT</version>
+        <version>4.0.0-SNAPSHOT</version>
     </parent>
     <artifactId>bootstrap3-components</artifactId>
     <packaging>bundle</packaging>
@@ -95,6 +95,8 @@
                     <instructions>
                         <Jahia-Root-Folder>${artifactId}</Jahia-Root-Folder>
                         <Jahia-Depends>bootstrap3-core</Jahia-Depends>
+                        <Jahia-Signature>MCwCFGKePGwJhzZ6GCiugdJWjY4efc+CAhRBaKt5OBAH7841/6AtcW+dvX6vqA==</Jahia-Signature>
+                        <require-capability>osgi.extender;filter:="(osgi.extender=org.jahia.bundles.blueprint.extender.config)"</require-capability>
                     </instructions>
                 </configuration>
             </plugin>

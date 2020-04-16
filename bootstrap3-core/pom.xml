@@ -49,7 +49,7 @@
     <parent>
         <artifactId>bootstrap3-modules</artifactId>
         <groupId>org.jahia.modules</groupId>
-        <version>3.7.0-SNAPSHOT</version>
+        <version>4.0.0-SNAPSHOT</version>
     </parent>
     <artifactId>bootstrap3-core</artifactId>
     <name>Bootstrap 3 Core</name>
@@ -88,6 +88,7 @@
                         <Jahia-Root-Folder>${project.artifactId}</Jahia-Root-Folder>
                         <Jahia-Depends>jquery</Jahia-Depends>
                         <Jahia-Static-Resources>/css,/icons,/images,/img,/javascript,/fonts</Jahia-Static-Resources>
+                        <Jahia-Signature>MCwCFFjSBDsfhREpdFCaYtMvuZ+O0ywnAhQm3AMKtHhRugG6kkHq8WbPzCO7sA==</Jahia-Signature>
                     </instructions>
                 </configuration>
             </plugin>
