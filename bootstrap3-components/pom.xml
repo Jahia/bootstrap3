@@ -70,6 +70,11 @@
       <tag>HEAD</tag>
   </scm>
 
+    <properties>
+        <require-capability>osgi.extender;filter:="(osgi.extender=org.jahia.bundles.blueprint.extender.config)"</require-capability>
+        <jahia-module-signature>MCwCFGKePGwJhzZ6GCiugdJWjY4efc+CAhRBaKt5OBAH7841/6AtcW+dvX6vqA==</jahia-module-signature>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
@@ -95,8 +100,6 @@
                     <instructions>
                         <Jahia-Root-Folder>${artifactId}</Jahia-Root-Folder>
                         <Jahia-Depends>bootstrap3-core</Jahia-Depends>
-                        <Jahia-Signature>MCwCFGKePGwJhzZ6GCiugdJWjY4efc+CAhRBaKt5OBAH7841/6AtcW+dvX6vqA==</Jahia-Signature>
-                        <require-capability>osgi.extender;filter:="(osgi.extender=org.jahia.bundles.blueprint.extender.config)"</require-capability>
                     </instructions>
                 </configuration>
             </plugin>

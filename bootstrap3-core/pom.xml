@@ -61,6 +61,10 @@
         <url>scm:git:git@github.com:Jahia/bootstrap3.git</url>
       <tag>HEAD</tag>
   </scm>
+
+    <properties>
+        <jahia-module-signature>MCwCFFjSBDsfhREpdFCaYtMvuZ+O0ywnAhQm3AMKtHhRugG6kkHq8WbPzCO7sA==</jahia-module-signature>
+    </properties>
     <build>
         <plugins>
             <plugin>
@@ -88,7 +92,6 @@
                         <Jahia-Root-Folder>${project.artifactId}</Jahia-Root-Folder>
                         <Jahia-Depends>jquery</Jahia-Depends>
                         <Jahia-Static-Resources>/css,/icons,/images,/img,/javascript,/fonts</Jahia-Static-Resources>
-                        <Jahia-Signature>MCwCFFjSBDsfhREpdFCaYtMvuZ+O0ywnAhQm3AMKtHhRugG6kkHq8WbPzCO7sA==</Jahia-Signature>
                     </instructions>
                 </configuration>
             </plugin>
