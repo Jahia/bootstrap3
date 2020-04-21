@@ -148,7 +148,7 @@
                             </a>
                         </li>
                     </c:if>
-                    <c:if test="${! renderContext.previewMode && jcr:hasPermission(renderContext.mainResource.node, 'editModeAccess')}">
+                    <c:if test="${! renderContext.previewMode && jcr:hasPermission(renderContext.mainResource.node, 'jContentAccess')}">
                         <li>
                             <a href="<c:url value='${previewUrl}'/>">
                                 <i class="glyphicon glyphicon-eye-open"></i>
@@ -156,7 +156,7 @@
                             </a>
                         </li>
                     </c:if>
-                    <c:if test="${! renderContext.editMode && jcr:hasPermission(renderContext.mainResource.node, 'editModeAccess')}">
+                    <c:if test="${! renderContext.editMode && jcr:hasPermission(renderContext.mainResource.node, 'jContentAccess')}">
                         <li>
                             <a href="<c:url value='${editUrl}'/>">
                                 <i class="glyphicon glyphicon-edit"></i>
@@ -164,7 +164,7 @@
                             </a>
                         </li>
                     </c:if>
-                    <c:if test="${! renderContext.editMode && !jcr:hasPermission(renderContext.mainResource.node, 'editModeAccess') && jcr:hasPermission(renderContext.mainResource.node, 'contributeModeAccess')}">
+                    <c:if test="${! renderContext.editMode && !jcr:hasPermission(renderContext.mainResource.node, 'jContentAccess') && jcr:hasPermission(renderContext.mainResource.node, 'contributeModeAccess')}">
                         <li>
                             <a href="<c:url value='${contributeUrl}'/>">
                                 <i class="glyphicon glyphicon-edit"></i>
