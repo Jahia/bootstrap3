@@ -54,7 +54,7 @@
     <artifactId>bootstrap3-modules</artifactId>
     <name>Bootstrap3 Modules</name>
     <packaging>pom</packaging>
-    <version>4.0.0</version>
+    <version>4.1.0-SNAPSHOT</version>
     <properties>
         <jahia.package.version>1.0</jahia.package.version>
     </properties>
@@ -62,7 +62,7 @@
         <connection>scm:git:git@github.com:Jahia/bootstrap3.git</connection>
         <developerConnection>scm:git:git@github.com:Jahia/bootstrap3.git</developerConnection>
         <url>https://github.com/Jahia/bootstrap3.git</url>
-      <tag>4_0_0</tag>
+      <tag>HEAD</tag>
   </scm>
     <repositories>
         <repository>
