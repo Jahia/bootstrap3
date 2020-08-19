@@ -48,7 +48,7 @@
     <template:addResources type="inlinejavascript">
         <script type="text/javascript">
             $(document).ready(function () {
-                $('#bootstrapTabsList_${currentNode.identifier} ul li a').click(function() {
+                $('#bootstrapTabsList_${currentNode.identifier}> ul>li>a').click(function() {
                     document.cookie = "bootstrapTabularList-activatedTab_${currentNode.identifier}=" + this.attributes['href'].value;
                     location.href = location.href.split('#')[0] + this.attributes['href'].value;
                 });
