@@ -63,7 +63,7 @@
   </scm>
 
     <properties>
-        <jahia-module-signature>MCwCFFjSBDsfhREpdFCaYtMvuZ+O0ywnAhQm3AMKtHhRugG6kkHq8WbPzCO7sA==</jahia-module-signature>
+        <jahia-module-signature>MCwCFGDiPnB/o1uHeWYvtnXqEtKBGa1cAhQozWewKoP6xFpnSKJbNIXQ9CSyCg==</jahia-module-signature>
     </properties>
     <build>
         <plugins>
