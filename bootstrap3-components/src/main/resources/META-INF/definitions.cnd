@@ -6,50 +6,50 @@
 
 [bootstrap3mix:predefinedColumns] > jmix:templateMixin mixin
  extends = bootstrap3nt:columns
- - grid (string, choicelist[resourceBundle,moduleImage='png']) = '4_8' autocreated < '2_10', '3_9', '4_8', '4_4_4', '3_6_3', '3_3_3_3', '6_6', '8_4', '9_3', '10_2', '12'
+ - grid (string, choicelist[resourceBundle,moduleImage='png']) = '4_8' autocreated indexed=no < '2_10', '3_9', '4_8', '4_4_4', '3_6_3', '3_3_3_3', '6_6', '8_4', '9_3', '10_2', '12'
 
 [bootstrap3mix:customColumns] > jmix:templateMixin mixin
  extends = bootstrap3nt:columns
- - gridClasses (string) = 'col-md-8, col-md-4'
+ - gridClasses (string) = 'col-md-8, col-md-4' indexed=no
 
 [bootstrap3mix:glyphicon] mixin
- - glyphicon (string, choicelist[glyphiconInitializer,resourceBundle])
+ - glyphicon (string, choicelist[glyphiconInitializer,resourceBundle]) 
 
 [bootstrap3nt:columns] > jnt:content, bootstrap3mix:component, jmix:list, jmix:siteContent
- - columnsType (string, choicelist[columnInitializer,resourceBundle]) = 'predefinedColumns' autocreated < 'nogrid', 'predefinedColumns', 'customColumns'
+ - columnsType (string, choicelist[columnInitializer,resourceBundle]) = 'predefinedColumns' autocreated indexed=no < 'nogrid', 'predefinedColumns', 'customColumns'
  + * (jmix:droppableContent) = jmix:droppableContent
 
 [bootstrap3mix:createSection] mixin
  extends = bootstrap3nt:columns
  itemtype = content
- - sectionElement (string, choicelist[resourceBundle]) = 'div' autocreated < 'section', 'article', 'header', 'footer', 'aside', 'nav', 'div'
- - sectionId (string) < '[a-zA-Z0-9-_]+'
- - sectionCssClass (string)
- - sectionRole (string)
+ - sectionElement (string, choicelist[resourceBundle]) = 'div' autocreated indexed=no < 'section', 'article', 'header', 'footer', 'aside', 'nav', 'div'
+ - sectionId (string) indexed=no < '[a-zA-Z0-9-_]+' 
+ - sectionCssClass (string) indexed=no
+ - sectionRole (string) indexed=no
 
 [bootstrap3mix:createContainer] mixin
  extends = bootstrap3nt:columns
  itemtype = content
- - containerId (string) < '[a-zA-Z0-9-_]+'
- - containerCssClass (string)
- - gridLayout (string, choicelist[resourceBundle]) = 'fixed-width' autocreated < 'fixed-width', 'full-width'
+ - containerId (string) indexed=no < '[a-zA-Z0-9-_]+' 
+ - containerCssClass (string) indexed=no
+ - gridLayout (string, choicelist[resourceBundle]) = 'fixed-width' autocreated indexed=no < 'fixed-width', 'full-width'
 
 [bootstrap3mix:createRow] mixin
  extends = bootstrap3nt:columns
  itemtype = content
- - rowId (string) < '[a-zA-Z0-9-_]+'
- - rowCssClass (string)
+ - rowId (string) indexed=no < '[a-zA-Z0-9-_]+'
+ - rowCssClass (string) indexed=no
 
 [bootstrap3mix:createAbsoluteAreas] mixin
  extends = bootstrap3nt:columns
  itemtype = content
-- level (string, choicelist[resourceBundle]) = '0' autocreated < '0', '1', '2', '3', '4', '5'
+- level (string, choicelist[resourceBundle]) = '0' autocreated indexed=no < '0', '1', '2', '3', '4', '5'
 
 [bootstrap3mix:text] mixin
  - text (string, richtext[ckeditor.customConfig='$context/modules/bootstrap3-components/javascript/ckconfig.js']) i18n
 
 [bootstrap3mix:picto] mixin
- - picto (string, choicelist[resourceBundle]) = 'ok' autocreated < 'adjust', 'align-center', 'align-justify', 'align-left', 'align-right', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up', 'asterisk', 'backward', 'ban-circle', 'barcode', 'bell', 'bold', 'bookmark', 'book', 'briefcase', 'bullhorn', 'calendar', 'camera', 'certificate', 'check', 'chevron-down', 'chevron-left', 'chevron-right', 'chevron-up', 'circle-arrow-down', 'circle-arrow-left', 'circle-arrow-right', 'circle-arrow-up', 'cloud-download', 'cloud', 'cloud-upload', 'cog', 'collapse-down', 'collapse-up', 'comment', 'compressed', 'copyright-mark', 'credit-card', 'cutlery', 'dashboard', 'download-alt', 'download', 'earphone', 'edit', 'eject', 'envelope', 'euro', 'exclamation-sign', 'expand', 'export', 'eye-close', 'eye-open', 'facetime-video', 'fast-backward', 'fast-forward', 'file', 'film', 'filter', 'fire', 'flag', 'flash', 'floppy-disk', 'floppy-open', 'floppy-remove', 'floppy-saved', 'floppy-save', 'folder-close', 'folder-open', 'font', 'forward', 'fullscreen', 'gbp', 'gift', 'glass', 'globe', 'hand-down', 'hand-left', 'hand-right', 'hand-up', 'hdd', 'hd-video', 'header', 'headphones', 'heart-empty', 'heart', 'home', 'import', 'inbox', 'indent-left', 'indent-right', 'info-sign', 'italic', 'leaf', 'link', 'list-alt', 'list', 'lock', 'log-in', 'log-out', 'magnet', 'map-marker', 'minus-sign', 'minus', 'move', 'music', 'new-window', 'off', 'ok-circle', 'ok-sign', 'ok', 'open', 'paperclip', 'pause', 'pencil', 'phone-alt', 'phone', 'picture', 'plane', 'play-circle', 'play', 'plus-sign', 'plus', 'print', 'pushpin', 'qrcode', 'question-sign', 'random', 'record', 'refresh', 'registration-mark', 'remove-circle', 'remove-sign', 'remove', 'repeat', 'resize-full', 'resize-horizontal', 'resize-small', 'resize-vertical', 'retweet', 'road', 'saved', 'save', 'screenshot', 'sd-video', 'search', 'send', 'share-alt', 'share', 'shopping-cart', 'signal', 'sort-by-alphabet-alt', 'sort-by-alphabet', 'sort-by-attributes-alt', 'sort-by-attributes', 'sort-by-order-alt', 'sort-by-order', 'sort', 'sound-5-1', 'sound-6-1', 'sound-7-1', 'sound-dolby', 'sound-stereo', 'star-empty', 'star', 'stats', 'step-backward', 'step-forward', 'stop', 'subtitles', 'tag', 'tags', 'tasks', 'text-height', 'text-width', 'th-large', 'th-list', 'th', 'thumbs-down', 'thumbs-up', 'time', 'tint', 'tower', 'transfer', 'trash', 'tree-conifer', 'tree-deciduous', 'unchecked', 'upload', 'usd', 'user', 'volume-down', 'volume-off', 'volume-up', 'warning-sign', 'wrench', 'zoom-in', 'zoom-out'
+ - picto (string, choicelist[resourceBundle]) = 'ok' autocreated indexed=no < 'adjust', 'align-center', 'align-justify', 'align-left', 'align-right', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up', 'asterisk', 'backward', 'ban-circle', 'barcode', 'bell', 'bold', 'bookmark', 'book', 'briefcase', 'bullhorn', 'calendar', 'camera', 'certificate', 'check', 'chevron-down', 'chevron-left', 'chevron-right', 'chevron-up', 'circle-arrow-down', 'circle-arrow-left', 'circle-arrow-right', 'circle-arrow-up', 'cloud-download', 'cloud', 'cloud-upload', 'cog', 'collapse-down', 'collapse-up', 'comment', 'compressed', 'copyright-mark', 'credit-card', 'cutlery', 'dashboard', 'download-alt', 'download', 'earphone', 'edit', 'eject', 'envelope', 'euro', 'exclamation-sign', 'expand', 'export', 'eye-close', 'eye-open', 'facetime-video', 'fast-backward', 'fast-forward', 'file', 'film', 'filter', 'fire', 'flag', 'flash', 'floppy-disk', 'floppy-open', 'floppy-remove', 'floppy-saved', 'floppy-save', 'folder-close', 'folder-open', 'font', 'forward', 'fullscreen', 'gbp', 'gift', 'glass', 'globe', 'hand-down', 'hand-left', 'hand-right', 'hand-up', 'hdd', 'hd-video', 'header', 'headphones', 'heart-empty', 'heart', 'home', 'import', 'inbox', 'indent-left', 'indent-right', 'info-sign', 'italic', 'leaf', 'link', 'list-alt', 'list', 'lock', 'log-in', 'log-out', 'magnet', 'map-marker', 'minus-sign', 'minus', 'move', 'music', 'new-window', 'off', 'ok-circle', 'ok-sign', 'ok', 'open', 'paperclip', 'pause', 'pencil', 'phone-alt', 'phone', 'picture', 'plane', 'play-circle', 'play', 'plus-sign', 'plus', 'print', 'pushpin', 'qrcode', 'question-sign', 'random', 'record', 'refresh', 'registration-mark', 'remove-circle', 'remove-sign', 'remove', 'repeat', 'resize-full', 'resize-horizontal', 'resize-small', 'resize-vertical', 'retweet', 'road', 'saved', 'save', 'screenshot', 'sd-video', 'search', 'send', 'share-alt', 'share', 'shopping-cart', 'signal', 'sort-by-alphabet-alt', 'sort-by-alphabet', 'sort-by-attributes-alt', 'sort-by-attributes', 'sort-by-order-alt', 'sort-by-order', 'sort', 'sound-5-1', 'sound-6-1', 'sound-7-1', 'sound-dolby', 'sound-stereo', 'star-empty', 'star', 'stats', 'step-backward', 'step-forward', 'stop', 'subtitles', 'tag', 'tags', 'tasks', 'text-height', 'text-width', 'th-large', 'th-list', 'th', 'thumbs-down', 'thumbs-up', 'time', 'tint', 'tower', 'transfer', 'trash', 'tree-conifer', 'tree-deciduous', 'unchecked', 'upload', 'usd', 'user', 'volume-down', 'volume-off', 'volume-up', 'warning-sign', 'wrench', 'zoom-in', 'zoom-out'
 
 [bootstrap3mix:siteLogo] mixin
  extends = jnt:virtualsite
@@ -59,16 +59,16 @@
 [bootstrap3mix:navbarAdvanced] mixin
  extends = bootstrap3nt:navbar
  itemtype = content
- - navbarClass (string) = 'navbar navbar-default navbar-static-top'
- - ulClass (string) = 'nav navbar-nav navbar-right'
+ - navbarClass (string) = 'navbar navbar-default navbar-static-top' indexed=no
+ - ulClass (string) = 'nav navbar-nav navbar-right' indexed=no
 
 [bootstrap3mix:hx] mixin
-- hx (string, choicelist[resourceBundle,moduleImage='png']) = 'h2' autocreated < 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+- hx (string, choicelist[resourceBundle,moduleImage='png']) = 'h2' autocreated indexed=no < 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
 
 [bootstrap3nt:navbar] > jnt:content, bootstrap3mix:component, jmix:studioOnly, jmix:navMenuComponent
 
 [bootstrap3nt:sidemenu] > jnt:content, jnt:content, bootstrap3mix:component, jmix:navMenuComponent
- - level (string, choicelist[resourceBundle]) = '0' autocreated < '0', '1', '2', '3', '4', '5','-1'
+ - level (string, choicelist[resourceBundle]) = '0' autocreated indexed=no < '0', '1', '2', '3', '4', '5','-1'
  - displaySubpages (boolean) = 'false' hidden autocreated indexed=no
 
 [bootstrap3nt:textBox] > jnt:content, bootstrap3mix:component, mix:title, bootstrap3mix:hx, bootstrap3mix:text
@@ -79,8 +79,8 @@
 [bootstrap3mix:advancedPageTitle] mixin
  extends = bootstrap3nt:pageTitle
  itemtype = content
- - cssClass (string) = 'pull-right'
- - hx (string, choicelist[resourceBundle,moduleImage='png']) = 'h1' autocreated < 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+ - cssClass (string) = 'pull-right' indexed=no
+ - hx (string, choicelist[resourceBundle,moduleImage='png']) = 'h1' autocreated indexed=no < 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
 
 
 [bootstrap3nt:pageTitle] > jnt:content, bootstrap3mix:component
@@ -88,7 +88,7 @@
 [bootstrap3mix:advancedBreadcrumb] mixin
  extends = bootstrap3nt:breadcrumb
  itemtype = content
- - cssClass (string) = 'pull-left'
+ - cssClass (string) = 'pull-left' indexed=no
 
 [bootstrap3nt:breadcrumb] > jnt:content, bootstrap3mix:component, jmix:studioOnly
 
@@ -115,15 +115,15 @@
 [bootstrap3mix:advancedPagination] mixin
  extends = bootstrap3nt:pagination
  itemtype = content
- - pageSize (long) = '10' autocreated
- - nbOfPages (long) = '10' autocreated
- - nbOfPagesInEdit (long) = '100' autocreated
- - align (string,choicelist[resourceBundle]) = 'center-block' indexed=no autocreated  < 'center-block', 'pull-left', 'pull-right'
- - layout (string,choicelist[resourceBundle]) = 'default' indexed=no autocreated   < 'pagination-lg', 'default', 'pagination-sm'
+ - pageSize (long) = '10' autocreated indexed=no
+ - nbOfPages (long) = '10' autocreated indexed=no
+ - nbOfPagesInEdit (long) = '100' autocreated indexed=no
+ - align (string,choicelist[resourceBundle]) = 'center-block' indexed=no autocreated  indexed=no < 'center-block', 'pull-left', 'pull-right'
+ - layout (string,choicelist[resourceBundle]) = 'default' indexed=no autocreated   indexed=no < 'pagination-lg', 'default', 'pagination-sm'
 
 [bootstrap3nt:pagination] > jnt:content, bootstrap3mix:component, jmix:bindedComponent
- - displayPager (boolean) = 'true' autocreated
- - simplePager (boolean)
+ - displayPager (boolean) = 'true' autocreated indexed=no
+ - simplePager (boolean) indexed=no
 
 [bootstrap3mix:advancedModal] mixin
  extends = bootstrap3nt:modal
@@ -194,11 +194,11 @@
  + * (bootstrap3mix:navBarItem) = bootstrap3mix:navBarItem
 
 [bootstrap3nt:navBarItemMenu] > jnt:content, bootstrap3mix:navBarItem orderable
- - j:baselineNode (string,choicelist) nofulltext < 'home', 'currentPage'
- - j:maxDepth (long) = 2
- - j:startLevel (long) = 0
- - j:styleName (string) nofulltext
- - j:layoutID (string) nofulltext
+ - j:baselineNode (string,choicelist) nofulltext indexed=no < 'home', 'currentPage'
+ - j:maxDepth (long) = 2 indexed=no
+ - j:startLevel (long) = 0 indexed=no
+ - j:styleName (string) nofulltext indexed=no
+ - j:layoutID (string) nofulltext indexed=no
 
 [bootstrap3nt:navBarItemSimpleSearchForm] > jnt:content, bootstrap3mix:navBarItem, jmix:studioOnly
  - result (weakreference) mandatory < 'jnt:page'
