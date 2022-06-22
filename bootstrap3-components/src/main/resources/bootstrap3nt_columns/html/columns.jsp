@@ -47,7 +47,7 @@
     <div<c:if test="${not empty rowId}"> id="${rowId}"</c:if> class="row<c:if test="${not empty rowCssClass}"><c:out value=" "/>${rowCssClass}</c:if>">
 </c:if>
 
-<template:module node="${currentNode}" view="hidden.${columnsType}" editable="false"/>
+<template:include view="hidden.${columnsType}"/>
 
 <c:if test="${createRow}">
     </div>
