@@ -13,7 +13,6 @@ on:
 jobs:
   build:
     name: Build Module
-    needs: update-signature
     runs-on: ubuntu-latest
     container:
       image: jahia/cimg-mvn-cache:ga_cimg_openjdk_8.0.312-node
