@@ -1,7 +1,7 @@
 # This workflow is triggered every time a change is pushed to any branches 
 # Github actions command reference: https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
 name: On Code Change (PR)
-
+ 
 # The workflow could also be triggered on PRs
 on:
   pull_request:
@@ -12,7 +12,7 @@ jobs:
     name: Static Analysis (linting, vulns)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: Jahia/jahia-modules-action/static-analysis@v2
         with:
           node_version: 12
@@ -27,7 +27,7 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: jahia/jahia-modules-action/build@v2
         with:
           nexus_username: ${{ secrets.NEXUS_USERNAME }}
@@ -39,7 +39,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: jahia/jahia-modules-action/sonar-analysis@v2
         with:
           primary_release_branch: master
