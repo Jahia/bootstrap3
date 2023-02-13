@@ -3,7 +3,7 @@
 <jmix = 'http://www.jahia.org/jahia/mix/1.0'>
 <jnt = 'http://www.jahia.org/jahia/nt/1.0'>
 
-[bootstrap3mix:component] > jmix:droppableContent, jmix:editorialContent mixin
+[bootstrap3mix:component] > jmix:droppableContent, jmix:accessControllableContent, jmix:editorialContent mixin
 
 [bootstrap3nt:version] > jnt:content, bootstrap3mix:component
 
